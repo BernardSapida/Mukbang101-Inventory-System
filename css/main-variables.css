@@ -13,5 +13,9 @@
   --red4: hsl(0, 100%, 80%);
   --blue: hsl(202, 100%, 56%);
   --blue-darken: hsl(202, 100%, 46%);
+  --table-odd: hsl(229, 100%, 98%);
+  --table-hover: hsl(219, 100%, 94%);
+  --green: hsl(121, 56%, 57%);
+  --purple: hsl(231, 82%, 72%);
 }
 /*# sourceMappingURL=main-variables.css.map */
