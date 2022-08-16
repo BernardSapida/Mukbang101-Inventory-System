@@ -1,0 +1,4 @@
+.vscode
+.env
+vendor/
+composer.lock
