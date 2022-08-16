@@ -1,0 +1,17 @@
+{
+    "name": "sapida/c-inventory",
+    "autoload": {
+        "psr-4": {
+            "Sapida\\CInventory\\": "src/",
+            "InventoryIncludes\\": "includes",
+            "InventoryViews\\": "views"
+        }
+    },
+    "authors": [
+        {
+            "name": "BernardSapida",
+            "email": "bernardsapida1706@gmail.com"
+        }
+    ],
+    "require": {}
+}

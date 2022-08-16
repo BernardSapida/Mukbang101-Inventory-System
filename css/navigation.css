@@ -1,0 +1,106 @@
+@import url(main-variables.scss);
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: var(--primary-light);
+  font-family: 'Inter', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  line-height: 1.8;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body .section_navigation {
+  padding: 30px 0;
+  max-width: 250px;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--dark-blue);
+}
+
+body .section_navigation .nav_main-navigation > img {
+  margin: auto;
+  margin-bottom: 20px;
+  display: block;
+  max-width: 220px;
+  width: 100%;
+}
+
+body .section_navigation .nav_main-navigation .container_navigation > p {
+  padding: 0 30px;
+  color: var(--secondary-dark);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+body .section_navigation .nav_main-navigation .container_navigation > ul {
+  list-style-type: none;
+}
+
+body .section_navigation .nav_main-navigation .container_navigation > ul li {
+  padding: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 50px;
+}
+
+body .section_navigation .nav_main-navigation .container_navigation > ul li.active {
+  background-color: var(--active-tab);
+}
+
+body .section_navigation .nav_main-navigation .container_navigation > ul li i {
+  display: inline-block;
+  width: 25px;
+}
+
+body .section_navigation .nav_main-navigation .container_navigation > ul li a {
+  text-decoration: none;
+  color: var(--secondary-light);
+}
+
+body .section_main {
+  width: 100%;
+}
+
+body .section_main header {
+  padding: 15px 30px;
+  background-color: var(--dark);
+}
+
+body .section_main header .container-profile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  color: var(--light);
+}
+
+body .section_main header .container-profile img {
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+}
+
+body .section_main header .container-profile .container-label > p {
+  line-height: 1;
+}
+/*# sourceMappingURL=navigation.css.map */

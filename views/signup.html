@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Kathline Araya Talavera, Arigadas Kimmy, Sheanne Samali">
+    <meta name="description" content="">
+    <link rel="stylesheet" href="../css/signup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+    <!-- <link rel="icon" type="image/any-icon" href="images/burgerhub.ico"> -->
+    <title>Inventory System</title>
+  </head>
+  <body>
+    <section class="section_signup">
+        <div class="container_signup">
+            <div class="container_title">
+                <h1>Sign Up to <span>Mukbang101</span></h1>
+                <p>Create your supplier account</p>
+            </div>
+            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+                <div class="container_name">
+                    <label for="firstname">
+                        <p>Firstname</p>
+                        <input type="text" id="firstname" name="firstname" placeholder="Firstname" autocomplete="given-name">
+                    </label>
+                    <label for="lastname">
+                        <p>Lastname</p>
+                        <input type="text" id="lastname" name="lastname" placeholder="Lastname" autocomplete="family-name">
+                    </label>
+                </div>
+                <label for="email">
+                    <p>Email Address</p>
+                    <input type="text" id="email" name="email" placeholder="Email Address" autocomplete="email">
+                </label>
+                <label for="store_address">
+                    <p>Store Address</p>
+                    <input type="text" id="store_address" name="store_address" placeholder="Store Address" autocomplete="street-address">
+                </label>
+                <label for="store_name">
+                    <p>Store Name</p>
+                    <input type="text" id="store_name" name="store_name" placeholder="Store Name" autocomplete="name">
+                </label>
+                <label for="contact_number">
+                    <p>Contact No.</p>
+                    <input type="text" id="contact_number" name="contact_number" placeholder="Contact Number" autocomplete="tel-national">
+                </label>
+                <div class="container_password">
+                    <label for="new_password">
+                        <p>Password</p>
+                        <div class="new_password">
+                            <input type="password" id="new_password" name="new_password" placeholder="Password" autocomplete="new-password">
+                            <i class="fa-solid fa-eye-slash icon_hide-password" id="eye-password"></i>
+                        </div>
+                    </label>
+                    <label for="confirm_password">
+                        <p>Confirm Password</p>
+                        <div class="confirm_password">
+                            <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" autocomplete="new-password">
+                            <i class="fa-solid fa-eye-slash icon_hide-password" id="eye-confirm-password"></i>
+                        </div>
+                    </label>
+                </div>  
+                <div class="container_button">
+                    <button type="button" id="back" aria-label="btn-previous">Back</button> 
+                    <button type="submit" aria-label="btn-signup">Sign Up</button>
+                </div>              
+            </form>
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="../js/signup.js"></script>
+  </body>
+</html>

@@ -1,0 +1,170 @@
+@import url(main-variables.scss);
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: var(--primary-light);
+  font-family: 'Inter', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  line-height: 1.8;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--dark-blue);
+}
+
+body .section_signin {
+  height: 100vh;
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .section_signin .container_signin {
+  margin: auto;
+  max-width: 400px;
+  width: 98%;
+}
+
+body .section_signin .container_signin img {
+  display: block;
+  margin: 0 auto 10px auto;
+  max-width: 280px;
+  width: 100%;
+}
+
+body .section_signin .container_signin h1 {
+  width: 100%;
+  margin-bottom: 10px;
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--light);
+  text-align: center;
+}
+
+body .section_signin .container_signin h1 span {
+  font-size: inherit;
+  font-weight: inherit;
+  color: var(--yellow);
+}
+
+body .section_signin .container_signin .container_validation {
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 5px 15px;
+  background-color: var(--red4);
+  border-radius: 5px;
+  border: 3px solid var(--red1);
+}
+
+body .section_signin .container_signin .container_validation > p {
+  color: var(--dark);
+  font-weight: 500;
+  font-size: 14px;
+}
+
+body .section_signin .container_signin form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+body .section_signin .container_signin form label p {
+  font-size: 12px;
+  color: var(--light);
+  font-weight: 200;
+}
+
+body .section_signin .container_signin form label input[type="text"], body .section_signin .container_signin form label input[type="password"] {
+  max-width: 420px;
+  width: 100%;
+  padding: 5px 15px;
+  border-radius: 5px;
+  border: none;
+  color: var(--dark);
+  font-weight: 400;
+  font-size: 14px;
+}
+
+body .section_signin .container_signin form label input[type=password]::-ms-reveal, body .section_signin .container_signin form label input[type=password]::-ms-clear {
+  display: none;
+}
+
+body .section_signin .container_signin form label .signin_password {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body .section_signin .container_signin form label .signin_password #eye {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  font-size: 13px;
+  color: var(--gray);
+  cursor: pointer;
+  -webkit-transition: all 350ms ease;
+  transition: all 350ms ease;
+}
+
+body .section_signin .container_signin form label .signin_password #eye:hover {
+  color: var(--dark);
+}
+
+body .section_signin .container_signin form button {
+  margin: 10px 0 0 0;
+  width: 100%;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  font-size: 14px;
+  background-color: var(--blue);
+  color: var(--light);
+  cursor: pointer;
+  -webkit-transition: all 350ms ease;
+  transition: all 350ms ease;
+}
+
+body .section_signin .container_signin form button:hover {
+  background-color: var(--blue-darken);
+}
+
+body .section_signin .container_signin form .container_account {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+body .section_signin .container_signin form .container_account_create p, body .section_signin .container_signin form .container_account_forgot p {
+  color: var(--gray);
+  font-weight: 300;
+  font-size: 12px;
+}
+
+body .section_signin .container_signin form .container_account_create p a, body .section_signin .container_signin form .container_account_forgot p a {
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  -webkit-transition: all 350ms ease;
+  transition: all 350ms ease;
+}
+
+body .section_signin .container_signin form .container_account_create p a:hover, body .section_signin .container_signin form .container_account_forgot p a:hover {
+  color: var(--yellow);
+}
+/*# sourceMappingURL=signin.css.map */

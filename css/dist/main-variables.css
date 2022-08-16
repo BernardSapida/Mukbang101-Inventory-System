@@ -1,0 +1,16 @@
+:root {
+  --dark-blue: hsl(199, 19%, 16%);
+  --dark: hsl(0, 0%, 12%);
+  --gray: hsl(0, 0%, 58%);
+  --active-tab: hsl(197, 19%, 12%);
+  --secondary-dark: hsl(200, 12%, 40%);
+  --light: hsl(0, 0%, 100%);
+  --secondary-light: hsl(199, 18%, 76%);
+  --yellow: hsl(51, 100%, 50%);
+  --red1: hsl(0, 100%, 50%);
+  --red2: hsl(0, 100%, 60%);
+  --red3: hsl(0, 100%, 65%);
+  --red4: hsl(0, 100%, 80%);
+  --blue: hsl(202, 100%, 56%);
+  --blue-darken: hsl(202, 100%, 46%);
+}
