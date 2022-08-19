@@ -1,0 +1,322 @@
+@import url(main-variables.scss);
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: var(--primary-light);
+  font-family: 'Inter', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  line-height: 1.8;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+::-webkit-scrollbar {
+  height: 5px;
+  width: 5px;
+}
+
+::-webkit-scrollbar-x {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gray);
+  border-radius: 5px;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+}
+
+body .section_navigation {
+  max-width: 200px;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--dark-blue);
+}
+
+body .section_navigation .nav_main-navigation {
+  padding: 30px 0;
+}
+
+body .section_navigation .nav_main-navigation .container_banner {
+  margin: auto;
+}
+
+body .section_navigation .nav_main-navigation .container_banner img {
+  display: block;
+  margin: auto;
+  margin-bottom: 20px;
+  max-width: 160px;
+}
+
+body .section_navigation .nav_main-navigation .container_navigation > p {
+  padding: 0 20px;
+  color: var(--secondary-dark);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+body .section_navigation .nav_main-navigation .container_navigation > ul {
+  list-style-type: none;
+}
+
+body .section_navigation .nav_main-navigation .container_navigation > ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .section_navigation .nav_main-navigation .container_navigation > ul li i {
+  display: inline-block;
+  width: 25px;
+}
+
+body .section_navigation .nav_main-navigation .container_navigation > ul li a {
+  display: block;
+  padding: 15px 20px;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+  color: var(--secondary-light);
+  font-size: 14px;
+}
+
+body .section_navigation .nav_main-navigation .container_navigation > ul li a.active {
+  background-color: var(--active-tab);
+}
+
+body .section_main {
+  position: relative;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+body .section_main header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  padding: 15px 30px;
+  background-color: var(--dark);
+  z-index: 1;
+}
+
+body .section_main header .container-profile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  color: var(--light);
+}
+
+body .section_main header .container-profile img {
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+}
+
+body .section_main header .container-profile .container-label > p {
+  line-height: 1.4;
+}
+
+body .section_main header .container-profile .container-label > p:nth-child(2) {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+body .section_main header .container-profile .container-label > p > span {
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+  background-color: var(--green);
+  border-radius: 5px;
+}
+
+body .section_main main {
+  margin: auto;
+  max-width: 1400px;
+  width: 100%;
+  height: 90vh;
+  padding: 30px 50px;
+}
+
+body .section_main main .container_main {
+  padding-bottom: 50px;
+}
+
+body .section_main main .container_main > h1 {
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+body .section_main main .container_main .container_form {
+  padding: 40px;
+  width: 100%;
+  -webkit-box-shadow: 0px 0px 5px var(--gray);
+          box-shadow: 0px 0px 5px var(--gray);
+}
+
+body .section_main main .container_main .container_form form {
+  display: block;
+  margin: auto;
+  max-width: 500px;
+  width: 100%;
+}
+
+body .section_main main .container_main .container_form form .container_profile {
+  margin: auto;
+  position: relative;
+  height: 150px;
+  width: 150px;
+  border-radius: 75px;
+}
+
+body .section_main main .container_main .container_form form .container_profile input[type="file"] {
+  display: none;
+}
+
+body .section_main main .container_main .container_form form .container_profile img {
+  width: 100%;
+  border-radius: 75px;
+}
+
+body .section_main main .container_main .container_form form .container_profile .camera-icon {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 40px;
+  width: 40px;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--light);
+  background-color: var(--dark);
+  border-radius: 20px;
+  -webkit-transition: all 350ms ease;
+  transition: all 350ms ease;
+  cursor: pointer;
+}
+
+body .section_main main .container_main .container_form form .container_profile .camera-icon:hover {
+  background-color: var(--dark-blue);
+}
+
+body .section_main main .container_main .container_form form .container_profile .camera-icon i {
+  color: var(--light);
+}
+
+body .section_main main .container_main .container_form form .container_fullname {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 10px;
+}
+
+body .section_main main .container_main .container_form form .container_fullname label, body .section_main main .container_main .container_form form label {
+  display: block;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+body .section_main main .container_main .container_form form .container_fullname label > p, body .section_main main .container_main .container_form form label > p {
+  font-size: 14px;
+  color: var(--gray);
+  font-weight: 400;
+}
+
+body .section_main main .container_main .container_form form .container_fullname label input[type=password]::-ms-reveal, body .section_main main .container_main .container_form form .container_fullname label input[type=password]::-ms-clear, body .section_main main .container_main .container_form form label input[type=password]::-ms-reveal, body .section_main main .container_main .container_form form label input[type=password]::-ms-clear {
+  display: none;
+}
+
+body .section_main main .container_main .container_form form .container_fullname label input[type="text"], body .section_main main .container_main .container_form form .container_fullname label input[type="password"], body .section_main main .container_main .container_form form label input[type="text"], body .section_main main .container_main .container_form form label input[type="password"] {
+  width: 100%;
+  padding: 5px 15px;
+  border-radius: 5px;
+  border: none;
+  color: var(--dark);
+  font-weight: 400;
+  font-size: 14px;
+  border: 0.5px solid var(--border);
+  color: var(--gray);
+}
+
+body .section_main main .container_main .container_form form .container_fullname label .password, body .section_main main .container_main .container_form form label .password {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body .section_main main .container_main .container_form form .container_fullname label .password #eye-password, body .section_main main .container_main .container_form form .container_fullname label .password #eye-new_password, body .section_main main .container_main .container_form form .container_fullname label .password #eye-confirm_password, body .section_main main .container_main .container_form form label .password #eye-password, body .section_main main .container_main .container_form form label .password #eye-new_password, body .section_main main .container_main .container_form form label .password #eye-confirm_password {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  font-size: 13px;
+  color: var(--gray);
+  cursor: pointer;
+  -webkit-transition: all 350ms ease;
+  transition: all 350ms ease;
+}
+
+body .section_main main .container_main .container_form form .container_fullname label .password #eye-password:hover, body .section_main main .container_main .container_form form .container_fullname label .password #eye-new_password:hover, body .section_main main .container_main .container_form form .container_fullname label .password #eye-confirm_password:hover, body .section_main main .container_main .container_form form label .password #eye-password:hover, body .section_main main .container_main .container_form form label .password #eye-new_password:hover, body .section_main main .container_main .container_form form label .password #eye-confirm_password:hover {
+  color: var(--dark);
+}
+
+body .section_main main .container_main .container_form form .container_btn {
+  margin-top: 10px;
+}
+
+body .section_main main .container_main .container_form form .container_btn button {
+  padding: 5px 15px;
+  border: none;
+  border-radius: 3px;
+  width: 100%;
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--light);
+  -webkit-transition: all 350ms ease;
+  transition: all 350ms ease;
+  cursor: pointer;
+}
+
+body .section_main main .container_main .container_form form .container_btn button#btn-edit-information, body .section_main main .container_main .container_form form .container_btn button#btn-edit-password {
+  background-color: var(--dark);
+}
+
+body .section_main main .container_main .container_form form .container_btn button#btn-edit-information:hover, body .section_main main .container_main .container_form form .container_btn button#btn-edit-password:hover {
+  background-color: var(--dark-blue);
+}
+
+body .section_main main .container_main .container_form form .container_btn button#btn-save-information, body .section_main main .container_main .container_form form .container_btn button#btn-save-password {
+  display: none;
+  background-color: var(--blue-darken);
+}
+
+body .section_main main .container_main .container_form form .container_btn button#btn-save-information:hover, body .section_main main .container_main .container_form form .container_btn button#btn-save-password:hover {
+  background-color: var(--blue);
+}
+/*# sourceMappingURL=supplier-account.css.map */

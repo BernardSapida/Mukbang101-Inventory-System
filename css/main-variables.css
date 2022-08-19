@@ -1,6 +1,8 @@
 :root {
   --dark-blue: hsl(199, 19%, 16%);
   --dark: hsl(0, 0%, 12%);
+  --border: hsla(0, 0%, 12%, 0.238);
+  --dark-bg: hsla(0, 0%, 0%, 0.686);
   --gray: hsl(0, 0%, 58%);
   --active-tab: hsl(197, 19%, 12%);
   --secondary-dark: hsl(200, 12%, 40%);
@@ -11,11 +13,14 @@
   --red2: hsl(0, 100%, 60%);
   --red3: hsl(0, 100%, 65%);
   --red4: hsl(0, 100%, 80%);
+  --red5: hsl(0, 100%, 94%);
   --blue: hsl(202, 100%, 56%);
   --blue-darken: hsl(202, 100%, 46%);
   --table-odd: hsl(229, 100%, 98%);
   --table-hover: hsl(219, 100%, 94%);
+  --green-darken: hsl(121, 56%, 50%);
   --green: hsl(121, 56%, 57%);
   --purple: hsl(231, 82%, 72%);
+  --purple-lighten: hsl(231, 82%, 75%);
 }
 /*# sourceMappingURL=main-variables.css.map */

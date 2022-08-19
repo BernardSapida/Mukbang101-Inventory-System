@@ -1,0 +1,426 @@
+@import url(main-variables.scss);
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--primary-light);
+    font-family: 'Inter', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    line-height: 1.8;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+::-webkit-scrollbar {
+    height: 5px;
+    width: 5px;
+}
+
+::-webkit-scrollbar-x {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--light);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--gray);
+    border-radius: 5px;
+}
+
+body {
+    display: flex;
+    overflow: hidden;
+
+    & .section_navigation {
+        max-width: 200px;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--dark-blue);
+
+        & .nav_main-navigation {
+            padding: 30px 0;
+
+            & .container_banner {
+                margin: auto;
+
+                & img {
+                    display: block;
+                    margin: auto;
+                    margin-bottom: 20px;
+                    max-width: 160px;
+                }
+            }
+            
+
+            & .container_navigation {
+                & > p {
+                    padding: 0 20px;
+                    color: var(--secondary-dark);
+                    font-size: 12px;
+                    font-weight: 500;
+                }
+
+                & > ul {
+                    list-style-type: none;
+
+                    & li {
+                        display: flex;
+                        align-items: center;
+
+                        & i {
+                            display: inline-block;
+                            width: 25px;
+                        }
+                        
+                        & a {
+                            display: block;
+                            padding: 15px 20px;
+                            height: 100%;
+                            width: 100%;
+                            text-decoration: none;
+                            color: var(--secondary-light);
+                            font-size: 14px;
+
+                            &.active {
+                                background-color: var(--active-tab);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    & .section_main {
+        position: relative;
+        width: 100%;
+        overflow-y: scroll;
+
+        & header {
+            position: sticky;
+            top: 0;
+            padding: 15px 30px;
+            background-color: var(--dark);
+            z-index: 1;
+
+            & .container-profile {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                gap: 10px;
+                color: var(--light);
+
+                & img {
+                    display: block;
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 25px;
+                }
+
+                & .container-label {
+                    & > p {
+                        line-height: 1.4;
+
+                        &:nth-child(2) {
+                            font-size: 12px;
+                            font-weight: 400;
+                        }
+
+                        & > span {
+                            display: inline-block;
+                            height: 10px;
+                            width: 10px;
+                            background-color: var(--green);
+                            border-radius: 5px;
+                        }
+                    }
+                }
+            }
+        }
+
+        & main {
+            margin: auto;
+            max-width: 1400px;
+            width: 100%;
+            height: 90vh;
+            padding: 30px 50px;
+
+            & .container_main {
+                padding-bottom: 50px;
+
+                & .container_title {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: flex-end;
+                    margin-bottom: 15px;
+
+                    & > h1 {
+                        font-weight: 700;
+                    }
+
+                    & > button {
+                        padding: 5px 15px;
+                        background-color: var(--dark);
+                        color: var(--light);
+                        border: none;
+                        border-radius: 3px;
+                        cursor: pointer;
+                        transition: all 350ms ease;
+
+                        &:hover {
+                            background-color: var(--dark-blue);
+                        }
+                    }
+                }
+
+                & .container_form {
+                    padding: 40px;
+                    width: 100%;
+                    box-shadow: 0px 0px 5px var(--gray);
+
+                    & form {
+                        display: flex;
+                        justify-content: center;
+                        flex-wrap: wrap;
+                        gap: 40px;
+
+                        & .container_details {
+                            max-width: 550px;
+                            width: 100%;
+
+                            & .container_contact-details, & .container_supplier-details {
+                                margin-bottom: 30px;
+
+                                & h1 {
+                                    font-weight: 700;
+                                    color: var(--gray);
+                                    margin-bottom: 15px;
+                                }
+
+                                & label {
+                                    display: block;
+                                    margin-bottom: 10px;
+    
+                                    & p {
+                                        font-size: 14px;
+                                        font-weight: 400;
+                                        color: var(--gray);
+    
+                                        & span {
+                                            color: var(--red2);
+                                        }
+                                    }
+                                    
+                                    & input[type="text"] {
+                                        width: 100%;
+                                        padding: 5px 15px;
+                                        border-radius: 5px;
+                                        border: none;
+                                        color: var(--dark);
+                                        font-weight: 400;
+                                        font-size: 14px;
+                                        border: .5px solid var(--border);
+                                    }
+                                }
+                            }
+                        }
+
+                        & .container_payment {
+                            max-width: 550px;
+                            width: 100%;
+
+                            & > h1 {
+                                font-weight: 700;
+                                margin-bottom: 15px;
+                                color: var(--gray);
+                            }
+
+                            & > label {
+                                margin-bottom: 10px;
+                                display: block;
+
+                                & input[type="radio"] {
+                                    display : none;
+
+                                    &:checked ~ .payment_mode {
+                                        border: .5px solid var(--purple);
+
+                                        & .container_logo {
+                                            & i {
+                                                color: var(--purple);
+                                            }
+
+                                            & .radio {
+                                                background-color: var(--purple);
+
+                                                &::before {
+                                                    content: "";
+                                                    position: absolute;
+                                                    top: 0;
+                                                    top: 50%;
+                                                    left: 50%;
+                                                    transform: translate(-50%, -50%);
+                                                    height: 8px;
+                                                    width: 8px;
+                                                    background-color: var(--light);
+                                                    border-radius: 4px;
+                                                }
+                                            }
+                                        }
+
+                                        & .container_details {
+                                            & h1 {
+                                                color: var(--purple);
+                                            }
+
+                                            & > label {
+                                                display: block;
+                                                margin-top: 10px;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                & .payment_mode {
+                                    padding: 20px;
+                                    border-radius: 5px;
+                                    border: .5px solid var(--border);
+                                    display: flex;
+                                    align-items: flex-start;
+                                    gap: 20px;
+
+                                    & > p {
+                                        color: var(--gray);
+                                    }
+
+                                    & .container_logo {
+                                        display: flex;
+                                        align-items: center;
+                                        gap: 10px;
+
+                                        & .radio {
+                                            position: relative;
+                                            height: 16px;
+                                            width: 16px;
+                                            background-color: var(--border);
+                                            border-radius: 8px;
+                                        }                                        
+
+                                        & i {
+                                            font-size: 20px;
+                                            color: var(--gray);
+                                        }
+
+                                        & img {
+                                            width: 25px;
+                                        }
+                                    }
+
+                                    & .container_details {
+                                        color: var(--gray);
+
+                                        & p {
+                                            font-size: 14px;
+                                            font-weight: 400;
+                                        }
+
+                                        & label[for="gcash_reference_number"], & label[for="paymaya_reference_number"] {
+                                            display: none;
+
+                                            & input[type="text"] {
+                                                width: 100%;
+                                                padding: 5px 15px;
+                                                border-radius: 5px;
+                                                border: none;
+                                                color: var(--dark);
+                                                font-weight: 400;
+                                                font-size: 14px;
+                                                border: .5px solid var(--border);
+                                            }
+
+                                            & span {
+                                                color: var(--red2);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            & .container_summary {
+                                padding: 20px 30px;
+                                border-radius: 5px;
+                                border: .5px solid var(--border);
+                                color: var(--gray);
+
+                                & h1 {
+                                    font-weight: 700;
+                                    margin-bottom: 15px;
+                                    color: var(--gray);
+                                }
+
+                                & p {
+                                    font-size: 14px;
+                                    font-weight: 400;
+
+                                    & > span {
+                                        font-size: 10px;
+                                        font-weight: inherit;
+                                    }
+                                }
+
+                                & hr {
+                                    margin: 5px 0;
+                                    border: none;
+                                    height: .5px;
+                                    background-color: var(--border);
+                                }
+
+                                & .container_computation {
+                                    display: flex;
+                                    justify-content: space-between;
+
+                                    & .label {
+                                        font-weight: 500;
+                                    }
+
+                                    &:last-child {
+                                        color: var(--purple);
+                                        
+                                        & p {
+                                            font-weight: 700;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        & button {
+                            margin-top: 10px;
+                            padding: 5px 15px;
+                            border: none;
+                            border-radius: 3px;
+                            width: 100%;
+                            background-color: var(--purple);
+                            font-weight: 400;
+                            font-size: 14px;
+                            color: var(--light);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1530px) {
+    body {
+        & main {
+            & .container_main {
+                
+            }
+        }
+    }
+}

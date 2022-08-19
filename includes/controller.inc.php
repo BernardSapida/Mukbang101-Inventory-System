@@ -1,11 +1,17 @@
 <?php
-    require_once "../includes/database.php";
+    require_once "database.php";
 
-    $db = new Database();
+    // $db = new Database();
+    // $db -> connect(
+    //     "select", 
+    //     "accounts", 
+    //     "email",
+    //     "BernardSapida1706@gmail.com"
+    // );
 
     // $db -> connect(
     //     "insert", 
-    //     "account", 
+    //     "accounts", 
     //     array(
     //         "uid" => "1", 
     //         "image" => "2", 
@@ -114,7 +120,7 @@
 
     // $db -> connect(
     //     "update", 
-    //     "account", 
+    //     "accounts", 
     //     array(
     //         "uid" => "35", 
     //         "image" => "", 

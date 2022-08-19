@@ -1,9 +1,10 @@
 <?php
     class Database {
-        function connect($operation, $tableName, $data, $account = null) {
+        function connect($operation, $tableName, $data = null, $account = null) {
             $servername = "localhost";
             $username = "root";
             $password = "";
+            $result = false;
 
             try {
                 $conn = new PDO("mysql:host=$servername; dbname=inventory", $username, $password);
@@ -12,7 +13,7 @@
 
                 switch($operation) {
                     case "select":
-                        $this -> selectData($conn, $tableName);
+                        $result = $this -> selectData($conn, $tableName, $data, $account);
                         break;
                     case "insert":
                         $this -> insertData($conn, $tableName, $data);
@@ -24,62 +25,110 @@
                         $this -> deleteData($conn, $tableName, $data);
                         break;
                 }
-
+                
+                return $result;
                 echo "Connected successfully";
             } catch(PDOException $e) {
                 echo "Connection failed: " . $e->getMessage();
             }
         }
 
-        function selectData($conn, $tableName) {
-            $stmt = $conn->prepare("SELECT * FROM $tableName");
-            $stmt -> execute();
+        function selectData($conn, $tableName, $data, $account) {
+            $result = "";
+            
+            if(!empty($data) && !empty($account)) {
+                switch($data) {
+                    case "email":
+                        $stmt = $conn->prepare("SELECT * FROM `$tableName` WHERE email = '$account'");
+                        break;
+                    case "uid":
+                        $stmt = $conn->prepare("SELECT * FROM `$tableName` WHERE uid = '$account'");
+                        break;
+                }
+    
+                $stmt -> execute();
+                $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            } else {
+                switch($tableName) {
+                    case "supplier_customer":
+                        $stmt = $conn->prepare("SELECT * FROM `$tableName` ORDER BY CASE 
+                        WHEN `order status` = 'processing' THEN 1 
+                        WHEN `order status` = 'to ship' THEN 2 
+                        WHEN `order status` = 'to receive' THEN 3 
+                        WHEN `order status` = 'completed' THEN 4 
+                        WHEN `order status` = 'cancelled' THEN 5
+                        END");
+                        break;
+                    case "supplier_product":
+                        $stmt = $conn->prepare("SELECT * FROM `$tableName` ORDER BY `box quantity` ASC");
+                        break;
+                    default:
+                        $stmt = $conn->prepare("SELECT * FROM $tableName");
+                        break;
+                }
 
-            // while($data = $stmt->fetch( PDO::FETCH_ASSOC )){
-            //     echo $data['id'].'<br>';
-            //     echo $data['uid'].'<br>';
-            //     echo $data['image'].'<br>';
-            //     echo $data['firstname'].'<br>';
-            //     echo $data['lastname'].'<br>';
-            //     echo $data['email'].'<br>';
-            //     echo $data['address'].'<br>';
-            //     echo $data['supplier store name'].'<br>';
-            //     echo $data['contact no.'].'<br>';
-            //     echo $data['password'].'<br>';
-            //     echo $data['type'].'<br>';
+                $stmt -> execute();
+                $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            }
+            
+
+            // foreach($result as $array => $row){
+            //     echo "<tr>";
+            //         echo "<td>" . $row['date'] . "</td>";
+            //         echo "<td>" . $row['transaction no.'] . "</td>";
+            //         echo "<td>" . $row['customer name'] . "</td>";
+            //         echo "<td>" . $row['delivery address'] . "</td>";
+            //         echo "<td>" . $row['contact no.'] . "</td>";
+            //         echo "<td>" . $row['email address'] . "</td>";
+            //         echo "<td>" . $row['customer store name'] . "</td>";
+            //         echo "<td>" . $row['product code'] . "</td>";
+            //         echo "<td>" . $row['product name'] . "</td>";
+            //         echo "<td>" . $row['box quantity'] . "</td>";
+            //         echo "<td>" . $row['pcs per box'] . "</td>";
+            //         echo "<td>" . $row['price per box'] . "</td>";
+            //         echo "<td>" . $row['payment method'] . "</td>";
+            //         echo "<td>" . $row['reference no.'] . "</td>";
+            //         echo "<td>" . $row['vat 12%'] . "</td>";
+            //         echo "<td>" . $row['shipping fee'] . "</td>";
+            //         echo "<td>" . $row['discount'] . "</td>";
+            //         echo "<td>" . $row['total'] . "</td>";
+            //         echo "<td>" . $row['order status'] . "</td>";
+            //     echo "</tr>";
             // }
+
+            return $result;
         }
 
         function insertData($conn, $tableName, $data) {
             switch($tableName) {
-                case "account":
+                case "accounts":
                     {
                         $uid = $data['uid'];
                         $image = $data['image'];
                         $firstname = $data['firstname'];
                         $lastname = $data['lastname'];
-                        $address = $data['address'];
                         $email = $data['email'];
+                        $address = $data['address'];
                         $supplier = $data['supplier store name'];
                         $contact = $data['contact no.'];
                         $password = $data['password'];
                         $type = $data['type'];
 
-                        $stmt = $conn->prepare("INSERT INTO `$tableName` (`uid`, `image`, `firstname`, `lastname`, `email`, `address`, `supplier store name`, `contact no.`, `password`, `type`) VALUES (:uid, :image, :firstname, :lastname, :address, :email, :supplier, :contact, :password, :type)");
+                        $stmt = $conn->prepare("INSERT INTO `$tableName` (`uid`, `image`, `firstname`, `lastname`, `email`, `address`, `supplier store name`, `contact no.`, `password`, `type`) VALUES (:uid, :image, :firstname, :lastname, :email, :address, :supplier, :contact, :password, :type)");
                         $stmt -> bindParam(':uid', $uid);
                         $stmt -> bindParam(':image', $image);
                         $stmt -> bindParam(':firstname', $firstname);
                         $stmt -> bindParam(':lastname', $lastname);
                         $stmt -> bindParam(':email', $email);
                         $stmt -> bindParam(':address', $address);
-                        $stmt -> bindParam(':contact', $contact);
                         $stmt -> bindParam(':supplier', $supplier);
+                        $stmt -> bindParam(':contact', $contact);
                         $stmt -> bindParam(':password', $password);
                         $stmt -> bindParam(':type', $type);
                         $stmt->execute();
                     };
                     break;
-                case "admin orders":
+                case "admin_orders":
                     {
                         $transactionNo = $data['transactionNo'];
                         $name = $data['name'];
@@ -123,7 +172,7 @@
                         $stmt->execute();
                     };
                     break;
-                case "admin product":
+                case "admin_product":
                     {
                         $productCode = $data['productCode'];
                         $supplierName = $data['supplierName'];
@@ -143,7 +192,7 @@
                         $stmt->execute();
                     }
                     break;
-                case "admin transaction sales":
+                case "admin_transaction_sales":
                     {
                         $referenceNo = $data['referenceNo'];
                         $productName = $data['productName'];
@@ -165,7 +214,7 @@
                         $stmt->execute();
                     }
                     break;
-                case "supplier product":
+                case "supplier_product":
                     {
                         $productCode = $data['productCode'];
                         $productName = $data['productName'];
@@ -185,7 +234,7 @@
                         $stmt->execute();
                     };
                     break;
-                case "supplier customer":
+                case "supplier_customer":
                     {
                         $transactionNo = $data['transactionNo'];
                         $customerName = $data['customerName'];
@@ -234,7 +283,7 @@
 
         function updateData($conn, $tableName, $data, $account) {
                 switch($tableName) {
-                case "account":
+                case "accounts":
                     {
                         $uid = $data['uid'];
                         $image = $data['image'];
@@ -263,7 +312,7 @@
                         $stmt->execute();
                     };
                     break;
-                case "admin orders":
+                case "admin_orders":
                     {
                         $transactionNo = $data['transactionNo'];
                         $orderStatus = $data['orderStatus'];
@@ -272,7 +321,7 @@
                         $stmt->execute();
                     };
                     break;
-                case "admin product":
+                case "admin_product":
                     {
                         $productCode = $data['productCode'];
                         $price = $data['price'];
@@ -281,7 +330,7 @@
                         $stmt->execute();
                     };
                     break;
-                case "supplier customer":
+                case "supplier_customer":
                     {
                         $transactionNo = $data['transactionNo'];
                         $orderStatus = $data['orderStatus'];
@@ -290,7 +339,7 @@
                         $stmt->execute();
                     };
                     break;
-                case "supplier product":
+                case "supplier_product":
                     {
                         $id = $data['id'];
                         $productCode = $data['productCode'];

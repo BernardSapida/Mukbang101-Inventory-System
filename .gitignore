@@ -1,5 +1,6 @@
 *.log
 
 .vscode/
+vendor/
 composer.json
 composer.lock

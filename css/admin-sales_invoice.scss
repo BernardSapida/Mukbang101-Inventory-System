@@ -1,0 +1,319 @@
+@import url(main-variables.scss);
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--primary-light);
+    font-family: 'Inter', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    line-height: 1.8;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+::-webkit-scrollbar {
+    height: 5px;
+    width: 5px;
+}
+
+::-webkit-scrollbar-x {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--light);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--gray);
+    border-radius: 5px;
+}
+
+body {
+    display: flex;
+    overflow: hidden;
+
+    & .section_navigation {
+        max-width: 200px;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--dark-blue);
+
+        & .nav_main-navigation {
+            padding: 30px 0;
+
+            & .container_banner {
+                margin: auto;
+
+                & img {
+                    display: block;
+                    margin: auto;
+                    margin-bottom: 20px;
+                    max-width: 160px;
+                }
+            }
+            
+
+            & .container_navigation {
+                & > p {
+                    padding: 0 20px;
+                    color: var(--secondary-dark);
+                    font-size: 12px;
+                    font-weight: 500;
+                }
+
+                & > ul {
+                    list-style-type: none;
+
+                    & li {
+                        display: flex;
+                        align-items: center;
+
+                        & i {
+                            display: inline-block;
+                            width: 25px;
+                        }
+                        
+                        & a {
+                            display: block;
+                            padding: 15px 20px;
+                            height: 100%;
+                            width: 100%;
+                            text-decoration: none;
+                            color: var(--secondary-light);
+                            font-size: 14px;
+
+                            &.active {
+                                background-color: var(--active-tab);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    & .section_main {
+        position: relative;
+        width: 100%;
+        overflow-y: scroll;
+
+        & header {
+            position: sticky;
+            top: 0;
+            padding: 15px 30px;
+            background-color: var(--dark);
+            z-index: 1;
+
+            & .container-profile {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                gap: 10px;
+                color: var(--light);
+
+                & img {
+                    display: block;
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 25px;
+                }
+
+                & .container-label {
+                    & > p {
+                        line-height: 1.4;
+
+                        &:nth-child(2) {
+                            font-size: 12px;
+                            font-weight: 400;
+                        }
+
+                        & > span {
+                            display: inline-block;
+                            height: 10px;
+                            width: 10px;
+                            background-color: var(--green);
+                            border-radius: 5px;
+                        }
+                    }
+                }
+            }
+        }
+
+        & main {
+            margin: auto;
+            max-width: 1400px;
+            width: 100%;
+            height: 90vh;
+            padding: 30px 50px;
+
+            & .container_main {
+                padding-bottom: 50px;
+
+                & > h1 {
+                    font-weight: 700;
+                    margin-bottom: 15px;
+                }
+
+                & .container_form {
+                    padding: 40px;
+                    width: 100%;
+                    box-shadow: 0px 0px 5px var(--gray);
+
+                    & form {
+                        display: block;
+                        margin: auto;
+                        max-width: 500px;
+                        width: 100%;
+
+                        & .container_details {
+                            display: flex;
+                            justify-content: space-between;
+                            flex-wrap: wrap;
+                            gap: 40px;
+                            width: 100%;
+
+                            & .container_contact-details {
+                                margin-bottom: 30px;
+
+                                & h1 {
+                                    font-weight: 700;
+                                    color: var(--gray);
+                                    margin-bottom: 15px;
+                                }
+
+                                & p {
+                                    color: var(--gray);
+                                    font-weight: 400;
+                                }
+                            }
+
+                            & .container_banner {
+                                & img {
+                                    width: 200px;
+                                }
+                            }
+                        }
+
+                        & .container_items {
+                            overflow: scroll;
+
+                            & table {
+                                width: 100%;
+                                border-spacing: 5px 10px;
+                                
+                                & thead {
+                                    & tr {
+                                        & td {
+                                            white-space: nowrap;
+                                        }
+                                    }
+                                }
+
+                                & tbody {
+                                    & tr {
+                                        & td {
+                                            & input[type="text"] {
+                                                width: 100%;
+                                                padding: 5px 15px;
+                                                border-radius: 5px;
+                                                border: none;
+                                                color: var(--dark);
+                                                font-weight: 400;
+                                                font-size: 14px;
+                                                border: .5px solid var(--border);
+                                            }
+
+                                            & .btn-delete {
+                                                margin: 0;
+                                                display: block;
+                                                padding: 5px 15px;
+                                                background-color: var(--red2);
+                                                transition: all 350ms ease;
+                                                cursor: pointer;
+
+                                                & i {
+                                                    font-size: 12px;
+                                                }
+            
+                                                &:hover {
+                                                    background-color: var(--red3);
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        & .container_payment {
+                            margin-left: auto;
+                            width: 250px;
+
+                            & .container_amount {
+                                display: flex;
+                                justify-content: space-between;
+                                max-width: 250px;
+                            }
+
+                            & .container_button {
+                                margin-top: 20px;
+                                display: flex;
+                                gap: 10px;
+                            }
+                        }
+
+                        & button {
+                            margin-top: 10px;
+                            padding: 5px 15px;
+                            border: none;
+                            border-radius: 3px;
+                            max-width: 150px;
+                            width: 100%;
+                            font-weight: 400;
+                            font-size: 14px;
+                            color: var(--light);
+                            transition: all 350ms ease;
+                            cursor: pointer;
+
+                            &#btn-add {
+                                background-color: var(--green-darken);
+
+                                &:hover {
+                                    background-color: var(--green);
+                                }
+                            }
+
+                            &#btn-submit {
+                                background-color: var(--blue-darken);
+
+                                &:hover {
+                                    background-color: var(--blue);
+                                }
+                            }
+
+                            &#btn-print {
+                                background-color: var(--dark);
+
+                                &:hover {
+                                    background-color: var(--dark-blue);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1530px) {
+    body {
+        & main {
+            & .container_main {
+                
+            }
+        }
+    }
+}

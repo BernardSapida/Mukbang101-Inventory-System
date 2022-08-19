@@ -1,0 +1,391 @@
+@import url(main-variables.scss);
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: var(--primary-light);
+  font-family: 'Inter', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  line-height: 1.8;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+::-webkit-scrollbar {
+  height: 5px;
+  width: 5px;
+}
+
+::-webkit-scrollbar-x {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gray);
+  border-radius: 5px;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+}
+
+body .section_navigation {
+  max-width: 200px;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--dark-blue);
+}
+
+body .section_navigation .nav_main-navigation {
+  padding: 30px 0;
+}
+
+body .section_navigation .nav_main-navigation .container_banner {
+  margin: auto;
+}
+
+body .section_navigation .nav_main-navigation .container_banner img {
+  display: block;
+  margin: auto;
+  margin-bottom: 20px;
+  max-width: 160px;
+}
+
+body .section_navigation .nav_main-navigation .container_navigation > p {
+  padding: 0 20px;
+  color: var(--secondary-dark);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+body .section_navigation .nav_main-navigation .container_navigation > ul {
+  list-style-type: none;
+}
+
+body .section_navigation .nav_main-navigation .container_navigation > ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .section_navigation .nav_main-navigation .container_navigation > ul li i {
+  display: inline-block;
+  width: 25px;
+}
+
+body .section_navigation .nav_main-navigation .container_navigation > ul li a {
+  display: block;
+  padding: 15px 20px;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+  color: var(--secondary-light);
+  font-size: 14px;
+}
+
+body .section_navigation .nav_main-navigation .container_navigation > ul li a.active {
+  background-color: var(--active-tab);
+}
+
+body .section_main {
+  position: relative;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+body .section_main header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  padding: 15px 30px;
+  background-color: var(--dark);
+  z-index: 1;
+}
+
+body .section_main header .container-profile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  color: var(--light);
+}
+
+body .section_main header .container-profile img {
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+}
+
+body .section_main header .container-profile .container-label > p {
+  line-height: 1.4;
+}
+
+body .section_main header .container-profile .container-label > p:nth-child(2) {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+body .section_main header .container-profile .container-label > p > span {
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+  background-color: var(--green);
+  border-radius: 5px;
+}
+
+body .section_main main {
+  margin: auto;
+  max-width: 1400px;
+  width: 100%;
+  height: 90vh;
+  padding: 30px 50px;
+}
+
+body .section_main main .container_main .container_records {
+  margin-bottom: 50px;
+}
+
+body .section_main main .container_main .container_records > h1 {
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+body .section_main main .container_main .container_records .container_card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 20px;
+}
+
+body .section_main main .container_main .container_records .container_card .card {
+  padding: 20px 40px;
+  max-width: 400px;
+  min-width: 250px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-shadow: 0px 0px 5px var(--gray);
+          box-shadow: 0px 0px 5px var(--gray);
+  border-radius: 3px;
+}
+
+body .section_main main .container_main .container_records .container_card .card .container-icon {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  height: 50px;
+  width: 50px;
+}
+
+body .section_main main .container_main .container_records .container_card .card .container-icon i {
+  display: block;
+  font-size: 26px;
+  color: var(--light);
+}
+
+body .section_main main .container_main .container_records .container_card .card:nth-child(1) .container-icon {
+  background-color: var(--yellow);
+}
+
+body .section_main main .container_main .container_records .container_card .card:nth-child(2) .container-icon {
+  background-color: var(--purple);
+}
+
+body .section_main main .container_main .container_records .container_card .card:nth-child(3) .container-icon {
+  background-color: var(--green);
+}
+
+body .section_main main .container_main .container_records .container_card .card .value {
+  text-align: right;
+}
+
+body .section_main main .container_main .container_records .container_card .card .value .amount {
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+body .section_main main .container_main .container_records .container_card .card .value .label {
+  font-size: 12px;
+  color: var(--secondary-dark);
+}
+
+body .section_main main .container_main .container_tables {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 20px;
+}
+
+body .section_main main .container_main .container_tables .stock_table, body .section_main main .container_main .container_tables .transaction_table {
+  max-width: 600px;
+  width: 100%;
+}
+
+body .section_main main .container_main .container_tables .stock_table .container_table-title, body .section_main main .container_main .container_tables .transaction_table .container_table-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+body .section_main main .container_main .container_tables .stock_table .container_table-title > h1, body .section_main main .container_main .container_tables .transaction_table .container_table-title > h1 {
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+body .section_main main .container_main .container_tables .stock_table .container_table-title input[type="text"], body .section_main main .container_main .container_tables .transaction_table .container_table-title input[type="text"] {
+  height: 35px;
+  max-width: 200px;
+  width: 100%;
+  padding: 2px 15px;
+  border-radius: 5px;
+  border: none;
+  color: var(--dark);
+  font-weight: 400;
+  font-size: 14px;
+  -webkit-box-shadow: 0px 0px 5px var(--gray);
+          box-shadow: 0px 0px 5px var(--gray);
+}
+
+body .section_main main .container_main .container_tables .stock_table .table-responsive, body .section_main main .container_main .container_tables .transaction_table .table-responsive {
+  height: 330px;
+  max-width: 600px;
+  width: 100%;
+  -webkit-box-shadow: 0px 0px 5px var(--gray);
+          box-shadow: 0px 0px 5px var(--gray);
+  overflow: auto;
+}
+
+body .section_main main .container_main .container_tables .stock_table .table-responsive table, body .section_main main .container_main .container_tables .transaction_table .table-responsive table {
+  position: relative;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+body .section_main main .container_main .container_tables .stock_table .table-responsive table thead, body .section_main main .container_main .container_tables .transaction_table .table-responsive table thead {
+  background-color: var(--light);
+  position: -webkit-sticky;
+  position: sticky;
+  -webkit-box-shadow: 0px 0px 5px var(--gray);
+          box-shadow: 0px 0px 5px var(--gray);
+  top: 0;
+}
+
+body .section_main main .container_main .container_tables .stock_table .table-responsive table thead tr th, body .section_main main .container_main .container_tables .transaction_table .table-responsive table thead tr th {
+  padding: 10px 20px;
+  text-align: left;
+  white-space: nowrap;
+  font-size: 12px;
+  color: var(--secondary-dark);
+}
+
+body .section_main main .container_main .container_tables .stock_table .table-responsive table tbody tr td, body .section_main main .container_main .container_tables .transaction_table .table-responsive table tbody tr td {
+  padding: 10px 20px;
+  white-space: nowrap;
+  font-size: 12px;
+}
+
+body .section_main main .container_main .container_tables .stock_table .table-responsive table tbody tr:nth-child(odd), body .section_main main .container_main .container_tables .transaction_table .table-responsive table tbody tr:nth-child(odd) {
+  background-color: var(--table-odd);
+}
+
+body .section_main main .container_main .container_tables .stock_table .table-responsive table tbody tr:hover, body .section_main main .container_main .container_tables .transaction_table .table-responsive table tbody tr:hover {
+  background-color: var(--table-hover);
+}
+
+body .section_main main .container_main .container_tables .stock_table .table-responsive table tbody tr.empty-stock td, body .section_main main .container_main .container_tables .stock_table .table-responsive table tbody tr.empty-transaction td, body .section_main main .container_main .container_tables .transaction_table .table-responsive table tbody tr.empty-stock td, body .section_main main .container_main .container_tables .transaction_table .table-responsive table tbody tr.empty-transaction td {
+  text-align: center;
+}
+
+@media only screen and (max-width: 1530px) {
+  body main .container_main .container_records .container_card {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center !important;
+        -ms-flex-pack: center !important;
+            justify-content: center !important;
+    gap: 20px;
+  }
+  body main .container_main .container_records .container_card .card {
+    padding: 20px 40px;
+    max-width: 250px;
+    min-width: 150px;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-shadow: 0px 0px 5px var(--gray);
+            box-shadow: 0px 0px 5px var(--gray);
+    border-radius: 3px;
+  }
+  body main .container_main .container_tables {
+    display: block;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  body main .container_main .container_tables .stock_table, body main .container_main .container_tables .transaction_table {
+    margin: 10px 0;
+    max-width: 1500px !important;
+    width: 100%;
+  }
+  body main .container_main .container_tables .stock_table .table-responsive, body main .container_main .container_tables .transaction_table .table-responsive {
+    max-width: 1350px !important;
+    width: 100%;
+    -webkit-box-shadow: 0px 0px 5px var(--gray);
+            box-shadow: 0px 0px 5px var(--gray);
+    overflow: auto;
+  }
+  body main .container_main .container_tables .transaction_table {
+    margin-bottom: 100px;
+  }
+}
+/*# sourceMappingURL=supplier-dashboard.css.map */

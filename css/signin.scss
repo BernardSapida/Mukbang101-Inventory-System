@@ -52,14 +52,13 @@ body {
             & .container_validation {
                 margin-bottom: 10px;
                 width: 100%;
-                padding: 5px 15px;
-                background-color: var(--red4);
+                padding: 10px 15px;
+                background-color: var(--red3);
                 border-radius: 5px;
-                border: 3px solid var(--red1);
 
                 & > p {
-                    color: var(--dark);
-                    font-weight: 500;
+                    color: var(--light);
+                    font-weight: 400;
                     font-size: 14px;
                 }
             }

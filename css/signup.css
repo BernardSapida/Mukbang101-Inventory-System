@@ -28,12 +28,27 @@ body .section_signup {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  overflow: hidden;
 }
 
 body .section_signup .container_signup {
   margin: auto;
   max-width: 400px;
   width: 98%;
+}
+
+body .section_signup .container_signup .container_validation {
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 10px 15px;
+  background-color: var(--red3);
+  border-radius: 5px;
+}
+
+body .section_signup .container_signup .container_validation > p {
+  color: var(--light);
+  font-weight: 400;
+  font-size: 14px;
 }
 
 body .section_signup .container_signup .container_title {
@@ -131,6 +146,10 @@ body .section_signup .container_signup form button {
   cursor: pointer;
   -webkit-transition: all 350ms ease;
   transition: all 350ms ease;
+}
+
+body .section_signup .container_signup form button i {
+  line-height: 1;
 }
 
 body .section_signup .container_signup form button:nth-child(1) {
