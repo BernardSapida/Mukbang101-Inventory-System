@@ -4,7 +4,6 @@
     switch($current_page) {
         case "supplier-dashboard":
             include_once "supplier/supplier-dashboard.php";
-            echo file_get_contents('supplier/supplier-dashboard.php');
             break;
         case "supplier-product":
             include_once "supplier/supplier-product.php";

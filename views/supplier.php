@@ -39,7 +39,7 @@
     <section class="section_main">
         <header>
             <div class="container-profile">
-                <img src="../images/admin.jpg" alt="supplier profile">
+                <img src="../profile/<?php echo $_SESSION['image']; ?>" id="profile" alt="supplier profile">
                 <div class="container-label">
                     <p><?php echo $_SESSION["supplier store name"]; ?></p>
                     <p><span></span> Online</p>

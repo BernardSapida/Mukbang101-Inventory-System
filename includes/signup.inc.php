@@ -15,7 +15,7 @@
         $contactNumber = $_POST["contactNumber"];
         $password = $_POST["password"];
         $confirmPassword = $_POST["confirmPassword"];
-        $image = "supplier.jpg";
+        $image = "default.jpg";
         $type = "supplier";
 
         $errFirstname = "";
@@ -89,7 +89,7 @@
             array_push($errArray, $errContactNumber);
         } 
 
-        if(strlen($contactNumber) != 11) {
+        if(strlen($contactNumber) != 11 || stripos($contactNumber, "09")) {
             $errContactNumber = "Contact no. is invalid!";
             array_push($errArray, $errContactNumber);
         }

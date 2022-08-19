@@ -24,8 +24,8 @@
 
             if(is_array($result)) {
                 if(password_verify($password, $result["password"])) {
-                    $_SESSION["uid"] = explode(" ", $result['uid'])[0];
-                    $_SESSION["image"] = explode(" ", $result['image'])[1];
+                    $_SESSION["uid"] = $result['uid'];
+                    $_SESSION["image"] = $result['image'];
                     $_SESSION["firstname"] = $result['firstname'];
                     $_SESSION["lastname"] = $result['lastname'];
                     $_SESSION["email"] = $result['email'];

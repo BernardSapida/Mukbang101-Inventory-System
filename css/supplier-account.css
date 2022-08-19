@@ -175,6 +175,23 @@ body .section_main main .container_main .container_form {
           box-shadow: 0px 0px 5px var(--gray);
 }
 
+body .section_main main .container_main .container_form .container_validation {
+  display: none;
+  margin: auto;
+  margin-bottom: 10px;
+  max-width: 500px;
+  width: 100%;
+  padding: 10px 15px;
+  background-color: var(--red3);
+  border-radius: 5px;
+}
+
+body .section_main main .container_main .container_form .container_validation > p {
+  color: var(--light);
+  font-weight: 400;
+  font-size: 14px;
+}
+
 body .section_main main .container_main .container_form form {
   display: block;
   margin: auto;
@@ -182,8 +199,26 @@ body .section_main main .container_main .container_form form {
   width: 100%;
 }
 
+body .section_main main .container_main .container_form form .container_validation {
+  display: none;
+  margin: auto;
+  margin-bottom: 10px;
+  max-width: 500px;
+  width: 100%;
+  padding: 10px 15px;
+  background-color: var(--red3);
+  border-radius: 5px;
+}
+
+body .section_main main .container_main .container_form form .container_validation > p {
+  color: var(--light);
+  font-weight: 400;
+  font-size: 14px;
+}
+
 body .section_main main .container_main .container_form form .container_profile {
   margin: auto;
+  margin-bottom: 30px;
   position: relative;
   height: 150px;
   width: 150px;
@@ -287,10 +322,15 @@ body .section_main main .container_main .container_form form .container_fullname
 }
 
 body .section_main main .container_main .container_form form .container_btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   margin-top: 10px;
+  gap: 10px;
 }
 
 body .section_main main .container_main .container_form form .container_btn button {
+  margin-top: 10px;
   padding: 5px 15px;
   border: none;
   border-radius: 3px;
@@ -309,6 +349,15 @@ body .section_main main .container_main .container_form form .container_btn butt
 
 body .section_main main .container_main .container_form form .container_btn button#btn-edit-information:hover, body .section_main main .container_main .container_form form .container_btn button#btn-edit-password:hover {
   background-color: var(--dark-blue);
+}
+
+body .section_main main .container_main .container_form form .container_btn button#btn-cancel-information, body .section_main main .container_main .container_form form .container_btn button#btn-cancel-password {
+  display: none;
+  background-color: var(--red2);
+}
+
+body .section_main main .container_main .container_form form .container_btn button#btn-cancel-information:hover, body .section_main main .container_main .container_form form .container_btn button#btn-cancel-password:hover {
+  background-color: var(--red3);
 }
 
 body .section_main main .container_main .container_form form .container_btn button#btn-save-information, body .section_main main .container_main .container_form form .container_btn button#btn-save-password {

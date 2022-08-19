@@ -35,7 +35,7 @@
     <section class="section_main">
         <header>
             <div class="container-profile">
-                <img src="../images/admin.jpg" alt="admin profile">
+                <img src="../profile/<?php echo $_SESSION['image']; ?>" alt="admin profile">
                 <div class="container-label">
                     <p>Administrator</p>
                     <p><span></span> Online</p>

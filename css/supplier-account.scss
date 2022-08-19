@@ -161,14 +161,49 @@ body {
                     width: 100%;
                     box-shadow: 0px 0px 5px var(--gray);
 
+                    & .container_validation {
+                        display: none;
+                        margin: auto;
+                        margin-bottom: 10px;
+                        max-width: 500px;
+                        width: 100%;
+                        padding: 10px 15px;
+                        background-color: var(--red3);
+                        border-radius: 5px;
+        
+                        & > p {
+                            color: var(--light);
+                            font-weight: 400;
+                            font-size: 14px;
+                        }
+                    }
+
                     & form {
                         display: block;
                         margin: auto;
                         max-width: 500px;
                         width: 100%;
 
+                        & .container_validation {
+                            display: none;
+                            margin: auto;
+                            margin-bottom: 10px;
+                            max-width: 500px;
+                            width: 100%;
+                            padding: 10px 15px;
+                            background-color: var(--red3);
+                            border-radius: 5px;
+            
+                            & > p {
+                                color: var(--light);
+                                font-weight: 400;
+                                font-size: 14px;
+                            }
+                        }
+
                         & .container_profile {
                             margin: auto;
+                            margin-bottom: 30px;
                             position: relative;
                             height: 150px;
                             width: 150px;
@@ -262,9 +297,12 @@ body {
                         }
 
                         & .container_btn {
+                            display: flex;
                             margin-top: 10px;
+                            gap: 10px;
 
                             & button {
+                                margin-top: 10px;
                                 padding: 5px 15px;
                                 border: none;
                                 border-radius: 3px;
@@ -280,6 +318,15 @@ body {
     
                                     &:hover {
                                         background-color: var(--dark-blue);
+                                    }
+                                }
+
+                                &#btn-cancel-information, &#btn-cancel-password {
+                                    display: none;
+                                    background-color: var(--red2);
+    
+                                    &:hover {
+                                        background-color: var(--red3);
                                     }
                                 }
     

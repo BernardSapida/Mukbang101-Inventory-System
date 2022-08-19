@@ -19,7 +19,7 @@
                         $this -> insertData($conn, $tableName, $data);
                         break;
                     case "update":
-                        $this -> updateData($conn, $tableName, $data, $account);
+                        $result = $this -> updateData($conn, $tableName, $data, $account);
                         break;
                     case "delete":
                         $this -> deleteData($conn, $tableName, $data);
@@ -282,34 +282,39 @@
         }
 
         function updateData($conn, $tableName, $data, $account) {
-                switch($tableName) {
+            switch($tableName) {
                 case "accounts":
                     {
-                        $uid = $data['uid'];
-                        $image = $data['image'];
-                        $firstname = $data['firstname'];
-                        $lastname = $data['lastname'];
-                        $email = $data['email'];
-                        $address = $data['address'];
-                        $supplier = $data['supplier store name'];
-                        $contact = $data['contact no.'];
-                        $password = $data['password'];
-                        $type = $data['type'];
                         $stmt = "";
 
                         switch($account) {
                             case "profile":
-                                $stmt = $conn->prepare("UPDATE `$tableName` SET `image` = '$image' WHERE uid = $uid");
+                                $stmt = $conn->prepare("UPDATE `$tableName` SET `image` = '$image' WHERE uid = '$uid'");
                                 break;
                             case "information":
-                                $stmt = $conn->prepare("UPDATE `$tableName` SET `uid` = '$uid', `image` = '$image', `firstname` = '$firstname', `lastname` = '$lastname', `email` = '$email', `address` = '$address', `supplier store name` = '$supplier', `contact no.` = '$contact', `type` = '$type' WHERE uid = $uid");
+                                $uid = $data['uid'];
+                                $image = $data['image'];
+                                $firstname = $data['firstname'];
+                                $lastname = $data['lastname'];
+                                $email = $data['email'];
+                                $address = $data['address'];
+                                $supplier = $data['supplier store name'];
+                                $contact = $data['contact no.'];
+                                $type = $data['type'];
+                                
+                                $stmt = $conn->prepare("UPDATE `$tableName` SET `uid` = '$uid', `image` = '$image', `firstname` = '$firstname', `lastname` = '$lastname', `email` = '$email', `address` = '$address', `supplier store name` = '$supplier', `contact no.` = '$contact', `type` = '$type' WHERE `uid` = '$uid'");
                                 break;
                             case "password":
-                                $stmt = $conn->prepare("UPDATE `$tableName` SET `password` = '$password' WHERE uid = $uid");
+                                $uid = $data['uid'];
+                                $password = $data['password'];
+
+                                $stmt = $conn->prepare("UPDATE `$tableName` SET `password` = '$password' WHERE uid = '$uid'");
                                 break;
                         }
                         
                         $stmt->execute();
+                        
+                        return true;
                     };
                     break;
                 case "admin_orders":

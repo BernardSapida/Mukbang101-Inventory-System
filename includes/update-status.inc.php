@@ -5,7 +5,7 @@
 
     $db -> connect(
         "update", 
-        "admin_orders", 
+        "supplier_customer", 
         array(
             "transactionNo" => $_POST['transactionNo'],
             "orderStatus" => $_POST["status"],
