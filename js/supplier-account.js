@@ -53,6 +53,7 @@ $(document).ready(function() {
                         $("#information_validation").fadeIn(0);
                         $("#information_validation").fadeOut(5000);
                         $("#btn-save-information").hide();
+                        $("#btn-cancel-information").hide();
                         $("#btn-edit-information").fadeIn(0);
                         $("#supplier_information [name]").prop("disabled", true);
                     } 
@@ -133,6 +134,7 @@ $(document).ready(function() {
                         $("#password_validation").fadeIn(0);
                         $("#password_validation").fadeOut(5000);
                         $("#btn-save-password").hide();
+                        $("#btn-cancel-password").hide();
                         $("#btn-edit-password").fadeIn(0);
                         $("#supplier_password [name]").prop("disabled", true);
                     } else {

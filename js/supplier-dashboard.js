@@ -1,12 +1,12 @@
 $(document).ready(function() {
-    $(".empty-stock").hide();
+    $(".empty-product").hide();
     $(".empty-transaction").hide();
 
     $("#search-item").keyup(function() {
-        search_stock($(this).val());
+        search_product($(this).val());
     });
 
-    function search_stock(value) {
+    function search_product(value) {
         let isEmpty = true;
 
         $(".table_stock tbody tr").each(function() {
@@ -63,4 +63,21 @@ $(document).ready(function() {
             $(".empty-transaction").hide();
         }
     }
+
+    if($("tbody.table_product tr").length == 1) {
+        $(".empty-product td").text("Empty table");
+        $(".empty-product").show();
+    }
+
+    if($("tbody.table_customers tr").length == 1) {
+        $(".empty-transaction td").text("Empty table");
+        $(".empty-transaction").show();
+    }
+
+    $("#supplier_total_profit").load("../includes/load-supplier_total_profit.inc.php");
+    $("#supplier_total_stocks").load("../includes/load-supplier_total_stocks.inc.php");
+    $("#supplier_total_transactions").load("../includes/load-supplier_total_transactions.inc.php");
+
+    $(".table_product").load("../includes/load-dashboard_supplier_product.inc.php");
+    $(".table_customers").load("../includes/load-dashboard_order_status.inc.php");
 });

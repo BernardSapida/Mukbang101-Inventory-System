@@ -34,30 +34,26 @@
         }
 
         function selectData($conn, $tableName, $data, $account) {
-            $result = "";
-            
             if(!empty($data) && !empty($account)) {
-                switch($data) {
-                    case "email":
-                        $stmt = $conn->prepare("SELECT * FROM `$tableName` WHERE email = '$account'");
-                        break;
-                    case "uid":
-                        $stmt = $conn->prepare("SELECT * FROM `$tableName` WHERE uid = '$account'");
-                        break;
-                }
-    
+                $stmt = $conn->prepare("SELECT * FROM `$tableName` WHERE `$data` = '$account'");
                 $stmt -> execute();
                 $result = $stmt->fetch(PDO::FETCH_ASSOC);
             } else {
                 switch($tableName) {
                     case "supplier_customer":
-                        $stmt = $conn->prepare("SELECT * FROM `$tableName` ORDER BY CASE 
-                        WHEN `order status` = 'processing' THEN 1 
-                        WHEN `order status` = 'to ship' THEN 2 
-                        WHEN `order status` = 'to receive' THEN 3 
-                        WHEN `order status` = 'completed' THEN 4 
-                        WHEN `order status` = 'cancelled' THEN 5
-                        END");
+                        {
+                            if(strcmp($data, "order status") == 0) {
+                                $stmt = $conn->prepare("SELECT * FROM `$tableName` WHERE `order status` = 'completed'");
+                            } else {
+                                $stmt = $conn->prepare("SELECT * FROM `$tableName` ORDER BY CASE 
+                                WHEN `order status` = 'processing' THEN 1 
+                                WHEN `order status` = 'to ship' THEN 2 
+                                WHEN `order status` = 'to receive' THEN 3 
+                                WHEN `order status` = 'completed' THEN 4 
+                                WHEN `order status` = 'cancelled' THEN 5
+                                END");
+                            }
+                        }
                         break;
                     case "supplier_product":
                         $stmt = $conn->prepare("SELECT * FROM `$tableName` ORDER BY `box quantity` ASC");
@@ -288,9 +284,6 @@
                         $stmt = "";
 
                         switch($account) {
-                            case "profile":
-                                $stmt = $conn->prepare("UPDATE `$tableName` SET `image` = '$image' WHERE uid = '$uid'");
-                                break;
                             case "information":
                                 $uid = $data['uid'];
                                 $image = $data['image'];
@@ -346,7 +339,6 @@
                     break;
                 case "supplier_product":
                     {
-                        $id = $data['id'];
                         $productCode = $data['productCode'];
                         $productName = $data['productName'];
                         $category = $data['category'];
@@ -354,9 +346,7 @@
                         $pcsPerBox = $data['pcsPerBox'];
                         $pricePerBox = $data['pricePerBox'];
 
-                        $stmt = $conn->prepare("INSERT INTO `$tableName` (`product code`, `product name`, `category`, `box quantity`, `pcs per box`, `price per box`) 
-                        VALUES (:productCode, :productName, :category, :boxQuantity, :pcsPerBox, :pricePerBox)");
-                        $stmt = $conn->prepare("UPDATE `$tableName` SET `product code` = '$productCode', `product name` = '$productName', `category` = '$category', `box quantity` = '$boxQuantity', `pcs per box` = '$pcsPerBox', `price per box` = '$pricePerBox' WHERE `id` = $id");
+                        $stmt = $conn->prepare("UPDATE `$tableName` SET `product code` = '$productCode', `product name` = '$productName', `category` = '$category', `box quantity` = '$boxQuantity', `pcs per box` = '$pcsPerBox', `price per box` = '$pricePerBox' WHERE `product code` = $productCode");
                         $stmt->execute();
                     };
                     break;
@@ -364,9 +354,9 @@
         }
 
         function deleteData($conn, $tableName, $data) {
-            $id = $data["id"];
+            $productCode = $data["productCode"];
 
-            $sql = "DELETE FROM `$tableName` WHERE id=$id";
+            $sql = "DELETE FROM `$tableName` WHERE `product code` = $productCode";
             $conn->exec($sql);
         }
     }

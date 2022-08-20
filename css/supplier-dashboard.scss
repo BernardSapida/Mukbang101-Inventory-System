@@ -282,6 +282,10 @@ body {
                                 }
                                 & tbody {
                                     & tr {
+                                        &.danger {
+                                            background-color: var(--red5) !important;
+                                        }
+                                        
                                         & td {
                                             padding: 10px 20px;
                                             white-space: nowrap;
@@ -296,7 +300,7 @@ body {
                                             background-color: var(--table-hover);
                                         }
 
-                                        &.empty-stock, &.empty-transaction {
+                                        &.empty-product, &.empty-transaction {
                                             & td {
                                                 text-align: center;
                                             }

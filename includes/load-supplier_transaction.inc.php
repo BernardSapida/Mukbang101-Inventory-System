@@ -3,10 +3,10 @@
 
     $db = new Database();
 
-    $result = $db -> connect("select", "supplier_customer");
+    $result = $db -> connect("select", "supplier_customer", "order status");
 
-    echo '<tr class="empty-item"><td colspan="19">No data found</td></tr>';
-
+    echo '<tr class="empty"><td colspan="20">No data found</td></tr>';
+    
     forEach($result as $database => $row){
         echo "<tr data='" . $row['transaction no.'] . "'>";
         echo "<td>" . date("F d, Y g:i:s A", strtotime($row['date'])) . "</td>";
@@ -26,25 +26,23 @@
         echo "<td>" . $row['vat 12%'] . "</td>";
         echo "<td>" . $row['shipping fee'] . "</td>";
         echo "<td>" . $row['discount'] . "</td>";
-        echo "<td>" . $row['total'] . "</td>";
-        echo '<td><select name="supplier" class="update_status" id="supplier" aria-label="update status">
-                <option value="processing" ' . (!strcmp($row['order status'], "processing") ? "selected" : "") . '>Processing</option>
-                <option value="to ship" ' . (!strcmp($row['order status'], "to ship") ? "selected" : "") . '>To ship</option>
-                <option value="to receive" ' . (!strcmp($row['order status'], "to receive") ? "selected" : "") . '>To receive</option>
-                <option value="completed" ' . (!strcmp($row['order status'], "completed") ? "selected" : "") . '>Completed</option>
-                <option value="cancelled" ' . (!strcmp($row['order status'], "cancelled") ? "selected" : "") . '>Cancelled</option>
-            </select></td>';
-        echo "</tr>";
+        echo "<td>" . $row['total'] . "</td>";;
+        echo "<td>" . $row['order status'] . "</td>";
     }
 ?>
 
 <script>
     $(document).ready(function() {
-        $(".empty-item").hide();
+        $(".empty").hide();
 
         $("#search-item").keyup(function() {
             search_item($(this).val());
         });
+
+        if($("table tbody tr").length == 1) {
+            $(".empty td").text("Empty table");
+            $(".empty").show();
+        }
 
         function search_item(value) {
             let isEmpty = true;
@@ -67,38 +65,23 @@
             });
 
             if(isEmpty) {
-                $(".empty-item td").text("No data found");
-                $(".empty-item").show();
+                $(".empty td").text("No data found");
+                $(".empty").show();
             } else {
-                $(".empty-item").hide();
+                $(".empty").hide();
             }
 
             if(value.length == 0) {
                 if($("table tbody tr").length == 1) {
-                    $(".empty-item td").text("Empty table");
-                    $(".empty-item").show();
+                    $(".empty td").text("Empty table");
+                    $(".empty").show();
                 }
             }
         }
 
         if($("table tbody tr").length == 1) {
-            $(".empty-item td").text("Empty table");
-            $(".empty-item").show();
+            $(".empty td").text("Empty table");
+            $(".empty").show();
         }
-
-        $(".update_status").on("change", function() {
-            $.ajax({
-                type: "POST",
-                url: "../includes/update-status.inc.php",
-                data: {
-                    transactionNo: $(this).parents("tr").attr("data"),
-                    status: $(this).val()
-                },
-                success: function(result, status, xhr) {
-                    console.log(result);
-                    console.log(status);
-                }
-            });
-        });
     });
 </script>

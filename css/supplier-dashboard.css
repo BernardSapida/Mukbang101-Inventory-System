@@ -316,6 +316,10 @@ body .section_main main .container_main .container_tables .stock_table .table-re
   color: var(--secondary-dark);
 }
 
+body .section_main main .container_main .container_tables .stock_table .table-responsive table tbody tr.danger, body .section_main main .container_main .container_tables .transaction_table .table-responsive table tbody tr.danger {
+  background-color: var(--red5) !important;
+}
+
 body .section_main main .container_main .container_tables .stock_table .table-responsive table tbody tr td, body .section_main main .container_main .container_tables .transaction_table .table-responsive table tbody tr td {
   padding: 10px 20px;
   white-space: nowrap;
@@ -330,7 +334,7 @@ body .section_main main .container_main .container_tables .stock_table .table-re
   background-color: var(--table-hover);
 }
 
-body .section_main main .container_main .container_tables .stock_table .table-responsive table tbody tr.empty-stock td, body .section_main main .container_main .container_tables .stock_table .table-responsive table tbody tr.empty-transaction td, body .section_main main .container_main .container_tables .transaction_table .table-responsive table tbody tr.empty-stock td, body .section_main main .container_main .container_tables .transaction_table .table-responsive table tbody tr.empty-transaction td {
+body .section_main main .container_main .container_tables .stock_table .table-responsive table tbody tr.empty-product td, body .section_main main .container_main .container_tables .stock_table .table-responsive table tbody tr.empty-transaction td, body .section_main main .container_main .container_tables .transaction_table .table-responsive table tbody tr.empty-product td, body .section_main main .container_main .container_tables .transaction_table .table-responsive table tbody tr.empty-transaction td {
   text-align: center;
 }
 

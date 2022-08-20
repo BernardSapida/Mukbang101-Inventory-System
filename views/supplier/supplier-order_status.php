@@ -31,9 +31,7 @@
                                 <th>Order Status</th>
                             </tr>
                         </thead>
-                        <tbody class="table_customers">
-                            <tr class="empty-item"><td colspan="19">No data found</td></tr>
-                        </tbody>
+                        <tbody class="table_customers"></tbody>
                     </table>
                 </div>
             </div>

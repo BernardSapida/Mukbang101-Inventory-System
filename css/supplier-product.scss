@@ -240,7 +240,7 @@ body {
                                             font-size: 12px;
 
                                             &:last-child {
-                                                & #btn-order, & #btn-edit, & #btn-delete {
+                                                & .btn-edit, & .btn-delete {
                                                     padding: 5px 10px;
                                                     border: none;
                                                     border-radius: 5px;
@@ -250,7 +250,7 @@ body {
                                                     transition: all 350ms ease;
                                                 }
 
-                                                & #btn-order {
+                                                & .btn-edit {
                                                     background-color: var(--blue);
                                                     
                                                     &:hover { 
@@ -258,15 +258,7 @@ body {
                                                     }
                                                 }
 
-                                                & #btn-edit {
-                                                    background-color: var(--dark);
-                                                    
-                                                    &:hover { 
-                                                        background-color: var(--dark-blue);
-                                                    }
-                                                }
-
-                                                & #btn-delete {
+                                                & .btn-delete {
                                                     background-color: var(--red1);
                                                     
                                                     &:hover { 
@@ -297,7 +289,7 @@ body {
                 }
             }
 
-            & .section_add-product {
+            & .section_add-product, & .section_edit-product {
                 display: none;
                 position: absolute;
                 top: 0;
@@ -307,7 +299,7 @@ body {
                 background-color: var(--dark-bg);
                 z-index: 1;
         
-                & .container_add-product {
+                & .container_add-product, & .container_edit-product {
                     position: absolute;
                     top: 50%;
                     left: 50%;
@@ -317,8 +309,22 @@ body {
                     width: 90%;
                     background-color: var(--light);
                     border-radius: 5px;
+
+                    & .container_validation_add, & .container_validation_edit {
+                        margin-bottom: 10px;
+                        width: 100%;
+                        padding: 10px 15px;
+                        background-color: var(--red3);
+                        border-radius: 5px;
         
-                    & .btn-x {
+                        & > p {
+                            color: var(--light);
+                            font-weight: 400;
+                            font-size: 14px;
+                        }
+                    }
+        
+                    & .btn-x-add, & .btn-x-edit {
                         position: absolute;
                         top: 25px;
                         right: 25px;
@@ -366,10 +372,14 @@ body {
                             font-size: 14px;
                             color: var(--gray);
                             border: .5px solid var(--border);
+
+                            &#product_code {
+                                disabled: true;
+                            }
                         }
                     }
         
-                    & .btn-add_product {
+                    & .btn-add_product, & .btn-edit_product {
                         margin-top: 14px;
                         width: 100%;
                         padding: 7px 15px;
