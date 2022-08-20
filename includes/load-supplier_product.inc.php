@@ -167,7 +167,12 @@
 
                 $(this).prop("disabled", true);
                 $(".section_edit-product").fadeOut(2000);
-                $("#form_editProduct")[0].reset();
+                setTimeout(function() {
+                    $("#information_validation_edit").fadeOut();
+                }, 2000);
+                // $("#form_editProduct")[0].reset();
+
+                $(".table_product").load("../includes/load-supplier_product_table.inc.php");
             } else {
                 $("#information_validation_edit").css({"background-color":"var(--red3)"});
                 $("#information_validation_edit p").text(errArray[0]);

@@ -107,6 +107,8 @@ $(document).ready(function() {
         $("#btn-edit-password").fadeIn(0);
         $("#supplier_password [name]").prop("disabled", true);
         $("#password_validation").hide();
+        $("#supplier_password")[0].reset();
+        
     });
 
     $("#btn-save-password").click(function(){
@@ -137,6 +139,7 @@ $(document).ready(function() {
                         $("#btn-cancel-password").hide();
                         $("#btn-edit-password").fadeIn(0);
                         $("#supplier_password [name]").prop("disabled", true);
+                        $("#supplier_password")[0].reset();
                     } else {
                         $("#password_validation").css({"background-color":"var(--red3)"});
                         $("#password_validation p").text(result);

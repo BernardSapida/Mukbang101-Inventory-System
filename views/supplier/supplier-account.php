@@ -1,5 +1,5 @@
 <div class="container_main">
-    <h1>Admin Information</h1>
+    <h1>Supplier Information</h1>
     <div class="container_form">
         <form id="supplier_information" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
             <label for="account-image">
@@ -47,7 +47,7 @@
     </div>
 </div>
 <div class="container_main">
-    <h1>Admin Password</h1>
+    <h1>Supplier Password</h1>
     <div class="container_form">
         <div class="container_validation" id="password_validation">
             <p></p>
