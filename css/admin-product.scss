@@ -234,6 +234,12 @@ body {
                                             background-color: var(--red5) !important;
                                         }
 
+                                        &.empty-product {
+                                            & td {
+                                                text-align: center;
+                                            }
+                                        }
+
                                         & td {
                                             padding: 10px 20px;
                                             white-space: nowrap;
@@ -291,7 +297,7 @@ body {
                 }
             }
 
-            & .section_add-product {
+            & .section_add-product, & .section_edit-product {
                 display: none;
                 position: absolute;
                 top: 0;
@@ -301,7 +307,7 @@ body {
                 background-color: var(--dark-bg);
                 z-index: 1;
         
-                & .container_add-product {
+                & .container_add-product, & .container_edit-product {
                     position: absolute;
                     top: 50%;
                     left: 50%;
@@ -312,7 +318,7 @@ body {
                     background-color: var(--light);
                     border-radius: 5px;
         
-                    & .btn-x {
+                    & .btn_x_add, & .btn_x_edit {
                         position: absolute;
                         top: 25px;
                         right: 25px;
@@ -357,7 +363,7 @@ body {
                         }
                     }
         
-                    & .btn-add_product {
+                    & .btn-add_product, & .btn-edit_product {
                         margin-top: 14px;
                         width: 100%;
                         padding: 7px 15px;

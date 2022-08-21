@@ -295,6 +295,12 @@ body {
                                         &:hover {
                                             background-color: var(--table-hover);
                                         }
+
+                                        &.empty-product, &.empty-transaction {
+                                            & td {
+                                                text-align: center;
+                                            }
+                                        }
                                     }
                                 }
                             }

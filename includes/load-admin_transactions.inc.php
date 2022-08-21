@@ -1,25 +1,21 @@
 <?php
     require_once "database.inc.php";
 
-    session_start();
-
     $db = new Database();
 
-    $result = $db -> connect("select", "supplier_customer");
+    $result = $db -> connect("select", "admin_orders");
 
     echo '<tr class="empty-transaction"><td colspan="19">No data found</td></tr>';
 
     forEach($result as $database => $row){
-        if(strcmp($row['supplier uid'], $_SESSION["uid"]) == 0) {
-            echo "<tr>";
-            echo "<td>" . date("F d, Y g:i:s A", strtotime($row['date'])) . "</td>";
-            echo "<td>" . $row['transaction no.'] . "</td>";
-            echo "<td>" . $row['product name'] . "</td>";
-            echo "<td>" . $row['box quantity'] . "</td>";
-            echo "<td>" . "₱ " . number_format($row['total'], 2) . "</td>";
-            echo "<td>" . $row["order status"] . "</td>";
-            echo "</tr>";
-        }
+        echo "<tr>";
+        echo "<td>" . date("F d, Y g:i:s A", strtotime($row['date'])) . "</td>";
+        echo "<td>" . $row['transaction no.'] . "</td>";
+        echo "<td>" . $row['product name'] . "</td>";
+        echo "<td>" . $row['box quantity'] . "</td>";
+        echo "<td>" . $row['total'] . "</td>";
+        echo '<td>$row["order status"]</td>';
+        echo "</tr>";
     }
 ?>
 
@@ -34,7 +30,7 @@
         function search_transaction(value) {
             let isEmpty = true;
 
-            $(".table_transaction tbody tr").each(function() {
+            $("tbody.table_transaction tr").each(function() {
                 let isFound = false;
                 
                 $(this).each(function() {

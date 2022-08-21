@@ -11,6 +11,9 @@
         case "admin-sales_invoice":
             echo file_get_contents('admin/admin-sales_invoice.php');
             break;
+        case "admin-receipt_record":
+            echo file_get_contents('admin/admin-transaction_sales.php');
+            break;
         case "admin-transaction":
             echo file_get_contents('admin/admin-transaction.php');
             break;

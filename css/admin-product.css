@@ -259,6 +259,10 @@ body .section_main main .container_main .container_table-products .product_table
   background-color: var(--red5) !important;
 }
 
+body .section_main main .container_main .container_table-products .product_table .table-responsive table tbody tr.empty-product td {
+  text-align: center;
+}
+
 body .section_main main .container_main .container_table-products .product_table .table-responsive table tbody tr td {
   padding: 10px 20px;
   white-space: nowrap;
@@ -308,7 +312,7 @@ body .section_main main .container_main .container_table-products .product_table
   background-color: var(--table-hover);
 }
 
-body .section_main main .section_add-product {
+body .section_main main .section_add-product, body .section_main main .section_edit-product {
   display: none;
   position: absolute;
   top: 0;
@@ -319,7 +323,7 @@ body .section_main main .section_add-product {
   z-index: 1;
 }
 
-body .section_main main .section_add-product .container_add-product {
+body .section_main main .section_add-product .container_add-product, body .section_main main .section_add-product .container_edit-product, body .section_main main .section_edit-product .container_add-product, body .section_main main .section_edit-product .container_edit-product {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -332,7 +336,7 @@ body .section_main main .section_add-product .container_add-product {
   border-radius: 5px;
 }
 
-body .section_main main .section_add-product .container_add-product .btn-x {
+body .section_main main .section_add-product .container_add-product .btn_x_add, body .section_main main .section_add-product .container_add-product .btn_x_edit, body .section_main main .section_add-product .container_edit-product .btn_x_add, body .section_main main .section_add-product .container_edit-product .btn_x_edit, body .section_main main .section_edit-product .container_add-product .btn_x_add, body .section_main main .section_edit-product .container_add-product .btn_x_edit, body .section_main main .section_edit-product .container_edit-product .btn_x_add, body .section_main main .section_edit-product .container_edit-product .btn_x_edit {
   position: absolute;
   top: 25px;
   right: 25px;
@@ -347,21 +351,21 @@ body .section_main main .section_add-product .container_add-product .btn-x {
   transition: all 350ms ease;
 }
 
-body .section_main main .section_add-product .container_add-product .btn-x:hover {
+body .section_main main .section_add-product .container_add-product .btn_x_add:hover, body .section_main main .section_add-product .container_add-product .btn_x_edit:hover, body .section_main main .section_add-product .container_edit-product .btn_x_add:hover, body .section_main main .section_add-product .container_edit-product .btn_x_edit:hover, body .section_main main .section_edit-product .container_add-product .btn_x_add:hover, body .section_main main .section_edit-product .container_add-product .btn_x_edit:hover, body .section_main main .section_edit-product .container_edit-product .btn_x_add:hover, body .section_main main .section_edit-product .container_edit-product .btn_x_edit:hover {
   color: var(--dark);
 }
 
-body .section_main main .section_add-product .container_add-product h1 {
+body .section_main main .section_add-product .container_add-product h1, body .section_main main .section_add-product .container_edit-product h1, body .section_main main .section_edit-product .container_add-product h1, body .section_main main .section_edit-product .container_edit-product h1 {
   font-size: 24px;
   font-weight: 800;
 }
 
-body .section_main main .section_add-product .container_add-product label p {
+body .section_main main .section_add-product .container_add-product label p, body .section_main main .section_add-product .container_edit-product label p, body .section_main main .section_edit-product .container_add-product label p, body .section_main main .section_edit-product .container_edit-product label p {
   font-size: 14px;
   color: var(--gray);
 }
 
-body .section_main main .section_add-product .container_add-product label select, body .section_main main .section_add-product .container_add-product label input[type="text"] {
+body .section_main main .section_add-product .container_add-product label select, body .section_main main .section_add-product .container_add-product label input[type="text"], body .section_main main .section_add-product .container_edit-product label select, body .section_main main .section_add-product .container_edit-product label input[type="text"], body .section_main main .section_edit-product .container_add-product label select, body .section_main main .section_edit-product .container_add-product label input[type="text"], body .section_main main .section_edit-product .container_edit-product label select, body .section_main main .section_edit-product .container_edit-product label input[type="text"] {
   margin-bottom: 7px;
   height: 35px;
   max-width: 400px;
@@ -376,7 +380,7 @@ body .section_main main .section_add-product .container_add-product label select
   border: 0.5px solid var(--border);
 }
 
-body .section_main main .section_add-product .container_add-product .btn-add_product {
+body .section_main main .section_add-product .container_add-product .btn-add_product, body .section_main main .section_add-product .container_add-product .btn-edit_product, body .section_main main .section_add-product .container_edit-product .btn-add_product, body .section_main main .section_add-product .container_edit-product .btn-edit_product, body .section_main main .section_edit-product .container_add-product .btn-add_product, body .section_main main .section_edit-product .container_add-product .btn-edit_product, body .section_main main .section_edit-product .container_edit-product .btn-add_product, body .section_main main .section_edit-product .container_edit-product .btn-edit_product {
   margin-top: 14px;
   width: 100%;
   padding: 7px 15px;
@@ -391,7 +395,7 @@ body .section_main main .section_add-product .container_add-product .btn-add_pro
   cursor: pointer;
 }
 
-body .section_main main .section_add-product .container_add-product .btn-add_product:hover {
+body .section_main main .section_add-product .container_add-product .btn-add_product:hover, body .section_main main .section_add-product .container_add-product .btn-edit_product:hover, body .section_main main .section_add-product .container_edit-product .btn-add_product:hover, body .section_main main .section_add-product .container_edit-product .btn-edit_product:hover, body .section_main main .section_edit-product .container_add-product .btn-add_product:hover, body .section_main main .section_edit-product .container_add-product .btn-edit_product:hover, body .section_main main .section_edit-product .container_edit-product .btn-add_product:hover, body .section_main main .section_edit-product .container_edit-product .btn-edit_product:hover {
   background-color: var(--purple-lighten);
 }
 

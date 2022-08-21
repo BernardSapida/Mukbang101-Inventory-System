@@ -330,6 +330,10 @@ body .section_main main .container_main .container_tables .stock_table .table-re
   background-color: var(--table-hover);
 }
 
+body .section_main main .container_main .container_tables .stock_table .table-responsive table tbody tr.empty-product td, body .section_main main .container_main .container_tables .stock_table .table-responsive table tbody tr.empty-transaction td, body .section_main main .container_main .container_tables .transaction_table .table-responsive table tbody tr.empty-product td, body .section_main main .container_main .container_tables .transaction_table .table-responsive table tbody tr.empty-transaction td {
+  text-align: center;
+}
+
 @media only screen and (max-width: 1530px) {
   body main .container_main .container_records .container_card {
     width: 100%;

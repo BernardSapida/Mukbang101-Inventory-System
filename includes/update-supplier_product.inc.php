@@ -1,12 +1,13 @@
 <?php
     require_once "database.inc.php";
 
+    session_start();
+
     $db = new Database();
-    
-    echo "test";
     
     if(isset($_POST["addedProduct"])) {
         $db -> connect("update", "supplier_product", array(
+            "supplierUID" => $_SESSION["uid"],
             "productCode" => $_POST["productCode"],
             "productName" => $_POST["productName"],
             "category" => $_POST["category"],

@@ -1,10 +1,13 @@
 <?php
     require_once "database.inc.php";
 
+    session_start();
+
     $db = new Database();
     
     if(isset($_POST["addedProduct"])) {
         $db -> connect("insert", "supplier_product", array(
+            "supplierUID" => $_SESSION["uid"],
             "productCode" => $_POST["productCode"],
             "productName" => $_POST["productName"],
             "category" => $_POST["category"],
@@ -13,7 +16,7 @@
             "pricePerBox" => $_POST["pricePerBox"],
         ));
 
-        $result = $db -> connect("select", "supplier_product");
+        $result = $db -> connect("select", "supplier_product", array("supplierUID" => $_SESSION["uid"]));
 
         echo '<tr class="empty-product"><td colspan="8">No data found</td></tr>';
     
@@ -24,7 +27,7 @@
             echo "<td>" . $row['category'] . "</td>";
             echo "<td>" . $row['box quantity'] . "</td>";
             echo "<td>" . $row['pcs per box'] . "</td>";
-            echo "<td>" . $row['price per box'] . "</td>";
+            echo "<td>₱ " . number_format($row['price per box'], 2). "</td>";
             echo "<td>" . date("F d, Y", strtotime($row['date of stock'])) . "</td>";
             echo '<td>
                     <button type="button" class="btn-edit" aria-label="btn-edit"><i class="fa-solid fa-pen-to-square"></i> Edit</button>
@@ -50,7 +53,6 @@
                 },
                 success: function(result, status, xhr) {
                     $(`tr[data = ${productCode}]`).remove();
-                    console.log($("table tbody tr").length);
                     if($("table tbody tr").length == 1) {
                         $(".empty-product td").text("Empty table");
                         $(".empty-product").show();

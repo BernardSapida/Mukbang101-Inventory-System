@@ -1,9 +1,11 @@
 <?php
     require_once "database.inc.php";
+    
+    session_start();
 
     $db = new Database();
 
-    $result = $db -> connect("select", "supplier_product");
+    $result = $db -> connect("select", "supplier_product", array("supplierUID" => $_SESSION["uid"]));
 
     forEach($result as $database => $row){
         echo "<tr data=" . $row['product code'] . " class='" . (($row['box quantity'] <= 10) ? "danger" : "")  . "'>";
@@ -12,7 +14,7 @@
         echo "<td>" . $row['category'] . "</td>";
         echo "<td>" . $row['box quantity'] . "</td>";
         echo "<td>" . $row['pcs per box'] . "</td>";
-        echo "<td>" . $row['price per box'] . "</td>";
+        echo "<td>₱ " . number_format($row['price per box'], 2) . "</td>";
         echo "<td>" . date("F d, Y", strtotime($row['date of stock'])) . "</td>";
         echo '<td>
                 <button type="button" class="btn-edit" aria-label="btn-edit"><i class="fa-solid fa-pen-to-square"></i> Edit</button>

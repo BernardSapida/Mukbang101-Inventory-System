@@ -8,7 +8,7 @@
         "supplier_customer", 
         array(
             "transactionNo" => $_POST['transactionNo'],
-            "orderStatuss" => $_POST["status"],
+            "orderStatus" => $_POST["status"],
         ),
     );
 ?>

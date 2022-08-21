@@ -25,6 +25,7 @@
             break;
         default:
             echo '<link rel="stylesheet" href="../css/supplier-dashboard.css">';
+            echo '<script defer src="../js/supplier-dashboard.js"></script>';
             break;
     }
 ?>

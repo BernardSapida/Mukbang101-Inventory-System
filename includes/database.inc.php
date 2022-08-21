@@ -56,7 +56,17 @@
                         }
                         break;
                     case "supplier_product":
+                        $supplierUID = $data["supplierUID"];
+                        $stmt = $conn->prepare("SELECT * FROM `$tableName` WHERE `supplier uid` = '$supplierUID' ORDER BY `box quantity` ASC");
+                        break;
+                    case "admin_product":
                         $stmt = $conn->prepare("SELECT * FROM `$tableName` ORDER BY `box quantity` ASC");
+                        break;
+                    case "admin_orders":
+                        $stmt = $conn->prepare("SELECT * FROM `$tableName` WHERE `order status` = 'completed'");
+                        break;
+                    case "accounts":
+                        $stmt = $conn->prepare("SELECT * FROM `$tableName` WHERE `type` = '$data'");
                         break;
                     default:
                         $stmt = $conn->prepare("SELECT * FROM $tableName");
@@ -212,6 +222,7 @@
                     break;
                 case "supplier_product":
                     {
+                        $supplierUID = $data['supplierUID'];
                         $productCode = $data['productCode'];
                         $productName = $data['productName'];
                         $category = $data['category'];
@@ -219,8 +230,9 @@
                         $pcsPerBox = $data['pcsPerBox'];
                         $pricePerBox = $data['pricePerBox'];
 
-                        $stmt = $conn->prepare("INSERT INTO `$tableName` (`product code`, `product name`, `category`, `box quantity`, `pcs per box`, `price per box`) 
-                        VALUES (:productCode, :productName, :category, :boxQuantity, :pcsPerBox, :pricePerBox)");
+                        $stmt = $conn->prepare("INSERT INTO `$tableName` (`supplier uid`, `product code`, `product name`, `category`, `box quantity`, `pcs per box`, `price per box`) 
+                        VALUES (:supplierUID, :productCode, :productName, :category, :boxQuantity, :pcsPerBox, :pricePerBox)");
+                        $stmt -> bindParam(':supplierUID', $supplierUID);
                         $stmt -> bindParam(':productCode', $productCode);
                         $stmt -> bindParam(':productName', $productName);
                         $stmt -> bindParam(':category', $category);
@@ -232,6 +244,7 @@
                     break;
                 case "supplier_customer":
                     {
+                        $supplierUID = $data['supplierUID'];
                         $transactionNo = $data['transactionNo'];
                         $customerName = $data['customerName'];
                         $deliveryAddress = $data['deliveryAddress'];
@@ -251,8 +264,9 @@
                         $total = $data['total'];
                         $orderStatus = $data['orderStatus'];
 
-                        $stmt = $conn->prepare("INSERT INTO `$tableName` (`transaction no.`, `customer name`, `delivery address`, `contact no.`, `email address`, `customer store name`, `product code`, `product name`, `box quantity`, `pcs per box`, `price per box`, `payment method`, `reference no.`, `vat 12%`, `shipping fee`, `discount`, `total`, `order status`) 
-                        VALUES (:transactionNo, :customerName, :deliveryAddress, :contactNo, :emailAddress, :customerStoreName, :productCode, :productName, :boxQuantity, :pcsPerBox, :pricePerBox, :paymentMethod, :referenceNo, :vat12, :shippingFee, :discount, :total, :orderStatus)");
+                        $stmt = $conn->prepare("INSERT INTO `$tableName` (`supplier uid`, `transaction no.`, `customer name`, `delivery address`, `contact no.`, `email address`, `customer store name`, `product code`, `product name`, `box quantity`, `pcs per box`, `price per box`, `payment method`, `reference no.`, `vat 12%`, `shipping fee`, `discount`, `total`, `order status`) 
+                        VALUES (:supplierUID, :transactionNo, :customerName, :deliveryAddress, :contactNo, :emailAddress, :customerStoreName, :productCode, :productName, :boxQuantity, :pcsPerBox, :pricePerBox, :paymentMethod, :referenceNo, :vat12, :shippingFee, :discount, :total, :orderStatus)");
+                        $stmt -> bindParam(':supplierUID', $supplierUID);
                         $stmt -> bindParam(':transactionNo', $transactionNo);
                         $stmt -> bindParam(':customerName', $customerName);
                         $stmt -> bindParam(':deliveryAddress', $deliveryAddress);

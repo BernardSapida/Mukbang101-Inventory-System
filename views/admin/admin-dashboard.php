@@ -7,7 +7,7 @@
                     <i class="fa-solid fa-truck-ramp-box"></i>
                 </div>
                 <div class="value">
-                    <p class="amount">999</p>
+                    <p class="amount" id="admin_total_profit">0</p>
                     <p class="label">Total Suppliers</p>
                 </div>
             </div>
@@ -16,7 +16,7 @@
                     <i class="fa-solid fa-boxes-stacked"></i>
                 </div>
                 <div class="value">
-                    <p class="amount">999</p>
+                    <p class="amount" id="admin_total_stocks">0</p>
                     <p class="label">Total Stocks</p>
                 </div>
             </div>
@@ -25,7 +25,7 @@
                     <i class="fa-solid fa-money-bill-transfer"></i>
                 </div>
                 <div class="value">
-                    <p class="amount">999</p>
+                    <p class="amount" id="admin_total_transactions">Php 0.00</p>
                     <p class="label">Total Transactions</p>
                 </div>
             </div>
@@ -47,55 +47,8 @@
                             <th>Quantity</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>21312312312</td>
-                            <td>Item 1</td>
-                            <td>Category 1</td>
-                            <td>201</td>
-                        </tr>
-                        <tr>
-                            <td>21312312312</td>
-                            <td>Item 1</td>
-                            <td>Category 1</td>
-                            <td>201</td>
-                        </tr>
-                        <tr>
-                            <td>21312312312</td>
-                            <td>Item 1</td>
-                            <td>Category 1</td>
-                            <td>201</td>
-                        </tr>
-                        <tr>
-                            <td>21312312312</td>
-                            <td>Item 1</td>
-                            <td>Category 1</td>
-                            <td>201</td>
-                        </tr>
-                        <tr>
-                            <td>21312312312</td>
-                            <td>Item 1</td>
-                            <td>Category 1</td>
-                            <td>201</td>
-                        </tr>
-                        <tr>
-                            <td>21312312312</td>
-                            <td>Item 1</td>
-                            <td>Category 1</td>
-                            <td>201</td>
-                        </tr>
-                        <tr>
-                            <td>21312312312</td>
-                            <td>Item 1</td>
-                            <td>Category 1</td>
-                            <td>201</td>
-                        </tr>
-                        <tr>
-                            <td>21312312312</td>
-                            <td>Item 1</td>
-                            <td>Category 1</td>
-                            <td>201</td>
-                        </tr>
+                    <tbody class="table_stock">
+                        <tr class="empty-product"><td colspan="4">No data found</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -117,71 +70,8 @@
                             <th>Total Amount</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>12/12/12</td>
-                            <td>06321350482</td>
-                            <td>Lucky Me</td>
-                            <td>Pancit Canton</td>
-                            <td>120</td>
-                            <td>Php 1,200</td>
-                        </tr>
-                        <tr>
-                            <td>12/12/12</td>
-                            <td>06321350482</td>
-                            <td>Lucky Me</td>
-                            <td>Pancit Canton</td>
-                            <td>120</td>
-                            <td>Php 1,200</td>
-                        </tr>
-                        <tr>
-                            <td>12/12/12</td>
-                            <td>06321350482</td>
-                            <td>Lucky Me</td>
-                            <td>Pancit Canton</td>
-                            <td>120</td>
-                            <td>Php 1,200</td>
-                        </tr>
-                        <tr>
-                            <td>12/12/12</td>
-                            <td>06321350482</td>
-                            <td>Lucky Me</td>
-                            <td>Pancit Canton</td>
-                            <td>120</td>
-                            <td>Php 1,200</td>
-                        </tr>
-                        <tr>
-                            <td>12/12/12</td>
-                            <td>06321350482</td>
-                            <td>Lucky Me</td>
-                            <td>Pancit Canton</td>
-                            <td>120</td>
-                            <td>Php 1,200</td>
-                        </tr>
-                        <tr>
-                            <td>12/12/12</td>
-                            <td>06321350482</td>
-                            <td>Lucky Me</td>
-                            <td>Pancit Canton</td>
-                            <td>120</td>
-                            <td>Php 1,200</td>
-                        </tr>
-                        <tr>
-                            <td>12/12/12</td>
-                            <td>06321350482</td>
-                            <td>Lucky Me</td>
-                            <td>Pancit Canton</td>
-                            <td>120</td>
-                            <td>Php 1,200</td>
-                        </tr>
-                        <tr>
-                            <td>12/12/12</td>
-                            <td>06321350482</td>
-                            <td>Lucky Me</td>
-                            <td>Pancit Canton</td>
-                            <td>120</td>
-                            <td>Php 1,200</td>
-                        </tr>
+                    <tbody class="table_transaction">
+                        <tr class="empty-transaction"><td colspan="6">No data found</td></tr>
                     </tbody>
                 </table>
             </div>

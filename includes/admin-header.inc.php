@@ -4,6 +4,7 @@
     switch($current_page) {
         case "admin-dashboard":
             echo '<link rel="stylesheet" href="../css/admin-dashboard.css">';
+            echo '<script defer src="../js/admin-dashboard.js"></script>';
             break;
         case "admin-product":
             echo '<link rel="stylesheet" href="../css/admin-product.css">';
@@ -38,6 +39,7 @@
             break;
         default:
             echo '<link rel="stylesheet" href="../css/admin-dashboard.css">';
+            echo '<script defer src="../js/admin-dashboard.js"></script>';
             break;
     }
 ?>

@@ -1,23 +1,19 @@
 <?php
     require_once "database.inc.php";
-    
-    session_start();
 
     $db = new Database();
 
-    $result = $db -> connect("select", "supplier_product", array("supplierUID" => $_SESSION["uid"]));
+    $result = $db -> connect("select", "admin_product");
     
-    echo '<tr class="empty-product"><td colspan="8">No data found</td></tr>';
+    echo '<tr class="empty-product"><td colspan="6">No data found</td></tr>';
 
     forEach($result as $database => $row){
-        if(strcmp($row['supplier uid'], $_SESSION["uid"]) == 0) {
-            echo "<tr data=" . $row['product code'] . " class='" . (($row['box quantity'] <= 10) ? "danger" : "")  . "'>";
-            echo "<td>" . $row['product code'] . "</td>";
-            echo "<td>" . $row['product name'] . "</td>";
-            echo "<td>" . $row['category'] . "</td>";
-            echo "<td>" . $row['box quantity'] . "</td>";
-            echo "</tr>";
-        }
+        echo "<tr data=" . $row['product code'] . " class='" . (($row['box quantity'] <= 10) ? "danger" : "")  . "'>";
+        echo "<td>" . $row['product code'] . "</td>";
+        echo "<td>" . $row['product name'] . "</td>";
+        echo "<td>" . $row['category'] . "</td>";
+        echo "<td>" . $row['box quantity'] . "</td>";
+        echo "</tr>";
     }
 ?>
 
@@ -32,7 +28,7 @@
         function search_product(value) {
             let isEmpty = true;
 
-            $(".table_stock tbody tr").each(function() {
+            $("tbody.table_stock tr").each(function() {
                 let isFound = false;
                 
                 $(this).each(function() {
@@ -64,7 +60,7 @@
             }
         }
 
-        if($("tbody.table_product tr").length == 1) {
+        if($("tbody.table_stock tr").length == 1) {
             $(".empty-product td").text("Empty table");
             $(".empty-product").show();
         }

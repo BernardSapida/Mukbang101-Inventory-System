@@ -1,6 +1,8 @@
 <?php
     require_once "database.inc.php";
 
+    session_start();
+
     $db = new Database();
 
     $result = $db -> connect("select", "supplier_customer", "order status");
@@ -8,26 +10,28 @@
     echo '<tr class="empty"><td colspan="20">No data found</td></tr>';
     
     forEach($result as $database => $row){
-        echo "<tr data='" . $row['transaction no.'] . "'>";
-        echo "<td>" . date("F d, Y g:i:s A", strtotime($row['date'])) . "</td>";
-        echo "<td>" . $row['transaction no.'] . "</td>";
-        echo "<td>" . $row['customer name'] . "</td>";
-        echo "<td>" . $row['delivery address'] . "</td>";
-        echo "<td>" . $row['contact no.'] . "</td>";
-        echo "<td>" . $row['email address'] . "</td>";
-        echo "<td>" . $row['customer store name'] . "</td>";
-        echo "<td>" . $row['product code'] . "</td>";
-        echo "<td>" . $row['product name'] . "</td>";
-        echo "<td>" . $row['box quantity'] . "</td>";
-        echo "<td>" . $row['pcs per box'] . "</td>";
-        echo "<td>" . $row['price per box'] . "</td>";
-        echo "<td>" . $row['payment method'] . "</td>";
-        echo "<td>" . $row['reference no.'] . "</td>";
-        echo "<td>" . $row['vat 12%'] . "</td>";
-        echo "<td>" . $row['shipping fee'] . "</td>";
-        echo "<td>" . $row['discount'] . "</td>";
-        echo "<td>" . $row['total'] . "</td>";;
-        echo "<td>" . $row['order status'] . "</td>";
+        if(strcmp($row['supplier uid'], $_SESSION["uid"]) == 0) {
+            echo "<tr data='" . $row['transaction no.'] . "'>";
+            echo "<td>" . date("F d, Y g:i:s A", strtotime($row['date'])) . "</td>";
+            echo "<td>" . $row['transaction no.'] . "</td>";
+            echo "<td>" . $row['customer name'] . "</td>";
+            echo "<td>" . $row['delivery address'] . "</td>";
+            echo "<td>" . $row['contact no.'] . "</td>";
+            echo "<td>" . $row['email address'] . "</td>";
+            echo "<td>" . $row['customer store name'] . "</td>";
+            echo "<td>" . $row['product code'] . "</td>";
+            echo "<td>" . $row['product name'] . "</td>";
+            echo "<td>" . $row['box quantity'] . "</td>";
+            echo "<td>" . $row['pcs per box'] . "</td>";
+            echo "<td>₱ " . number_format($row['price per box'], 2) . "</td>";
+            echo "<td>" . $row['payment method'] . "</td>";
+            echo "<td>" . $row['reference no.'] . "</td>";
+            echo "<td>₱ " . number_format($row['vat 12%'], 2) . "</td>";
+            echo "<td>₱ " . number_format($row['shipping fee'], 2) . "</td>";
+            echo "<td>₱ " . number_format($row['discount'], 2) . "</td>";
+            echo "<td>₱ " . number_format($row['total'], 2) . "</td>";;
+            echo "</tr>";
+        }
     }
 ?>
 
