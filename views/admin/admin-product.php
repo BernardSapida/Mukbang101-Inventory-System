@@ -10,7 +10,7 @@
                     <input type="text" name="search-item" id="search-item" placeholder="Search an item...">
                 </div>
                 <div class="table-responsive">
-                    <table class="">
+                    <table>
                         <thead>
                             <tr>
                                 <th>Product Code</th>
@@ -23,7 +23,7 @@
                                 <th>Action</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="table_product">
                             <tr class="empty-product"><td colspan="8">No data found</td></tr>
                             <tr>
                                 <td>21312312312</td>
@@ -50,30 +50,31 @@
     <div class="container_add-product">
         <button class="btn_x_add" id="btn_x_add">X</button>
         <h1>Add Product</h1>
-        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-            <label for="supplier">
+        <form id="add_product" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+            <div class="container_validation_add" id="container_validation_add">
+                <p></p>
+            </div>
+            <label for="product_code_add">
+                <p>Product Code</p>
+                <input type="text" name="product_code_add" id="product_code_add" placeholder="Product code" disabled>
+            </label>
+            <label for="supplier_add">
                 <p>Supplier <span>*</span></p>
-                <select name="supplier" id="supplier">
-                    <option value=""></option>
-                </select>
+                <select name="supplier_add" id="supplier_add"></select>
             </label>
-            <label for="supplier">
+            <label for="product">
                 <p>Product <span>*</span></p>
-                <select name="supplier" id="supplier">
-                    <option value=""></option>
+                <select name="product_add" id="product_add">
+                    <option value="">-- select product --</option>
                 </select>
             </label>
-            <label for="category">
+            <label for="category_add">
                 <p>Category</p>
-                <input type="text" name="category" id="category" placeholder="Product category">
+                <input type="text" name="category_add" id="category_add" placeholder="Product category" disabled>
             </label>
-            <label for="quantity">
+            <label for="quantity_add">
                 <p>Quantity <span>*</span></p>
-                <input type="text" name="quantity" id="quantity" placeholder="Quantity">
-            </label>
-            <label for="date">
-                <p>Date of Stock <span>*</span></p>
-                <input type="text" name="date" id="date" placeholder="Date">
+                <input type="text" name="quantity_add" id="quantity_add" placeholder="Quantity">
             </label>
             <button type="button" class="btn-add_product" aria-label="add product">Add Product</button>
         </form>
@@ -85,28 +86,24 @@
         <h1>Edit Product</h1>
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
             <label for="supplier">
-                <p>Supplier <span>*</span></p>
-                <select name="supplier" id="supplier">
+                <p>Supplier</p>
+                <select name="supplier_edit" id="supplier_edit" disabled>
                     <option value=""></option>
                 </select>
             </label>
             <label for="supplier">
-                <p>Product <span>*</span></p>
-                <select name="supplier" id="supplier">
+                <p>Product</p>
+                <select name="product_edit" id="product_edit" disabled>
                     <option value=""></option>
                 </select>
             </label>
             <label for="category">
                 <p>Category</p>
-                <input type="text" name="category" id="category" placeholder="Product category">
+                <input type="text" name="category_edit" id="category_edit" placeholder="Product category" disabled>
             </label>
             <label for="quantity">
                 <p>Quantity <span>*</span></p>
-                <input type="text" name="quantity" id="quantity" placeholder="Quantity">
-            </label>
-            <label for="date">
-                <p>Date of Stock <span>*</span></p>
-                <input type="text" name="date" id="date" placeholder="Date">
+                <input type="text" name="quantity_edit" id="quantity_edit" placeholder="Quantity">
             </label>
             <button type="button" class="btn-edit_product" aria-label="edit product">Add Product</button>
         </form>

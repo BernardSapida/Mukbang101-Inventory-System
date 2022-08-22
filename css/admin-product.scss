@@ -306,6 +306,20 @@ body {
                 width: 100%;
                 background-color: var(--dark-bg);
                 z-index: 1;
+
+                & .container_validation_add, & .container_validation_edit {
+                    margin-bottom: 10px;
+                    width: 100%;
+                    padding: 10px 15px;
+                    background-color: var(--red3);
+                    border-radius: 5px;
+    
+                    & > p {
+                        color: var(--light);
+                        font-weight: 400;
+                        font-size: 14px;
+                    }
+                }
         
                 & .container_add-product, & .container_edit-product {
                     position: absolute;
@@ -345,6 +359,10 @@ body {
                         & p {
                             font-size: 14px;
                             color: var(--gray);
+
+                            & span {
+                                color: var(--red2); 
+                            }
                         }
             
                         & select, & input[type="text"] {

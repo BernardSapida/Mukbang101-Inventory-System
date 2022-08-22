@@ -323,6 +323,20 @@ body .section_main main .section_add-product, body .section_main main .section_e
   z-index: 1;
 }
 
+body .section_main main .section_add-product .container_validation_add, body .section_main main .section_add-product .container_validation_edit, body .section_main main .section_edit-product .container_validation_add, body .section_main main .section_edit-product .container_validation_edit {
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 10px 15px;
+  background-color: var(--red3);
+  border-radius: 5px;
+}
+
+body .section_main main .section_add-product .container_validation_add > p, body .section_main main .section_add-product .container_validation_edit > p, body .section_main main .section_edit-product .container_validation_add > p, body .section_main main .section_edit-product .container_validation_edit > p {
+  color: var(--light);
+  font-weight: 400;
+  font-size: 14px;
+}
+
 body .section_main main .section_add-product .container_add-product, body .section_main main .section_add-product .container_edit-product, body .section_main main .section_edit-product .container_add-product, body .section_main main .section_edit-product .container_edit-product {
   position: absolute;
   top: 50%;
@@ -363,6 +377,10 @@ body .section_main main .section_add-product .container_add-product h1, body .se
 body .section_main main .section_add-product .container_add-product label p, body .section_main main .section_add-product .container_edit-product label p, body .section_main main .section_edit-product .container_add-product label p, body .section_main main .section_edit-product .container_edit-product label p {
   font-size: 14px;
   color: var(--gray);
+}
+
+body .section_main main .section_add-product .container_add-product label p span, body .section_main main .section_add-product .container_edit-product label p span, body .section_main main .section_edit-product .container_add-product label p span, body .section_main main .section_edit-product .container_edit-product label p span {
+  color: var(--red2);
 }
 
 body .section_main main .section_add-product .container_add-product label select, body .section_main main .section_add-product .container_add-product label input[type="text"], body .section_main main .section_add-product .container_edit-product label select, body .section_main main .section_add-product .container_edit-product label input[type="text"], body .section_main main .section_edit-product .container_add-product label select, body .section_main main .section_edit-product .container_add-product label input[type="text"], body .section_main main .section_edit-product .container_edit-product label select, body .section_main main .section_edit-product .container_edit-product label input[type="text"] {

@@ -3,7 +3,7 @@
 
     $db = new Database();
 
-    $result = $db -> connect("select", "admin_orders");
+    $result = $db -> connect("select", "supplier_customer");
 
     echo '<tr class="empty-transaction"><td colspan="19">No data found</td></tr>';
 
