@@ -159,9 +159,29 @@ body {
                             display: flex;
                             justify-content: space-between;
 
-                            & > h1 {
-                                font-weight: 700;
+                            & .container_title {
+                                display: flex;
+                                gap: 10px;
+
+                                & > h1 {
+                                    font-weight: 700;
+                                }
+
+                                & select {
+                                    margin-bottom: 7px;
+                                    height: 35px;
+                                    width: 150px;
+                                    padding: 2px 15px;
+                                    border-radius: 5px;
+                                    border: none;
+                                    color: var(--dark);
+                                    font-weight: 400;
+                                    font-size: 14px;
+                                    color: var(--gray);
+                                    border: .5px solid var(--border);
+                                }
                             }
+                            
 
                             & input[type="text"] {
                                 height: 35px;
@@ -245,6 +265,12 @@ body {
                                                         background-color: var(--red2);
                                                     }
                                                 }
+                                            }
+                                        }
+
+                                        &.empty-item {
+                                            & td {
+                                                text-align: center;
                                             }
                                         }
 

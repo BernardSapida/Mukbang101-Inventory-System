@@ -25,7 +25,7 @@
                         </thead>
                         <tbody class="table_product">
                             <tr class="empty-product"><td colspan="8">No data found</td></tr>
-                            <tr>
+                            <!-- <tr>
                                 <td>21312312312</td>
                                 <td>Supplier 1</td>
                                 <td>Product 1</td>
@@ -34,11 +34,11 @@
                                 <td>Php 1,500</td>
                                 <td>August 17, 2022</td>
                                 <td>
-                                    <button type="button" id="btn-order" aria-label="btn-order"><i class="fa-solid fa-box"></i> Order</button>
-                                    <button type="button" id="btn-edit" aria-label="btn-edit"><i class="fa-solid fa-pen-to-square"></i></button>
-                                    <button type="button" id="btn-delete" aria-label="btn-delete"><i class="fa-solid fa-trash-can"></i></button>
+                                    <button type="button" class="btn-order" aria-label="btn-order"><i class="fa-solid fa-box"></i> Order</button>
+                                    <button type="button" class="btn-edit" aria-label="btn-edit"><i class="fa-solid fa-pen-to-square"></i></button>
+                                    <button type="button" class="btn-delete" aria-label="btn-delete"><i class="fa-solid fa-trash-can"></i></button>
                                 </td>
-                            </tr>
+                            </tr> -->
                         </tbody>
                     </table>
                 </div>
@@ -62,7 +62,7 @@
                 <p>Supplier <span>*</span></p>
                 <select name="supplier_add" id="supplier_add"></select>
             </label>
-            <label for="product">
+            <label for="product_add">
                 <p>Product <span>*</span></p>
                 <select name="product_add" id="product_add">
                     <option value="">-- select product --</option>
@@ -76,6 +76,10 @@
                 <p>Quantity <span>*</span></p>
                 <input type="text" name="quantity_add" id="quantity_add" placeholder="Quantity">
             </label>
+            <label for="price_add">
+                <p>Product Price</p>
+                <input type="text" name="price_add" id="price_add" placeholder="Price">
+            </label>
             <button type="button" class="btn-add_product" aria-label="add product">Add Product</button>
         </form>
     </div>
@@ -84,28 +88,35 @@
     <div class="container_edit-product">
         <button class="btn_x_edit" id="btn_x_edit">X</button>
         <h1>Edit Product</h1>
-        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-            <label for="supplier">
+        <form id="edit_product" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+            <div class="container_validation_edit" id="container_validation_edit">
+                <p></p>
+            </div>
+            <label for="product_code_edit">
+                <p>Product Code</p>
+                <input type="text" name="product_code_edit" id="product_code_edit" placeholder="Product code" disabled>
+            </label>
+            <label for="supplier_edit">
                 <p>Supplier</p>
-                <select name="supplier_edit" id="supplier_edit" disabled>
-                    <option value=""></option>
-                </select>
+                <input type="text" name="supplier_edit" id="supplier_edit" placeholder="Supplier" disabled>
             </label>
-            <label for="supplier">
+            <label for="product_edit">
                 <p>Product</p>
-                <select name="product_edit" id="product_edit" disabled>
-                    <option value=""></option>
-                </select>
+                <input type="text" name="product_edit" id="product_edit" placeholder="Product" disabled>
             </label>
-            <label for="category">
+            <label for="category_edit">
                 <p>Category</p>
                 <input type="text" name="category_edit" id="category_edit" placeholder="Product category" disabled>
             </label>
-            <label for="quantity">
+            <label for="quantity_edit">
                 <p>Quantity <span>*</span></p>
                 <input type="text" name="quantity_edit" id="quantity_edit" placeholder="Quantity">
             </label>
-            <button type="button" class="btn-edit_product" aria-label="edit product">Add Product</button>
+            <label for="price_edit">
+                <p>Product Price <span>*</span></p>
+                <input type="text" name="price_edit" id="price_edit" placeholder="Price">
+            </label>
+            <button type="button" class="btn-edit_product" aria-label="edit product">Save Changes</button>
         </form>
     </div>
 </section>

@@ -4,38 +4,26 @@
     session_start();
 
     $db = new Database();
-    
-    if(isset($_POST["addedProduct"])) {
-        // retrieve supplier ID!
-        $a = $db -> connect("insert", "admin_product", array(
-            "productCode" => $_POST["productCode"],
-            "supplierName" => $_POST["supplierName"],
-            "productName" => $_POST["productName"],
-            "category" => $_POST["category"],
-            "quantity" => $_POST["quantity"],
-            "price" => $_POST["price"]
-        ));
+    $result = $db -> connect("select", "admin_product");
+    $productCode = 1;
 
-        $result = $db -> connect("select", "admin_product");
-
-        echo '<tr class="empty-product"><td colspan="8">No data found</td></tr>';
+    echo '<tr class="empty-product"><td colspan="8">No data found</td></tr>';
     
-        forEach($result as $database => $row){
-            echo "<tr data=" . $row['product code'] . " class='" . (($row['quantity'] <= 10) ? "danger" : "")  . "'>";
-            echo "<td>" . $row['product code'] . "</td>";
-            echo "<td>" . $row['supplier name'] . "</td>";
-            echo "<td>" . $row['product name'] . "</td>";
-            echo "<td>" . $row['category'] . "</td>";
-            echo "<td>" . $row['quantity'] . "</td>";
-            echo "<td>₱ " . number_format($row['price'], 2) . "</td>";
-            echo "<td>" . date("F d, Y", strtotime($row['date of stock'])) . "</td>";
-            echo '<td>
-                    <button type="button" class="btn-order" aria-label="btn-order"><i class="fa-solid fa-box"></i> Order</button>
-                    <button type="button" class="btn-edit" aria-label="btn-edit"><i class="fa-solid fa-pen-to-square"></i></button>
-                    <button type="button" class="btn-delete" aria-label="btn-delete"><i class="fa-solid fa-trash-can"></i></button>
-                </td>';
-            echo "</tr>";
-        }
+    forEach($result as $database => $row){
+        echo "<tr data=" . $row['product code'] . " class='" . (($row['quantity'] <= 10) ? "danger" : "")  . "'>";
+        echo "<td>" . $row['product code'] . "</td>";
+        echo "<td>" . $row['supplier name'] . "</td>";
+        echo "<td>" . $row['product name'] . "</td>";
+        echo "<td>" . $row['category'] . "</td>";
+        echo "<td>" . $row['quantity'] . "</td>";
+        echo "<td>₱ " . number_format(intval($row['price']), 2) . "</td>";
+        echo "<td>" . date("F d, Y", strtotime($row['date of stock'])) . "</td>";
+        echo '<td>
+                <button type="button" class="btn-order" aria-label="btn-order"><i class="fa-solid fa-box"></i> Order</button>
+                <button type="button" class="btn-edit" aria-label="btn-edit"><i class="fa-solid fa-pen-to-square"></i></button>
+                <button type="button" class="btn-delete" aria-label="btn-delete"><i class="fa-solid fa-trash-can"></i></button>
+            </td>';
+        echo "</tr>";
     }
 ?>
 

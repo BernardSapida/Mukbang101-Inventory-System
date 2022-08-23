@@ -246,7 +246,7 @@ body {
                                             font-size: 12px;
 
                                             &:last-child {
-                                                & #btn-order, & #btn-edit, & #btn-delete {
+                                                & .btn-order, & .btn-edit, & .btn-delete {
                                                     padding: 5px 10px;
                                                     border: none;
                                                     border-radius: 5px;
@@ -256,7 +256,7 @@ body {
                                                     transition: all 350ms ease;
                                                 }
 
-                                                & #btn-order {
+                                                & .btn-order {
                                                     background-color: var(--blue);
                                                     
                                                     &:hover { 
@@ -264,7 +264,7 @@ body {
                                                     }
                                                 }
 
-                                                & #btn-edit {
+                                                & .btn-edit {
                                                     background-color: var(--dark);
                                                     
                                                     &:hover { 
@@ -272,7 +272,7 @@ body {
                                                     }
                                                 }
 
-                                                & #btn-delete {
+                                                & .btn-delete {
                                                     background-color: var(--red1);
                                                     
                                                     &:hover { 

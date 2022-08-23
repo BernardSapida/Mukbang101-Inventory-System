@@ -183,13 +183,14 @@ body {
                             align-items: center;
                             justify-content: center;
                             flex-direction: column;
+                            transition: all 350ms ease;
                             cursor: pointer;
 
                             &:hover {
-                                color: var(--dark-blue);
+                                color: var(--purple);
 
                                 & .icons {
-                                    border: 2px solid var(--dark-blue);
+                                    border: 2px solid var(--purple-lighten);
                                 }
                             }
 

@@ -1,5 +1,10 @@
-<?php require_once "../includes/admin-view-restriction.inc.php"; ?>
-
+<?php
+  require_once "../includes/admin-view-restriction.inc.php"; 
+  
+  if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -22,7 +27,7 @@
             <p>MAIN NAVIGATION</p>
             <ul>
                 <li><a class="<?php echo strcmp($current_page, "admin-dashboard") && !empty($current_page) ? "" : "active"; ?>" href="admin.php?page=admin-dashboard" aria-label="dashboard-link"><i class="fa-solid fa-gauge-high"></i> Dashboard</a></li>
-                <li><a class="<?php echo strcmp($current_page, "admin-product") ? "" : "active"; ?>" href="admin.php?page=admin-product" aria-label="product-link"><i class="fa-brands fa-product-hunt"></i> Product</a></li>
+                <li><a class="<?php echo (strcmp($current_page, "admin-product") && strcmp($current_page, "admin-checkout")) ? "" : "active"; ?>" href="admin.php?page=admin-product" aria-label="product-link"><i class="fa-brands fa-product-hunt"></i> Product</a></li>
                 <li><a class="<?php echo strcmp($current_page, "admin-sales_invoice") ? "" : "active"; ?>" href="admin.php?page=admin-sales_invoice" aria-label="sales-link"><i class="fa-solid fa-file-circle-check"></i> Sales Report</a></li>
                 <li><a class="<?php echo strcmp($current_page, "admin-transaction_sales") ? "" : "active"; ?>" href="admin.php?page=admin-transaction_sales" aria-label="sales-link"><i class="fa-solid fa-file-invoice"></i> Receipt Record</a></li>
                 <li><a class="<?php echo strcmp($current_page, "admin-transaction") ? "" : "active"; ?>" href="admin.php?page=admin-transaction" aria-label="transaction-link"><i class="fa-solid fa-peso-sign"></i> Transaction</a></li>
@@ -38,7 +43,7 @@
             <div class="container-profile">
                 <img src="../profile/<?php echo $_SESSION['image']; ?>" alt="admin profile">
                 <div class="container-label">
-                    <p>Administrator</p>
+                    <p id="header-name"><?php echo $_SESSION['store name']; ?></p>
                     <p><span></span> Online</p>
                 </div>
                 <i class="fa-solid fa-caret-down"></i>

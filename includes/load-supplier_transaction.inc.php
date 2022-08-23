@@ -10,7 +10,7 @@
     echo '<tr class="empty"><td colspan="20">No data found</td></tr>';
     
     forEach($result as $database => $row){
-        if(strcmp($row['supplier uid'], $_SESSION["uid"]) == 0) {
+        if(strcmp($row['supplier name'], $_SESSION["supplier store name"]) == 0) {
             echo "<tr data='" . $row['transaction no.'] . "'>";
             echo "<td>" . date("F d, Y g:i:s A", strtotime($row['date'])) . "</td>";
             echo "<td>" . $row['transaction no.'] . "</td>";

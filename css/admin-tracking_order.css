@@ -213,15 +213,17 @@ body .section_main main .container_main .container-tracking_order .container_tra
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-transition: all 350ms ease;
+  transition: all 350ms ease;
   cursor: pointer;
 }
 
 body .section_main main .container_main .container-tracking_order .container_tracking-icons .container-icon:hover {
-  color: var(--dark-blue);
+  color: var(--purple);
 }
 
 body .section_main main .container_main .container-tracking_order .container_tracking-icons .container-icon:hover .icons {
-  border: 2px solid var(--dark-blue);
+  border: 2px solid var(--purple-lighten);
 }
 
 body .section_main main .container_main .container-tracking_order .container_tracking-icons .container-icon .itemsNo {

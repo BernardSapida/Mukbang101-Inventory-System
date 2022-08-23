@@ -3,40 +3,40 @@
 
     switch($current_page) {
         case "admin-dashboard":
-            echo file_get_contents('admin/admin-dashboard.php');
+            require_once "admin/admin-dashboard.php";
             break;
         case "admin-product":
-            echo file_get_contents('admin/admin-product.php');
-            break;
-        case "admin-sales_invoice":
-            echo file_get_contents('admin/admin-sales_invoice.php');
-            break;
-        case "admin-receipt_record":
-            echo file_get_contents('admin/admin-transaction_sales.php');
-            break;
-        case "admin-transaction":
-            echo file_get_contents('admin/admin-transaction.php');
-            break;
-        case "admin-supplier":
-            echo file_get_contents('admin/admin-supplier.php');
-            break;
-        case "admin-tracking_orders":
-            echo file_get_contents('admin/admin-tracking_orders.php');
-            break;
-        case "admin-account":
-            echo file_get_contents('admin/admin-account.php');
-            break;
-        case "admin-tracking_table":
-            echo file_get_contents('admin/admin-tracking_table.php');
-            break;
-        case "admin-transaction_sales":
-            echo file_get_contents('admin/admin-transaction_sales.php');
+            require_once "admin/admin-product.php";
             break;
         case "admin-checkout":
-            echo file_get_contents('admin/admin-checkout.php');
+            require_once "admin/admin-checkout.php";
+            break;
+        case "admin-sales_invoice":
+            require_once "admin/admin-sales_invoice.php";
+            break;
+        case "admin-receipt_record":
+            require_once "admin/admin-transaction_sales.php";
+            break;
+        case "admin-transaction":
+            require_once "admin/admin-transaction.php";
+            break;
+        case "admin-supplier":
+            require_once "admin/admin-supplier.php";
+            break;
+        case "admin-tracking_orders":
+            require_once "admin/admin-tracking_orders.php";
+            break;
+        case "admin-account":
+            require_once "admin/admin-account.php";
+            break;
+        case "admin-tracking_table":
+            require_once "admin/admin-tracking_table.php";
+            break;
+        case "admin-transaction_sales":
+            require_once "admin/admin-transaction_sales.php";
             break;
         default:
-            echo file_get_contents('admin/admin-dashboard.php');
+            require_once "admin/admin-dashboard.php";
             break;
     }
 ?>

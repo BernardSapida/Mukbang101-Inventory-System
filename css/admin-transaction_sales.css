@@ -163,31 +163,6 @@ body .section_main main .container_main .container_table-products .table_transac
   width: 100%;
 }
 
-body .section_main main .container_main .container_table-products .table_transaction-sales .container-btn {
-  margin-bottom: 15px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-}
-
-body .section_main main .container_main .container_table-products .table_transaction-sales .container-btn > button {
-  padding: 5px 15px;
-  background-color: var(--dark);
-  color: var(--light);
-  border: none;
-  border-radius: 3px;
-  -webkit-transition: all 350ms ease;
-  transition: all 350ms ease;
-  cursor: pointer;
-}
-
-body .section_main main .container_main .container_table-products .table_transaction-sales .container-btn > button:hover {
-  background-color: var(--dark-blue);
-}
-
 body .section_main main .container_main .container_table-products .table_transaction-sales .container_table-title {
   display: -webkit-box;
   display: -ms-flexbox;

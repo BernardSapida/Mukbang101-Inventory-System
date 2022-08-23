@@ -171,7 +171,6 @@ body .section_main main .container_main .container_table-supplier .table_supplie
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -227,8 +226,8 @@ body .section_main main .container_main .container_table-supplier .table_supplie
   color: var(--secondary-dark);
 }
 
-body .section_main main .container_main .container_table-supplier .table_supplier .table-responsive table tbody tr.danger {
-  background-color: var(--red5);
+body .section_main main .container_main .container_table-supplier .table_supplier .table-responsive table tbody tr.empty-supplier td {
+  text-align: center;
 }
 
 body .section_main main .container_main .container_table-supplier .table_supplier .table-responsive table tbody tr td {
@@ -242,7 +241,7 @@ body .section_main main .container_main .container_table-supplier .table_supplie
   border-radius: 5px;
 }
 
-body .section_main main .container_main .container_table-supplier .table_supplier .table-responsive table tbody tr td:last-child #btn-view {
+body .section_main main .container_main .container_table-supplier .table_supplier .table-responsive table tbody tr td:last-child .btn-view {
   padding: 5px 10px;
   border: none;
   border-radius: 5px;
@@ -254,7 +253,7 @@ body .section_main main .container_main .container_table-supplier .table_supplie
   transition: all 350ms ease;
 }
 
-body .section_main main .container_main .container_table-supplier .table_supplier .table-responsive table tbody tr td:last-child #btn-view:hover {
+body .section_main main .container_main .container_table-supplier .table_supplier .table-responsive table tbody tr td:last-child .btn-view:hover {
   background-color: var(--blue);
 }
 
@@ -373,7 +372,11 @@ body .section_main main .section_view-products .container_table-view .table_view
 }
 
 body .section_main main .section_view-products .container_table-view .table_view-products .table-responsive table tbody tr.danger {
-  background-color: var(--red5);
+  background-color: var(--red5) !important;
+}
+
+body .section_main main .section_view-products .container_table-view .table_view-products .table-responsive table tbody tr.empty-product td {
+  text-align: center;
 }
 
 body .section_main main .section_view-products .container_table-view .table_view-products .table-responsive table tbody tr td {
@@ -387,7 +390,7 @@ body .section_main main .section_view-products .container_table-view .table_view
   border-radius: 5px;
 }
 
-body .section_main main .section_view-products .container_table-view .table_view-products .table-responsive table tbody tr td:last-child #btn-view {
+body .section_main main .section_view-products .container_table-view .table_view-products .table-responsive table tbody tr td:last-child .btn-view {
   padding: 5px 10px;
   border: none;
   border-radius: 5px;
@@ -399,7 +402,7 @@ body .section_main main .section_view-products .container_table-view .table_view
   transition: all 350ms ease;
 }
 
-body .section_main main .section_view-products .container_table-view .table_view-products .table-responsive table tbody tr td:last-child #btn-view:hover {
+body .section_main main .section_view-products .container_table-view .table_view-products .table-responsive table tbody tr td:last-child .btn-view:hover {
   background-color: var(--blue);
 }
 

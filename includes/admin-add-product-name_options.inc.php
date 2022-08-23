@@ -4,8 +4,7 @@
     session_start();
 
     $db = new Database();
-    $supplier = $db -> connect("select", "accounts", "supplier store name", $_POST["selectedSupplier"]);
-    $result = $db -> connect("select", "supplier_product", array("supplierUID" => $supplier["uid"]));
+    $result = $db -> connect("select", "supplier_product", array("supplierName" => $_POST["selectedSupplier"]));
     
     echo "<option value=''>-- select product --</option>";
 

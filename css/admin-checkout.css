@@ -195,6 +195,20 @@ body .section_main main .container_main .container_title > button:hover {
   background-color: var(--dark-blue);
 }
 
+body .section_main main .container_main .container_validation {
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 10px 15px;
+  background-color: var(--red3);
+  border-radius: 5px;
+}
+
+body .section_main main .container_main .container_validation > p {
+  color: var(--light);
+  font-weight: 400;
+  font-size: 14px;
+}
+
 body .section_main main .container_main .container_form {
   padding: 40px;
   width: 100%;
@@ -244,15 +258,20 @@ body .section_main main .container_main .container_form form .container_details 
   color: var(--red2);
 }
 
-body .section_main main .container_main .container_form form .container_details .container_contact-details label input[type="text"], body .section_main main .container_main .container_form form .container_details .container_supplier-details label input[type="text"] {
+body .section_main main .container_main .container_form form .container_details .container_contact-details label input[type="text"], body .section_main main .container_main .container_form form .container_details .container_contact-details label input[type="number"], body .section_main main .container_main .container_form form .container_details .container_supplier-details label input[type="text"], body .section_main main .container_main .container_form form .container_details .container_supplier-details label input[type="number"] {
   width: 100%;
   padding: 5px 15px;
   border-radius: 5px;
   border: none;
-  color: var(--dark);
   font-weight: 400;
   font-size: 14px;
   border: 0.5px solid var(--border);
+  color: var(--gray);
+}
+
+body .section_main main .container_main .container_form form .container_details .container_contact-details label input[type="text"]::-webkit-outer-spin-button, body .section_main main .container_main .container_form form .container_details .container_contact-details label input[type="text"]::-webkit-inner-spin-button, body .section_main main .container_main .container_form form .container_details .container_contact-details label input[type="number"]::-webkit-outer-spin-button, body .section_main main .container_main .container_form form .container_details .container_contact-details label input[type="number"]::-webkit-inner-spin-button, body .section_main main .container_main .container_form form .container_details .container_supplier-details label input[type="text"]::-webkit-outer-spin-button, body .section_main main .container_main .container_form form .container_details .container_supplier-details label input[type="text"]::-webkit-inner-spin-button, body .section_main main .container_main .container_form form .container_details .container_supplier-details label input[type="number"]::-webkit-outer-spin-button, body .section_main main .container_main .container_form form .container_details .container_supplier-details label input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 body .section_main main .container_main .container_form form .container_payment {
@@ -372,7 +391,7 @@ body .section_main main .container_main .container_form form .container_payment 
   padding: 5px 15px;
   border-radius: 5px;
   border: none;
-  color: var(--dark);
+  color: var(--gray);
   font-weight: 400;
   font-size: 14px;
   border: 0.5px solid var(--border);
@@ -443,5 +462,12 @@ body .section_main main .container_main .container_form form button {
   font-weight: 400;
   font-size: 14px;
   color: var(--light);
+  -webkit-transition: all 350ms ease;
+  transition: all 350ms ease;
+  cursor: pointer;
+}
+
+body .section_main main .container_main .container_form form button:hover {
+  background-color: var(--purple-lighten);
 }
 /*# sourceMappingURL=admin-checkout.css.map */

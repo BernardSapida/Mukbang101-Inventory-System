@@ -10,6 +10,8 @@
     $err_password = "";
     $errArray = array();
 
+    $result = $db -> connect("select", "accounts", "email", "admin@gmail.com");
+
     if(isset($_POST["signin"])) {
         $email = $_POST["email"];
         $password = $_POST["password"];
@@ -30,7 +32,7 @@
                     $_SESSION["lastname"] = $result['lastname'];
                     $_SESSION["email"] = $result['email'];
                     $_SESSION["address"] = $result['address'];
-                    $_SESSION["supplier store name"] = $result['supplier store name'];
+                    $_SESSION["store name"] = $result['store name'];
                     $_SESSION["contact no."] = $result['contact no.'];
                     $_SESSION["password"] = $result['password'];
                     $_SESSION["type"] = $result['type'];

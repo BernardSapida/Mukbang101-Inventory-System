@@ -42,7 +42,7 @@
                     <thead>
                         <tr>
                             <th>Product Code</th>
-                            <th>Name</th>
+                            <th>Product Name</th>
                             <th>Category</th>
                             <th>Quantity</th>
                         </tr>
@@ -62,10 +62,10 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Date</th>
+                            <th>Datetime</th>
                             <th>Transaction No.</th>
-                            <th>Supplier</th>
-                            <th>Product</th>
+                            <th>Supplier Name</th>
+                            <th>Product Name</th>
                             <th>Quantity</th>
                             <th>Total Amount</th>
                         </tr>

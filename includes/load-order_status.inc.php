@@ -10,7 +10,7 @@
     echo '<tr class="empty-item"><td colspan="19">No data found</td></tr>';
 
     forEach($result as $database => $row){
-        if(strcmp($row['supplier uid'], $_SESSION["uid"]) == 0) {
+        if(strcmp($row['supplier name'], $_SESSION["supplier store name"]) == 0) {
             echo "<tr data='" . $row['transaction no.'] . "'>";
             echo "<td>" . date("F d, Y g:i:s A", strtotime($row['date'])) . "</td>";
             echo "<td>" . $row['transaction no.'] . "</td>";
@@ -99,8 +99,7 @@
                     status: $(this).val()
                 },
                 success: function(result, status, xhr) {
-                    console.log(result);
-                    console.log(status);
+                    // console.log(result);
                 }
             });
         });

@@ -11,10 +11,10 @@
         echo "<tr>";
         echo "<td>" . date("F d, Y g:i:s A", strtotime($row['date'])) . "</td>";
         echo "<td>" . $row['transaction no.'] . "</td>";
+        echo "<td>" . $row['supplier name'] . "</td>";
         echo "<td>" . $row['product name'] . "</td>";
         echo "<td>" . $row['box quantity'] . "</td>";
-        echo "<td>" . $row['total'] . "</td>";
-        echo '<td>$row["order status"]</td>';
+        echo "<td>₱ " . number_format($row['total'], 2) . "</td>";
         echo "</tr>";
     }
 ?>

@@ -1,12 +1,15 @@
 <div class="container_main">
     <h1>Sales Invoice</h1>
     <div class="container_form">
-        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+        <form id="form_receipt" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+            <div class="container_validation" id="container_validation">
+                <p></p>
+            </div>
             <div class="container_details">
                 <div class="container_contact-details">
                     <h1>Receipt</h1>
-                    <p>Reference No.: 938127123</p>
-                    <p>Date: August 17, 2022</p>
+                    <p>Reference No.: <span id="referenceNo"></span></p>
+                    <p>Date: <span id="date"></span></p>
                 </div>
                 <div class="container_banner">
                     <img src="../images/banner1.jpg" alt="banner image">
@@ -22,35 +25,26 @@
                             <td>Action</td>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td><input type="text" name="product_name1" id="product_name1" placeholder="Product Name"></td>
-                            <td><input type="text" name="quantity1" id="quantity1" placeholder="Quantity"></td>
-                            <td><input type="text" name="price1" id="price1" placeholder="Price"></td>
-                            <td>
-                                <button type="button" class="btn-delete" aria-label="delete"><i class="fa-solid fa-trash-can"></i></button>
-                            </td>
-                        </tr>
-                    </tbody>
+                    <tbody class="sales_receipt"></tbody>
                 </table>
             </div>
             <button type="button" id="btn-add" aria-label="add product"><i class="fa-solid fa-circle-plus"></i> Add Product</button>
             <div class="container_payment">
                 <div class="container_amount">
                     <p>Sub. Total:</p>
-                    <p>Php 1,500.00</p>
+                    <p>Php <span id="subTotal">0</span></p>
                 </div>
                 <div class="container_amount">
                     <p>VAT 12%:</p>
-                    <p>Php 1,500.00</p>
+                    <p>Php <span id="vat">0</span></p>
                 </div>
                 <div class="container_amount">
                     <p>Discount:</p>
-                    <p>Php 1,500.00</p>
+                    <input type="number" name="discount" id="discount">
                 </div>
                 <div class="container_amount">
                     <p>Total Amount:</p>
-                    <p>Php 1,500.00</p>
+                    <p>Php <span id="totalAmount">0</span></p>
                 </div>
                 <div class="container_button">
                     <button type="button" id="btn-submit" aria-label="submit"><i class="fa-solid fa-paper-plane"></i> Submit</button>

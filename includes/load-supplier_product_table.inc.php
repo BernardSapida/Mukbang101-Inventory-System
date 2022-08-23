@@ -39,7 +39,6 @@
                 },
                 success: function(result, status, xhr) {
                     $(`tr[data = ${productCode}]`).remove();
-                    console.log($("table tbody tr").length);
                     if($("table tbody tr").length == 1) {
                         $(".empty-product td").text("Empty table");
                         $(".empty-product").show();

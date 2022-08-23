@@ -269,7 +269,7 @@ body .section_main main .container_main .container_table-products .product_table
   font-size: 12px;
 }
 
-body .section_main main .container_main .container_table-products .product_table .table-responsive table tbody tr td:last-child #btn-order, body .section_main main .container_main .container_table-products .product_table .table-responsive table tbody tr td:last-child #btn-edit, body .section_main main .container_main .container_table-products .product_table .table-responsive table tbody tr td:last-child #btn-delete {
+body .section_main main .container_main .container_table-products .product_table .table-responsive table tbody tr td:last-child .btn-order, body .section_main main .container_main .container_table-products .product_table .table-responsive table tbody tr td:last-child .btn-edit, body .section_main main .container_main .container_table-products .product_table .table-responsive table tbody tr td:last-child .btn-delete {
   padding: 5px 10px;
   border: none;
   border-radius: 5px;
@@ -280,27 +280,27 @@ body .section_main main .container_main .container_table-products .product_table
   transition: all 350ms ease;
 }
 
-body .section_main main .container_main .container_table-products .product_table .table-responsive table tbody tr td:last-child #btn-order {
+body .section_main main .container_main .container_table-products .product_table .table-responsive table tbody tr td:last-child .btn-order {
   background-color: var(--blue);
 }
 
-body .section_main main .container_main .container_table-products .product_table .table-responsive table tbody tr td:last-child #btn-order:hover {
+body .section_main main .container_main .container_table-products .product_table .table-responsive table tbody tr td:last-child .btn-order:hover {
   background-color: var(--blue-darken);
 }
 
-body .section_main main .container_main .container_table-products .product_table .table-responsive table tbody tr td:last-child #btn-edit {
+body .section_main main .container_main .container_table-products .product_table .table-responsive table tbody tr td:last-child .btn-edit {
   background-color: var(--dark);
 }
 
-body .section_main main .container_main .container_table-products .product_table .table-responsive table tbody tr td:last-child #btn-edit:hover {
+body .section_main main .container_main .container_table-products .product_table .table-responsive table tbody tr td:last-child .btn-edit:hover {
   background-color: var(--dark-blue);
 }
 
-body .section_main main .container_main .container_table-products .product_table .table-responsive table tbody tr td:last-child #btn-delete {
+body .section_main main .container_main .container_table-products .product_table .table-responsive table tbody tr td:last-child .btn-delete {
   background-color: var(--red1);
 }
 
-body .section_main main .container_main .container_table-products .product_table .table-responsive table tbody tr td:last-child #btn-delete:hover {
+body .section_main main .container_main .container_table-products .product_table .table-responsive table tbody tr td:last-child .btn-delete:hover {
   background-color: var(--red2);
 }
 

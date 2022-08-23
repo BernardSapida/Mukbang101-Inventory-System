@@ -3,7 +3,7 @@
         <div class="table_supplier">
             <div class="container_table-title">
                 <h1>Supplier</h1>
-                <input type="text" name="search-item" id="search-item" placeholder="Search an item...">
+                <input type="text" name="search-supplier" id="search-supplier" placeholder="Search an item...">
             </div>
             <div class="table-responsive">
                 <table>
@@ -18,151 +18,7 @@
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td><img src="../images/admin.jpg" alt="supplier profile"></td>
-                            <td>Lucky Me</td>
-                            <td>Bernard Sapida</td>
-                            <td>LuckyMe@gmail.com</td>
-                            <td>09472126029</td>
-                            <td>B12 L24 Phase-C The Istana Subd. Malagasang 1-F, City of Imus, Cavite</td>
-                            <td>
-                                <button id="btn-view" aria-label="btn-view"><i class="fa-solid fa-bag-shopping"></i> View Products</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><img src="../images/admin.jpg" alt="supplier profile"></td>
-                            <td>Lucky Me</td>
-                            <td>Bernard Sapida</td>
-                            <td>LuckyMe@gmail.com</td>
-                            <td>09472126029</td>
-                            <td>B12 L24 Phase-C The Istana Subd. Malagasang 1-F, City of Imus, Cavite</td>
-                            <td>
-                                <button id="btn-view" aria-label="btn-view"><i class="fa-solid fa-bag-shopping"></i> View Products</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><img src="../images/admin.jpg" alt="supplier profile"></td>
-                            <td>Lucky Me</td>
-                            <td>Bernard Sapida</td>
-                            <td>LuckyMe@gmail.com</td>
-                            <td>09472126029</td>
-                            <td>B12 L24 Phase-C The Istana Subd. Malagasang 1-F, City of Imus, Cavite</td>
-                            <td>
-                                <button id="btn-view" aria-label="btn-view"><i class="fa-solid fa-bag-shopping"></i> View Products</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><img src="../images/admin.jpg" alt="supplier profile"></td>
-                            <td>Lucky Me</td>
-                            <td>Bernard Sapida</td>
-                            <td>LuckyMe@gmail.com</td>
-                            <td>09472126029</td>
-                            <td>B12 L24 Phase-C The Istana Subd. Malagasang 1-F, City of Imus, Cavite</td>
-                            <td>
-                                <button id="btn-view" aria-label="btn-view"><i class="fa-solid fa-bag-shopping"></i> View Products</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><img src="../images/admin.jpg" alt="supplier profile"></td>
-                            <td>Lucky Me</td>
-                            <td>Bernard Sapida</td>
-                            <td>LuckyMe@gmail.com</td>
-                            <td>09472126029</td>
-                            <td>B12 L24 Phase-C The Istana Subd. Malagasang 1-F, City of Imus, Cavite</td>
-                            <td>
-                                <button id="btn-view" aria-label="btn-view"><i class="fa-solid fa-bag-shopping"></i> View Products</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><img src="../images/admin.jpg" alt="supplier profile"></td>
-                            <td>Lucky Me</td>
-                            <td>Bernard Sapida</td>
-                            <td>LuckyMe@gmail.com</td>
-                            <td>09472126029</td>
-                            <td>B12 L24 Phase-C The Istana Subd. Malagasang 1-F, City of Imus, Cavite</td>
-                            <td>
-                                <button id="btn-view" aria-label="btn-view"><i class="fa-solid fa-bag-shopping"></i> View Products</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><img src="../images/admin.jpg" alt="supplier profile"></td>
-                            <td>Lucky Me</td>
-                            <td>Bernard Sapida</td>
-                            <td>LuckyMe@gmail.com</td>
-                            <td>09472126029</td>
-                            <td>B12 L24 Phase-C The Istana Subd. Malagasang 1-F, City of Imus, Cavite</td>
-                            <td>
-                                <button id="btn-view" aria-label="btn-view"><i class="fa-solid fa-bag-shopping"></i> View Products</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><img src="../images/admin.jpg" alt="supplier profile"></td>
-                            <td>Lucky Me</td>
-                            <td>Bernard Sapida</td>
-                            <td>LuckyMe@gmail.com</td>
-                            <td>09472126029</td>
-                            <td>B12 L24 Phase-C The Istana Subd. Malagasang 1-F, City of Imus, Cavite</td>
-                            <td>
-                                <button id="btn-view" aria-label="btn-view"><i class="fa-solid fa-bag-shopping"></i> View Products</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><img src="../images/admin.jpg" alt="supplier profile"></td>
-                            <td>Lucky Me</td>
-                            <td>Bernard Sapida</td>
-                            <td>LuckyMe@gmail.com</td>
-                            <td>09472126029</td>
-                            <td>B12 L24 Phase-C The Istana Subd. Malagasang 1-F, City of Imus, Cavite</td>
-                            <td>
-                                <button id="btn-view" aria-label="btn-view"><i class="fa-solid fa-bag-shopping"></i> View Products</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><img src="../images/admin.jpg" alt="supplier profile"></td>
-                            <td>Lucky Me</td>
-                            <td>Bernard Sapida</td>
-                            <td>LuckyMe@gmail.com</td>
-                            <td>09472126029</td>
-                            <td>B12 L24 Phase-C The Istana Subd. Malagasang 1-F, City of Imus, Cavite</td>
-                            <td>
-                                <button id="btn-view" aria-label="btn-view"><i class="fa-solid fa-bag-shopping"></i> View Products</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><img src="../images/admin.jpg" alt="supplier profile"></td>
-                            <td>Lucky Me</td>
-                            <td>Bernard Sapida</td>
-                            <td>LuckyMe@gmail.com</td>
-                            <td>09472126029</td>
-                            <td>B12 L24 Phase-C The Istana Subd. Malagasang 1-F, City of Imus, Cavite</td>
-                            <td>
-                                <button id="btn-view" aria-label="btn-view"><i class="fa-solid fa-bag-shopping"></i> View Products</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><img src="../images/admin.jpg" alt="supplier profile"></td>
-                            <td>Lucky Me</td>
-                            <td>Bernard Sapida</td>
-                            <td>LuckyMe@gmail.com</td>
-                            <td>09472126029</td>
-                            <td>B12 L24 Phase-C The Istana Subd. Malagasang 1-F, City of Imus, Cavite</td>
-                            <td>
-                                <button id="btn-view" aria-label="btn-view"><i class="fa-solid fa-bag-shopping"></i> View Products</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><img src="../images/admin.jpg" alt="supplier profile"></td>
-                            <td>Lucky Me</td>
-                            <td>Bernard Sapida</td>
-                            <td>LuckyMe@gmail.com</td>
-                            <td>09472126029</td>
-                            <td>B12 L24 Phase-C The Istana Subd. Malagasang 1-F, City of Imus, Cavite</td>
-                            <td>
-                                <button id="btn-view" aria-label="btn-view"><i class="fa-solid fa-bag-shopping"></i> View Products</button>
-                            </td>
-                        </tr>
-                    </tbody>
+                    <tbody class="supplier_informations"></tbody>
                 </table>
             </div>
         </div>
@@ -172,7 +28,7 @@
     <div class="container_table-view">
         <div class="table_view-products">
             <div class="container_table-title">
-                <h1>Lucky Me</h1>
+                <h1 id="storeName"></h1>
                 <input type="text" name="search-product" id="search-product" placeholder="Search a product...">
             </div>
             <div class="table-responsive">
@@ -186,127 +42,7 @@
                             <th>Price per box</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>1590312031720</td>
-                            <td>Pancit Canton - Calamansi Flavor</td>
-                            <td>255</td>
-                            <td>70</td>
-                            <td>Php 1,000.00</td>
-                        </tr>
-                        <tr>
-                            <td>1590312031720</td>
-                            <td>Pancit Canton - Calamansi Flavor</td>
-                            <td>255</td>
-                            <td>70</td>
-                            <td>Php 1,000.00</td>
-                        </tr>
-                        <tr>
-                            <td>1590312031720</td>
-                            <td>Pancit Canton - Calamansi Flavor</td>
-                            <td>255</td>
-                            <td>70</td>
-                            <td>Php 1,000.00</td>
-                        </tr>
-                        <tr>
-                            <td>1590312031720</td>
-                            <td>Pancit Canton - Calamansi Flavor</td>
-                            <td>255</td>
-                            <td>70</td>
-                            <td>Php 1,000.00</td>
-                        </tr>
-                        <tr>
-                            <td>1590312031720</td>
-                            <td>Pancit Canton - Calamansi Flavor</td>
-                            <td>255</td>
-                            <td>70</td>
-                            <td>Php 1,000.00</td>
-                        </tr>
-                        <tr>
-                            <td>1590312031720</td>
-                            <td>Pancit Canton - Calamansi Flavor</td>
-                            <td>255</td>
-                            <td>70</td>
-                            <td>Php 1,000.00</td>
-                        </tr>
-                        <tr>
-                            <td>1590312031720</td>
-                            <td>Pancit Canton - Calamansi Flavor</td>
-                            <td>255</td>
-                            <td>70</td>
-                            <td>Php 1,000.00</td>
-                        </tr>
-                        <tr>
-                            <td>1590312031720</td>
-                            <td>Pancit Canton - Calamansi Flavor</td>
-                            <td>255</td>
-                            <td>70</td>
-                            <td>Php 1,000.00</td>
-                        </tr>
-                        <tr>
-                            <td>1590312031720</td>
-                            <td>Pancit Canton - Calamansi Flavor</td>
-                            <td>255</td>
-                            <td>70</td>
-                            <td>Php 1,000.00</td>
-                        </tr>
-                        <tr>
-                            <td>1590312031720</td>
-                            <td>Pancit Canton - Calamansi Flavor</td>
-                            <td>255</td>
-                            <td>70</td>
-                            <td>Php 1,000.00</td>
-                        </tr>
-                        <tr>
-                            <td>1590312031720</td>
-                            <td>Pancit Canton - Calamansi Flavor</td>
-                            <td>255</td>
-                            <td>70</td>
-                            <td>Php 1,000.00</td>
-                        </tr>
-                        <tr>
-                            <td>1590312031720</td>
-                            <td>Pancit Canton - Calamansi Flavor</td>
-                            <td>255</td>
-                            <td>70</td>
-                            <td>Php 1,000.00</td>
-                        </tr>
-                        <tr>
-                            <td>1590312031720</td>
-                            <td>Pancit Canton - Calamansi Flavor</td>
-                            <td>255</td>
-                            <td>70</td>
-                            <td>Php 1,000.00</td>
-                        </tr>
-                        <tr>
-                            <td>1590312031720</td>
-                            <td>Pancit Canton - Calamansi Flavor</td>
-                            <td>255</td>
-                            <td>70</td>
-                            <td>Php 1,000.00</td>
-                        </tr>
-                        <tr>
-                            <td>1590312031720</td>
-                            <td>Pancit Canton - Calamansi Flavor</td>
-                            <td>255</td>
-                            <td>70</td>
-                            <td>Php 1,000.00</td>
-                        </tr>
-                        <tr>
-                            <td>1590312031720</td>
-                            <td>Pancit Canton - Calamansi Flavor</td>
-                            <td>255</td>
-                            <td>70</td>
-                            <td>Php 1,000.00</td>
-                        </tr>
-                        <tr>
-                            <td>1590312031720</td>
-                            <td>Pancit Canton - Calamansi Flavor</td>
-                            <td>255</td>
-                            <td>70</td>
-                            <td>Php 1,000.00</td>
-                        </tr>
-                    </tbody>
+                    <tbody class="supplier_products"></tbody>
                 </table>
             </div>
         </div>

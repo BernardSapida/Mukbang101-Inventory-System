@@ -7,7 +7,7 @@
     
     if(isset($_POST["addedProduct"])) {
         $db -> connect("insert", "supplier_product", array(
-            "supplierUID" => $_SESSION["uid"],
+            "supplierName" => $_SESSION["supplier store name"],
             "productCode" => $_POST["productCode"],
             "productName" => $_POST["productName"],
             "category" => $_POST["category"],

@@ -43,7 +43,7 @@
             "lastname" => $_POST["lastname"],
             "email" => $_POST["email"],
             "address" => $_POST["store_address"],
-            "supplier store name" => $_POST["supplier_store_name"],
+            "store name" => $_POST["store_name"],
             "contact no." => $_POST["contact_number"],
             "type" => $_SESSION["type"]
         ),
@@ -62,7 +62,7 @@
         $_SESSION["lastname"] = $_POST["lastname"];
         $_SESSION["email"] = $_POST["email"];
         $_SESSION["address"] = $_POST["store_address"];
-        $_SESSION["supplier store name"] = $_POST["supplier_store_name"];
+        $_SESSION["store name"] = $_POST["store_name"];
         $_SESSION["contact no."] = $_POST["contact_number"];
     }
 ?>

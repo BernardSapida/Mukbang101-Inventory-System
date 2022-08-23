@@ -182,6 +182,23 @@ body .section_main main .container_main .container_form form {
   width: 100%;
 }
 
+body .section_main main .container_main .container_form form .container_validation {
+  display: none;
+  margin: auto;
+  margin-bottom: 10px;
+  max-width: 500px;
+  width: 100%;
+  padding: 10px 15px;
+  background-color: var(--red3);
+  border-radius: 5px;
+}
+
+body .section_main main .container_main .container_form form .container_validation > p {
+  color: var(--light);
+  font-weight: 400;
+  font-size: 14px;
+}
+
 body .section_main main .container_main .container_form form .container_details {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -216,6 +233,7 @@ body .section_main main .container_main .container_form form .container_details 
 
 body .section_main main .container_main .container_form form .container_items {
   overflow: scroll;
+  max-height: 350px;
 }
 
 body .section_main main .container_main .container_form form .container_items table {
@@ -227,7 +245,7 @@ body .section_main main .container_main .container_form form .container_items ta
   white-space: nowrap;
 }
 
-body .section_main main .container_main .container_form form .container_items table tbody tr td input[type="text"] {
+body .section_main main .container_main .container_form form .container_items table tbody tr td input[type="text"], body .section_main main .container_main .container_form form .container_items table tbody tr td > input[type="number"] {
   width: 100%;
   padding: 5px 15px;
   border-radius: 5px;
@@ -236,6 +254,11 @@ body .section_main main .container_main .container_form form .container_items ta
   font-weight: 400;
   font-size: 14px;
   border: 0.5px solid var(--border);
+}
+
+body .section_main main .container_main .container_form form .container_items table tbody tr td input[type="text"]::-webkit-outer-spin-button, body .section_main main .container_main .container_form form .container_items table tbody tr td input[type="text"]::-webkit-inner-spin-button, body .section_main main .container_main .container_form form .container_items table tbody tr td > input[type="number"]::-webkit-outer-spin-button, body .section_main main .container_main .container_form form .container_items table tbody tr td > input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 body .section_main main .container_main .container_form form .container_items table tbody tr td .btn-delete {
@@ -269,6 +292,23 @@ body .section_main main .container_main .container_form form .container_payment 
       -ms-flex-pack: justify;
           justify-content: space-between;
   max-width: 250px;
+}
+
+body .section_main main .container_main .container_form form .container_payment .container_amount > input[type="number"] {
+  width: 100%;
+  max-width: 100px;
+  padding: 5px 15px;
+  border-radius: 5px;
+  border: none;
+  color: var(--dark);
+  font-weight: 400;
+  font-size: 14px;
+  border: 0.5px solid var(--border);
+}
+
+body .section_main main .container_main .container_form form .container_payment .container_amount > input[type="number"]::-webkit-outer-spin-button, body .section_main main .container_main .container_form form .container_payment .container_amount > input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 body .section_main main .container_main .container_form form .container_payment .container_button {

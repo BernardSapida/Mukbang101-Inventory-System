@@ -167,6 +167,23 @@ body {
                         max-width: 500px;
                         width: 100%;
 
+                        & .container_validation {
+                            display: none;
+                            margin: auto;
+                            margin-bottom: 10px;
+                            max-width: 500px;
+                            width: 100%;
+                            padding: 10px 15px;
+                            background-color: var(--red3);
+                            border-radius: 5px;
+            
+                            & > p {
+                                color: var(--light);
+                                font-weight: 400;
+                                font-size: 14px;
+                            }
+                        }
+
                         & .container_details {
                             display: flex;
                             justify-content: space-between;
@@ -198,6 +215,7 @@ body {
 
                         & .container_items {
                             overflow: scroll;
+                            max-height: 350px;
 
                             & table {
                                 width: 100%;
@@ -214,7 +232,7 @@ body {
                                 & tbody {
                                     & tr {
                                         & td {
-                                            & input[type="text"] {
+                                            & input[type="text"], & > input[type="number"] {
                                                 width: 100%;
                                                 padding: 5px 15px;
                                                 border-radius: 5px;
@@ -223,6 +241,11 @@ body {
                                                 font-weight: 400;
                                                 font-size: 14px;
                                                 border: .5px solid var(--border);
+
+                                                &::-webkit-outer-spin-button, &::-webkit-inner-spin-button {
+                                                    -webkit-appearance: none;
+                                                    margin: 0;
+                                                }
                                             }
 
                                             & .btn-delete {
@@ -255,6 +278,23 @@ body {
                                 display: flex;
                                 justify-content: space-between;
                                 max-width: 250px;
+
+                                & > input[type="number"] {
+                                    width: 100%;
+                                    max-width: 100px;
+                                    padding: 5px 15px;
+                                    border-radius: 5px;
+                                    border: none;
+                                    color: var(--dark);
+                                    font-weight: 400;
+                                    font-size: 14px;
+                                    border: .5px solid var(--border);
+    
+                                    &::-webkit-outer-spin-button, &::-webkit-inner-spin-button {
+                                        -webkit-appearance: none;
+                                        margin: 0;
+                                    }
+                                }
                             }
 
                             & .container_button {

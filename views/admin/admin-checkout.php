@@ -4,7 +4,10 @@
         <button class="btn-back" id="btn-back" aria-label="btn-back"><i class="fa-solid fa-arrow-left"></i> Back</button>
     </div>
     <div class="container_form">
-        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+        <div class="container_validation" id="container_validation">
+            <p></p>
+        </div>
+        <form id="checkout-form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
             <div class="container_details">
                 <div class="container_contact-details">
                     <h1>Contact Details</h1>
@@ -25,26 +28,34 @@
                     <h1>Supplier Details</h1>
                     <label for="supplier_name">
                         <p>Supplier Name</p>
-                        <input type="text" name="supplier_name" id="supplier_name" placeholder="Name">
+                        <input type="text" name="supplier_name" id="supplier_name" placeholder="Supplier Name" disabled>
+                    </label>
+                    <label for="product_code">
+                        <p>Product Code</p>
+                        <input type="text" name="product_code" id="product_code" placeholder="Product Code" disabled>
                     </label>
                     <label for="product_name">
                         <p>Product Name</p>
-                        <input type="text" name="product_name" id="product_name" placeholder="Delivery Address">
+                        <input type="text" name="product_name" id="product_name" placeholder="Delivery Address" disabled>
                     </label>
-                    <label for="quantity">
-                        <p>Quantity <span>*</span></p>
-                        <input type="text" name="quantity" id="quantity" placeholder="Contact Number">
+                    <label for="pcs_per_box">
+                        <p>Pcs per Box</p>
+                        <input type="number" name="pcs_per_box" id="pcs_per_box" placeholder="Pcs per box" disabled>
                     </label>
-                    <label for="price">
-                        <p>Price</p>
-                        <input type="text" name="price" id="price" placeholder="Contact Number">
+                    <label for="box_quantity">
+                        <p>Box Quantity <span>*</span></p>
+                        <input type="number" name="box_quantity" id="box_quantity" placeholder="Box Quantity">
+                    </label>
+                    <label for="price_per_box">
+                        <p>Price per box</p>
+                        <input type="text" name="price_per_box" id="price_per_box" placeholder="Contact Number" disabled>
                     </label>
                 </div>
             </div>
             <div class="container_payment">
                 <h1>Payment Method</h1>
                 <label for="cod">
-                    <input type="radio" name="payment_mode" id="cod">
+                    <input type="radio" name="payment_mode" id="cod" value="cash on delivery">
                     <div class="payment_mode">
                         <div class="container_logo">
                             <div class="radio"></div>
@@ -54,7 +65,7 @@
                     </div>
                 </label>
                 <label for="gcash">
-                    <input type="radio" name="payment_mode" id="gcash">
+                    <input type="radio" name="payment_mode" id="gcash" value="gcash">
                     <div class="payment_mode">
                         <div class="container_logo">
                             <div class="radio"></div>
@@ -71,7 +82,7 @@
                     </div>
                 </label>
                 <label for="paymaya">
-                    <input type="radio" name="payment_mode" id="paymaya">
+                    <input type="radio" name="payment_mode" id="paymaya" value="paymaya">
                     <div class="payment_mode">
                         <div class="container_logo">
                             <div class="radio"></div>
@@ -93,27 +104,27 @@
                     <hr>
                     <div class="container_computation">
                         <p class="label">Price <span>x Quantity</span></p>
-                        <p class="amount">Php 15 <span>x 50</span></p>
+                        <p class="price">Php 0.00 <span class="quantity">x 0</span></p>
                     </div>
                     <div class="container_computation">
                         <p class="label">VAT 12%</span></p>
-                        <p class="amount">Php 0</p>
+                        <p class="vat">Php 0</p>
                     </div>
                     <div class="container_computation">
                         <p class="label">Shipping Fee</span></p>
-                        <p class="amount">Php 120</p>
+                        <p class="shippingFee">Php 0.00</p>
                     </div>
                     <div class="container_computation">
                         <p class="label">Discount</span></p>
-                        <p class="amount">Php 50</p>
+                        <p class="discount">Php 0.00</p>
                     </div>
                     <hr>
                     <div class="container_computation">
                         <p class="label">Total</span></p>
-                        <p class="amount">Php 820.00</p>
+                        <p class="total-amount">Php 0.00</p>
                     </div>
                 </div>
-                <button type="submit" aria-label="place order">Place Order</button>
+                <button type="submit" id="btn-submit" aria-label="place order">Place Order</button>
             </div>
         </form>
     </div>

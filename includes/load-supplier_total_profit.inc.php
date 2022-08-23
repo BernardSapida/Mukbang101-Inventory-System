@@ -9,7 +9,7 @@
     $total = 0;
 
     forEach($result as $database => $row){
-        if(strcmp($row['supplier uid'], $_SESSION["uid"]) == 0) {
+        if(strcmp($row['supplier name'], $_SESSION["supplier store name"]) == 0) {
             $total += $row['total'];
         }
     }

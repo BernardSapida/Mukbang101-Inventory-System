@@ -10,7 +10,7 @@
     echo '<tr class="empty-product"><td colspan="8">No data found</td></tr>';
 
     forEach($result as $database => $row){
-        if(strcmp($row['supplier uid'], $_SESSION["uid"]) == 0) {
+        if(strcmp($row['supplier name'], $_SESSION["supplier store name"]) == 0) {
             echo "<tr data=" . $row['product code'] . " class='" . (($row['box quantity'] <= 10) ? "danger" : "")  . "'>";
             echo "<td>" . $row['product code'] . "</td>";
             echo "<td>" . $row['product name'] . "</td>";

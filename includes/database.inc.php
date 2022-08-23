@@ -16,7 +16,7 @@
                         $result = $this -> selectData($conn, $tableName, $data, $account);
                         break;
                     case "insert":
-                        $this -> insertData($conn, $tableName, $data);
+                        $result = $this -> insertData($conn, $tableName, $data);
                         break;
                     case "update":
                         $result = $this -> updateData($conn, $tableName, $data, $account);
@@ -56,14 +56,15 @@
                         }
                         break;
                     case "supplier_product":
-                        $supplierUID = $data["supplierUID"];
-                        $stmt = $conn->prepare("SELECT * FROM `$tableName` WHERE `supplier uid` = '$supplierUID' ORDER BY `box quantity` ASC");
+                        $supplierName = $data["supplierName"];
+                        $stmt = $conn->prepare("SELECT * FROM `$tableName` WHERE `supplier name` = '$supplierName' ORDER BY `box quantity` ASC");
                         break;
                     case "admin_product":
-                        $stmt = $conn->prepare("SELECT * FROM `$tableName` ORDER BY `box quantity` ASC");
+                        $stmt = $conn->prepare("SELECT * FROM `$tableName` ORDER BY `quantity` ASC");
                         break;
                     case "admin_orders":
-                        $stmt = $conn->prepare("SELECT * FROM `$tableName` WHERE `order status` = 'completed'");
+                        if(strcmp($data, "all records") == 0) $stmt = $conn->prepare("SELECT * FROM `$tableName` ORDER BY CASE  WHEN `order status` = 'Processing' THEN 1  WHEN `order status` = 'To ship' THEN 2  WHEN `order status` = 'To receive' THEN 3  WHEN `order status` = 'Completed' THEN 4  WHEN `order status` = 'Cancelled' THEN 5 END");
+                        else $stmt = $conn->prepare("SELECT * FROM `$tableName` WHERE `order status` = 'completed'");
                         break;
                     case "accounts":
                         $stmt = $conn->prepare("SELECT * FROM `$tableName` WHERE `type` = '$data'");
@@ -115,12 +116,12 @@
                         $lastname = $data['lastname'];
                         $email = $data['email'];
                         $address = $data['address'];
-                        $supplier = $data['supplier store name'];
+                        $supplier = $data['store name'];
                         $contact = $data['contact no.'];
                         $password = $data['password'];
                         $type = $data['type'];
 
-                        $stmt = $conn->prepare("INSERT INTO `$tableName` (`uid`, `image`, `firstname`, `lastname`, `email`, `address`, `supplier store name`, `contact no.`, `password`, `type`) VALUES (:uid, :image, :firstname, :lastname, :email, :address, :supplier, :contact, :password, :type)");
+                        $stmt = $conn->prepare("INSERT INTO `$tableName` (`uid`, `image`, `firstname`, `lastname`, `email`, `address`, `store name`, `contact no.`, `password`, `type`) VALUES (:uid, :image, :firstname, :lastname, :email, :address, :supplier, :contact, :password, :type)");
                         $stmt -> bindParam(':uid', $uid);
                         $stmt -> bindParam(':image', $image);
                         $stmt -> bindParam(':firstname', $firstname);
@@ -196,6 +197,8 @@
                         $stmt -> bindParam(':quantity', $quantity);
                         $stmt -> bindParam(':price', $price);
                         $stmt->execute();
+
+                        return "sucess";
                     }
                     break;
                 case "admin_transaction_sales":
@@ -222,7 +225,7 @@
                     break;
                 case "supplier_product":
                     {
-                        $supplierUID = $data['supplierUID'];
+                        $supplierName = $data['supplierName'];
                         $productCode = $data['productCode'];
                         $productName = $data['productName'];
                         $category = $data['category'];
@@ -230,9 +233,9 @@
                         $pcsPerBox = $data['pcsPerBox'];
                         $pricePerBox = $data['pricePerBox'];
 
-                        $stmt = $conn->prepare("INSERT INTO `$tableName` (`supplier uid`, `product code`, `product name`, `category`, `box quantity`, `pcs per box`, `price per box`) 
-                        VALUES (:supplierUID, :productCode, :productName, :category, :boxQuantity, :pcsPerBox, :pricePerBox)");
-                        $stmt -> bindParam(':supplierUID', $supplierUID);
+                        $stmt = $conn->prepare("INSERT INTO `$tableName` (`supplier name`, `product code`, `product name`, `category`, `box quantity`, `pcs per box`, `price per box`) 
+                        VALUES (:supplierName, :productCode, :productName, :category, :boxQuantity, :pcsPerBox, :pricePerBox)");
+                        $stmt -> bindParam(':supplierName', $supplierName);
                         $stmt -> bindParam(':productCode', $productCode);
                         $stmt -> bindParam(':productName', $productName);
                         $stmt -> bindParam(':category', $category);
@@ -244,7 +247,7 @@
                     break;
                 case "supplier_customer":
                     {
-                        $supplierUID = $data['supplierUID'];
+                        $supplierName = $data['supplierName'];
                         $transactionNo = $data['transactionNo'];
                         $customerName = $data['customerName'];
                         $deliveryAddress = $data['deliveryAddress'];
@@ -264,9 +267,9 @@
                         $total = $data['total'];
                         $orderStatus = $data['orderStatus'];
 
-                        $stmt = $conn->prepare("INSERT INTO `$tableName` (`supplier uid`, `transaction no.`, `customer name`, `delivery address`, `contact no.`, `email address`, `customer store name`, `product code`, `product name`, `box quantity`, `pcs per box`, `price per box`, `payment method`, `reference no.`, `vat 12%`, `shipping fee`, `discount`, `total`, `order status`) 
-                        VALUES (:supplierUID, :transactionNo, :customerName, :deliveryAddress, :contactNo, :emailAddress, :customerStoreName, :productCode, :productName, :boxQuantity, :pcsPerBox, :pricePerBox, :paymentMethod, :referenceNo, :vat12, :shippingFee, :discount, :total, :orderStatus)");
-                        $stmt -> bindParam(':supplierUID', $supplierUID);
+                        $stmt = $conn->prepare("INSERT INTO `$tableName` (`supplier name`, `transaction no.`, `customer name`, `delivery address`, `contact no.`, `email address`, `customer store name`, `product code`, `product name`, `box quantity`, `pcs per box`, `price per box`, `payment method`, `reference no.`, `vat 12%`, `shipping fee`, `discount`, `total`, `order status`) 
+                        VALUES (:supplierName, :transactionNo, :customerName, :deliveryAddress, :contactNo, :emailAddress, :customerStoreName, :productCode, :productName, :boxQuantity, :pcsPerBox, :pricePerBox, :paymentMethod, :referenceNo, :vat12, :shippingFee, :discount, :total, :orderStatus)");
+                        $stmt -> bindParam(':supplierName', $supplierName);
                         $stmt -> bindParam(':transactionNo', $transactionNo);
                         $stmt -> bindParam(':customerName', $customerName);
                         $stmt -> bindParam(':deliveryAddress', $deliveryAddress);
@@ -305,11 +308,11 @@
                                 $lastname = $data['lastname'];
                                 $email = $data['email'];
                                 $address = $data['address'];
-                                $supplier = $data['supplier store name'];
+                                $storeName = $data['store name'];
                                 $contact = $data['contact no.'];
                                 $type = $data['type'];
                                 
-                                $stmt = $conn->prepare("UPDATE `$tableName` SET `uid` = '$uid', `image` = '$image', `firstname` = '$firstname', `lastname` = '$lastname', `email` = '$email', `address` = '$address', `supplier store name` = '$supplier', `contact no.` = '$contact', `type` = '$type' WHERE `uid` = '$uid'");
+                                $stmt = $conn->prepare("UPDATE `$tableName` SET `uid` = '$uid', `image` = '$image', `firstname` = '$firstname', `lastname` = '$lastname', `email` = '$email', `address` = '$address', `store name` = '$storeName', `contact no.` = '$contact', `type` = '$type' WHERE `uid` = '$uid'");
                                 break;
                             case "password":
                                 $uid = $data['uid'];
@@ -336,9 +339,10 @@
                 case "admin_product":
                     {
                         $productCode = $data['productCode'];
+                        $quantity = $data['quantity'];
                         $price = $data['price'];
 
-                        $stmt = $conn->prepare("UPDATE `$tableName` SET `price` = '$price' WHERE `product code` = $productCode");
+                        $stmt = $conn->prepare("UPDATE `$tableName` SET `price` = '$price', `quantity` = '$quantity' WHERE `product code` = $productCode");
                         $stmt->execute();
                     };
                     break;

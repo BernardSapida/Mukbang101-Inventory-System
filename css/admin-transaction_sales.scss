@@ -154,26 +154,6 @@ body {
                     & .table_transaction-sales {
                         width: 100%;
 
-                        & .container-btn {
-                            margin-bottom: 15px;
-                            display: flex;
-                            justify-content: flex-end;
-
-                            & > button {
-                                padding: 5px 15px;
-                                background-color: var(--dark);
-                                color: var(--light);
-                                border: none;
-                                border-radius: 3px;
-                                transition: all 350ms ease;
-                                cursor: pointer;
-        
-                                &:hover {
-                                    background-color: var(--dark-blue);
-                                }
-                            }
-                        }
-
                         & .container_table-title {
                             display: flex;
                             justify-content: space-between;

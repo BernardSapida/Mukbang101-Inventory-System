@@ -40,7 +40,7 @@ $(document).ready(function() {
             $.ajax({
                 type: "POST",
                 enctype: 'multipart/form-data',
-                url: "../includes/update-supplier_information.inc.php",
+                url: "../includes/update-account_information.inc.php",
                 data: data,
                 contentType: false,
                 cache: false,
@@ -126,7 +126,7 @@ $(document).ready(function() {
         if(errArray.length == 0) {
             $.ajax({
                 type: "POST",
-                url: "../includes/update-supplier_password.inc.php",
+                url: "../includes/update-account_information.inc.php",
                 data: $("#supplier_password").serialize(),
                 success: function(result, status, xhr) {
                     if(result == true) {
