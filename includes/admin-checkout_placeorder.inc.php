@@ -4,9 +4,10 @@
     session_start();
 
     $db = new Database();
+    $uuid = uniqid(rand(0,999));
 
     $db -> connect("insert", "admin_orders", array(
-        "transactionNo" => uniqid(rand(0,999)),
+        "transactionNo" => $uuid,
         "name" => $_POST["name"],
         "deliveryAddress" => $_POST["deliveryAddress"],
         "contactNo" => $_POST["contactNo"],
@@ -28,7 +29,7 @@
 
     $result = $db -> connect("insert", "supplier_customer", array(
         "supplierName" => $_POST["supplierName"],
-        "transactionNo" => uniqid(rand(0,999)),
+        "transactionNo" => $uuid,
         "customerName" => $_POST["name"],
         "deliveryAddress" => $_POST["deliveryAddress"],
         "contactNo" => $_POST["contactNo"],
@@ -47,8 +48,6 @@
         "total" => $_POST["total"],
         "orderStatus" => "Processing"
     ));
-
-    echo "TEST";
 
     echo json_encode($result);
 ?>

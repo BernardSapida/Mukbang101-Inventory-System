@@ -18,6 +18,10 @@
             echo '<link rel="stylesheet" href="../css/admin-sales_invoice.css">';
             echo '<script defer src="../js/admin-sales_invoice.js"></script>';
             break;
+        case "admin-view_receipt":
+            echo '<link rel="stylesheet" href="../css/admin-sales_invoice.css">';
+            echo '<script defer src="../js/admin-view_receipt.js"></script>';
+            break;
         case "admin-transaction":
             echo '<link rel="stylesheet" href="../css/admin-transaction.css">';
             echo '<script defer src="../js/admin-transaction.js"></script>';
@@ -36,6 +40,7 @@
             break;
         case "admin-transaction_sales":
             echo '<link rel="stylesheet" href="../css/admin-transaction_sales.css">';
+            echo '<script defer src="../js/admin_receipt_record.js"></script>';
             break;
         default:
             echo '<link rel="stylesheet" href="../css/admin-dashboard.css">';

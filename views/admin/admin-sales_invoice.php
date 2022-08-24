@@ -1,5 +1,5 @@
 <div class="container_main">
-    <h1>Sales Invoice</h1>
+    <h1 class="noprint">Sales Invoice</h1>
     <div class="container_form">
         <form id="form_receipt" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
             <div class="container_validation" id="container_validation">
@@ -28,7 +28,7 @@
                     <tbody class="sales_receipt"></tbody>
                 </table>
             </div>
-            <button type="button" id="btn-add" aria-label="add product"><i class="fa-solid fa-circle-plus"></i> Add Product</button>
+            <button type="button" class="noprint" id="btn-add" aria-label="add product"><i class="fa-solid fa-circle-plus"></i> Add Product</button>
             <div class="container_payment">
                 <div class="container_amount">
                     <p>Sub. Total:</p>
@@ -47,8 +47,8 @@
                     <p>Php <span id="totalAmount">0</span></p>
                 </div>
                 <div class="container_button">
-                    <button type="button" id="btn-submit" aria-label="submit"><i class="fa-solid fa-paper-plane"></i> Submit</button>
-                    <button type="button" id="btn-print" aria-label="print"><i class="fa-solid fa-print"></i> Print</button>
+                    <button type="button" class="noprint" id="btn-submit" aria-label="submit"><i class="fa-solid fa-paper-plane"></i> Submit</button>
+                    <button type="button" class="noprint" id="btn-print" aria-label="print"><i class="fa-solid fa-print"></i> Print</button>
                 </div>
             </div>
         </form>

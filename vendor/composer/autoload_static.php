@@ -11,10 +11,14 @@ class ComposerStaticInitd78e5e3ae9f55fb20769963766683bc8
         array (
             'Sapida\\CInventory\\' => 18,
         ),
+        'P' => 
+        array (
+            'PHPMailer\\PHPMailer\\' => 20,
+            'PHPMailer\\' => 10,
+        ),
         'I' => 
         array (
             'InventoryViews\\' => 15,
-            'InventoryIncludes\\' => 18,
         ),
     );
 
@@ -23,13 +27,17 @@ class ComposerStaticInitd78e5e3ae9f55fb20769963766683bc8
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),
+        'PHPMailer\\PHPMailer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
+        ),
+        'PHPMailer\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/PHPMailer',
+        ),
         'InventoryViews\\' => 
         array (
             0 => __DIR__ . '/../..' . '/views',
-        ),
-        'InventoryIncludes\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/includes',
         ),
     );
 

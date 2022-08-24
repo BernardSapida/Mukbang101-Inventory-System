@@ -46,11 +46,11 @@
                                 $stmt = $conn->prepare("SELECT * FROM `$tableName` WHERE `order status` = 'completed'");
                             } else {
                                 $stmt = $conn->prepare("SELECT * FROM `$tableName` ORDER BY CASE 
-                                WHEN `order status` = 'processing' THEN 1 
-                                WHEN `order status` = 'to ship' THEN 2 
-                                WHEN `order status` = 'to receive' THEN 3 
-                                WHEN `order status` = 'completed' THEN 4 
-                                WHEN `order status` = 'cancelled' THEN 5
+                                WHEN `order status` = 'Processing' THEN 1 
+                                WHEN `order status` = 'To ship' THEN 2 
+                                WHEN `order status` = 'To receive' THEN 3 
+                                WHEN `order status` = 'Completed' THEN 4 
+                                WHEN `order status` = 'Cancelled' THEN 5
                                 END");
                             }
                         }
@@ -332,7 +332,7 @@
                         $transactionNo = $data['transactionNo'];
                         $orderStatus = $data['orderStatus'];
 
-                        $stmt = $conn->prepare("UPDATE `$tableName` SET `order status` = '$orderStatus' WHERE `transaction no.` = $transactionNo");
+                        $stmt = $conn->prepare("UPDATE `$tableName` SET `order status` = '$orderStatus' WHERE `transaction no.` = '$transactionNo'");
                         $stmt->execute();
                     };
                     break;
@@ -342,7 +342,7 @@
                         $quantity = $data['quantity'];
                         $price = $data['price'];
 
-                        $stmt = $conn->prepare("UPDATE `$tableName` SET `price` = '$price', `quantity` = '$quantity' WHERE `product code` = $productCode");
+                        $stmt = $conn->prepare("UPDATE `$tableName` SET `price` = '$price', `quantity` = '$quantity' WHERE `product code` = '$productCode'");
                         $stmt->execute();
                     };
                     break;
@@ -351,7 +351,7 @@
                         $transactionNo = $data['transactionNo'];
                         $orderStatus = $data['orderStatus'];
 
-                        $stmt = $conn->prepare("UPDATE `$tableName` SET `order status` = '$orderStatus' WHERE `transaction no.` = $transactionNo");
+                        $stmt = $conn->prepare("UPDATE `$tableName` SET `order status` = '$orderStatus' WHERE `transaction no.` = '$transactionNo'");
                         $stmt->execute();
                     };
                     break;
@@ -364,7 +364,7 @@
                         $pcsPerBox = $data['pcsPerBox'];
                         $pricePerBox = $data['pricePerBox'];
 
-                        $stmt = $conn->prepare("UPDATE `$tableName` SET `product code` = '$productCode', `product name` = '$productName', `category` = '$category', `box quantity` = '$boxQuantity', `pcs per box` = '$pcsPerBox', `price per box` = '$pricePerBox' WHERE `product code` = $productCode");
+                        $stmt = $conn->prepare("UPDATE `$tableName` SET `product code` = '$productCode', `product name` = '$productName', `category` = '$category', `box quantity` = '$boxQuantity', `pcs per box` = '$pcsPerBox', `price per box` = '$pricePerBox' WHERE `product code` = '$productCode'");
                         $stmt->execute();
                     };
                     break;

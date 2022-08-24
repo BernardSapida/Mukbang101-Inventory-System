@@ -1,1 +1,2 @@
 UPDATE SUPPLIER PRODUCT => Discount and Shipping Fee
+Print Button

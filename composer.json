@@ -3,7 +3,7 @@
     "autoload": {
         "psr-4": {
             "Sapida\\CInventory\\": "src/",
-            "InventoryIncludes\\": "includes",
+            "PHPMailer\\": "PHPMailer",
             "InventoryViews\\": "views"
         }
     },
@@ -13,5 +13,7 @@
             "email": "bernardsapida1706@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "phpmailer/phpmailer": "^6.6"
+    }
 }

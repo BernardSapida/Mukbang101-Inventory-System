@@ -4,7 +4,7 @@
             <div class="table_transaction-sales">
                 <div class="container_table-title">
                     <h1>List of Transaction Sales</h1>
-                    <input type="text" name="search-item" id="search-item" placeholder="Search an item...">
+                    <input type="text" name="search-receipt" id="search-receipt" placeholder="Search an item...">
                 </div>
                 <div class="table-responsive">
                     <table>
@@ -18,18 +18,7 @@
                                 <th>Action</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>August 17, 2022</td>
-                                <td>01123132187</td>
-                                <td>Php 0.00</td>
-                                <td>Php 50.00</td>
-                                <td>Php 1,500</td>
-                                <td>
-                                    <button id="btn-view" aria-label="btn-view"><i class="fa-solid fa-scroll"></i> View Details</button>
-                                </td>
-                            </tr>
-                        </tbody>
+                        <tbody class="sales_report"></tbody>
                     </table>
                 </div>
             </div>

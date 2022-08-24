@@ -9,7 +9,7 @@
     $toReceive = 0;
     $completed = 0;
     $cancelled = 0;
-
+    
     forEach($result as $database => $row) {
         if(strcmp($row['order status'], "Processing") == 0) $processing++;
         if(strcmp($row['order status'], "To ship") == 0) $toShip++;

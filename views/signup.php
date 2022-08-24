@@ -1,4 +1,7 @@
-<?php require_once "../includes/signup.inc.php"; ?>
+<?php
+    require_once "../includes/signup.inc.php";
+    require_once "../includes/view-restriction.inc.php";
+?>
 
 <!DOCTYPE html>
 <html lang="en">

@@ -3,6 +3,9 @@ $(document).ready(function() {
     $("#password_validation").hide();
     $("#supplier_information [name]").prop("disabled", true);
     $("#supplier_password [name]").prop("disabled", true);
+    $("#eye-password").hide();
+    $("#eye-new_password").hide();
+    $("#eye-confirm_password").hide();
 
     $("#btn-edit-information").click(function(){
         $(this).hide();
@@ -56,6 +59,8 @@ $(document).ready(function() {
                         $("#btn-cancel-information").hide();
                         $("#btn-edit-information").fadeIn(0);
                         $("#supplier_information [name]").prop("disabled", true);
+                        $("#eye-password").removeClass("fa-eye");
+                        $("#eye-password").addClass("fa-eye-slash");
                     } 
                     
                     if (result.length != 0 && result != "updated") {
@@ -99,6 +104,9 @@ $(document).ready(function() {
         $("#btn-cancel-password").fadeIn(0);
         $("#btn-save-password").fadeIn(0);
         $("#supplier_password [name]").prop("disabled", false);
+        $("#eye-password").show();
+        $("#eye-new_password").show();
+        $("#eye-confirm_password").show();
     });
 
     $("#btn-cancel-password").click(function(){
@@ -108,7 +116,11 @@ $(document).ready(function() {
         $("#supplier_password [name]").prop("disabled", true);
         $("#password_validation").hide();
         $("#supplier_password")[0].reset();
-        
+        $("#eye-password").removeClass("fa-eye");
+        $("#eye-password").addClass("fa-eye-slash");
+        $("#eye-password").hide();
+        $("#eye-new_password").hide();
+        $("#eye-confirm_password").hide();
     });
 
     $("#btn-save-password").click(function(){

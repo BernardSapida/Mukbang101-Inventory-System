@@ -138,6 +138,24 @@ body {
                         }
                     }
                 }
+
+                & i {
+                    cursor: pointer;
+                }
+            }
+
+            & #signout {
+                display: none;
+                padding: 10px 20px;
+                position: absolute;
+                right: 30px;
+                bottom: -50px;
+                border: none;
+                line-height: 1;
+                box-shadow: 0px 0px 5px var(--gray);
+                background-color: var(--light);
+                border-radius: 5px;
+                cursor: pointer;
             }
         }
 
@@ -232,6 +250,11 @@ body {
                                 & tbody {
                                     & tr {
                                         & td {
+                                            & > p {
+                                                color: var(--gray);
+                                                font-weight: 400;
+                                            }
+
                                             & input[type="text"], & > input[type="number"] {
                                                 width: 100%;
                                                 padding: 5px 15px;
@@ -354,6 +377,14 @@ body {
             & .container_main {
                 
             }
+        }
+    }
+}
+
+@media print {
+    body {
+        & .noprint {
+            display: none;
         }
     }
 }

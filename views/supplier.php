@@ -41,7 +41,7 @@
             <div class="container-profile">
                 <img src="../profile/<?php echo $_SESSION['image']; ?>" id="profile" alt="supplier profile">
                 <div class="container-label">
-                    <p><?php echo $_SESSION["supplier store name"]; ?></p>
+                    <p><?php echo $_SESSION["store name"]; ?></p>
                     <p><span></span> Online</p>
                 </div>
                 <i class="fa-solid fa-caret-down"></i>

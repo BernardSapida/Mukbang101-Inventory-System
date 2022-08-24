@@ -10,7 +10,7 @@
     $err_password = "";
     $errArray = array();
 
-    $result = $db -> connect("select", "accounts", "email", "admin@gmail.com");
+    // $result = $db -> connect("select", "accounts", "email", "admin@gmail.com");
 
     if(isset($_POST["signin"])) {
         $email = $_POST["email"];
@@ -42,10 +42,10 @@
                     array_push($errArray, "Password is incorrect!");
                 }
             } else {
-                array_push($errArray, "Email didn't exist!");
+                array_push($errArray, "Email address didn't exist!");
             }
         } else {
-            if(empty($email)) array_push($errArray, "Email is required!");
+            if(empty($email)) array_push($errArray, "Email address is required!");
             if(empty($password)) array_push($errArray, "Password is required!");
         }
     }

@@ -151,6 +151,25 @@ body .section_main header .container-profile .container-label > p > span {
   border-radius: 5px;
 }
 
+body .section_main header .container-profile i {
+  cursor: pointer;
+}
+
+body .section_main header #signout {
+  display: none;
+  padding: 10px 20px;
+  position: absolute;
+  right: 30px;
+  bottom: -50px;
+  border: none;
+  line-height: 1;
+  -webkit-box-shadow: 0px 0px 5px var(--gray);
+          box-shadow: 0px 0px 5px var(--gray);
+  background-color: var(--light);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 body .section_main main {
   margin: auto;
   max-width: 1400px;
@@ -243,6 +262,11 @@ body .section_main main .container_main .container_form form .container_items ta
 
 body .section_main main .container_main .container_form form .container_items table thead tr td {
   white-space: nowrap;
+}
+
+body .section_main main .container_main .container_form form .container_items table tbody tr td > p {
+  color: var(--gray);
+  font-weight: 400;
 }
 
 body .section_main main .container_main .container_form form .container_items table tbody tr td input[type="text"], body .section_main main .container_main .container_form form .container_items table tbody tr td > input[type="number"] {
@@ -356,5 +380,11 @@ body .section_main main .container_main .container_form form button#btn-print {
 
 body .section_main main .container_main .container_form form button#btn-print:hover {
   background-color: var(--dark-blue);
+}
+
+@media print {
+  body .noprint {
+    display: none;
+  }
 }
 /*# sourceMappingURL=admin-sales_invoice.css.map */

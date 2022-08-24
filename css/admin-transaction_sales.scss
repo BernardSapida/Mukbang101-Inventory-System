@@ -138,6 +138,24 @@ body {
                         }
                     }
                 }
+
+                & i {
+                    cursor: pointer;
+                }
+            }
+
+            & #signout {
+                display: none;
+                padding: 10px 20px;
+                position: absolute;
+                right: 30px;
+                bottom: -50px;
+                border: none;
+                line-height: 1;
+                box-shadow: 0px 0px 5px var(--gray);
+                background-color: var(--light);
+                border-radius: 5px;
+                cursor: pointer;
             }
         }
 
@@ -210,8 +228,10 @@ body {
                                 }
                                 & tbody {
                                     & tr {
-                                        &.danger {
-                                            background-color: var(--red5) !important;
+                                        &.empty-transaction {
+                                            & td {
+                                                text-align: center;
+                                            }
                                         }
 
                                         & td {
@@ -220,7 +240,7 @@ body {
                                             font-size: 12px;
 
                                             &:last-child {
-                                                & #btn-view {
+                                                & .btn-view {
                                                     padding: 5px 10px;
                                                     border: none;
                                                     border-radius: 5px;
@@ -248,36 +268,6 @@ body {
                                 }
                             }
                         }
-                    }
-                }
-            }
-        }
-    }
-}
-
-@media only screen and (max-width: 1530px) {
-    body {
-        & main {
-            & .container_main {
-                & .container_tables {
-                    display: block;
-                    flex-direction: column;
-            
-                    & .stock_table, & .transaction_table {
-                        margin: 10px 0;
-                        max-width: 1500px !important;
-                        width: 100%;
-
-                        & .table-responsive {
-                            max-width: 1350px !important;
-                            width: 100%;
-                            box-shadow: 0px 0px 5px var(--gray);
-                            overflow: auto;
-                        }
-                    }
-
-                    & .transaction_table {
-                        margin-bottom: 100px;
                     }
                 }
             }

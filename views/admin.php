@@ -18,7 +18,7 @@
     <title>Inventory System</title>
   </head>
   <body>
-    <section class="section_navigation">
+    <section class="section_navigation noprint">
       <nav class="nav_main-navigation">
         <div class="container_banner">
             <img src="../images/banner1.jpg" alt="mukbang101 image banner">
@@ -39,15 +39,16 @@
       </nav>
     </section>
     <section class="section_main">
-        <header>
+        <header class="noprint">
             <div class="container-profile">
-                <img src="../profile/<?php echo $_SESSION['image']; ?>" alt="admin profile">
+                <img src="../profile/<?php echo $_SESSION['image']; ?>" class="noprint" alt="admin profile">
                 <div class="container-label">
                     <p id="header-name"><?php echo $_SESSION['store name']; ?></p>
                     <p><span></span> Online</p>
                 </div>
-                <i class="fa-solid fa-caret-down"></i>
+                <i class="fa-solid fa-caret-down" id="caret"></i>
             </div>
+            <button type="button" id="signout" aria-label="signout"><i class="fa-solid fa-right-from-bracket"></i> Signout</button>
         </header>
         <main>
             <?php include_once "../includes/admin-contents.inc.php" ?>    

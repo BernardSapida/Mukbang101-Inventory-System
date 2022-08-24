@@ -5,7 +5,7 @@
 
     $db = new Database();
 
-    $result = $db -> connect("select", "supplier_product", array("supplierUID" => $_SESSION["uid"]));
+    $result = $db -> connect("select", "supplier_product", array("supplierName" => $_SESSION["store name"]));
 
     forEach($result as $database => $row){
         echo "<tr data=" . $row['product code'] . " class='" . (($row['box quantity'] <= 10) ? "danger" : "")  . "'>";

@@ -32,7 +32,7 @@
             </label>
             <label for="supplier_store_name">
                 <p>Supplier Store Name</p>
-                <input type="text" name="supplier_store_name" id="supplier_store_name" aria-label="supplier_store_name" placeholder="Supplier Store Name" value="<?php echo isset($_SESSION["supplier store name"]) ? $_SESSION["supplier store name"] : ""; ?>">
+                <input type="text" name="supplier_store_name" id="supplier_store_name" aria-label="supplier_store_name" placeholder="Supplier Store Name" value="<?php echo isset($_SESSION["store name"]) ? $_SESSION["store name"] : ""; ?>">
             </label>
             <label for="contact_number">
                 <p>Contact No.</p>

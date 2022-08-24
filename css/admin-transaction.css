@@ -151,6 +151,25 @@ body .section_main header .container-profile .container-label > p > span {
   border-radius: 5px;
 }
 
+body .section_main header .container-profile i {
+  cursor: pointer;
+}
+
+body .section_main header #signout {
+  display: none;
+  padding: 10px 20px;
+  position: absolute;
+  right: 30px;
+  bottom: -50px;
+  border: none;
+  line-height: 1;
+  -webkit-box-shadow: 0px 0px 5px var(--gray);
+          box-shadow: 0px 0px 5px var(--gray);
+  background-color: var(--light);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 body .section_main main {
   margin: auto;
   max-width: 1400px;

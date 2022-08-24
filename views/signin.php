@@ -31,7 +31,7 @@
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
           <label for="email">
             <p>Email Address</p>
-            <input type="text" id="email" name="email" placeholder="Email Address" autocomplete="email"  value="<?php echo isset($_POST["email"]) ? $_POST["email"] : ""?>">
+            <input type="text" id="email" name="email" placeholder="Email Address" autocomplete="email" value="<?php echo isset($_POST["email"]) ? $_POST["email"] : ""?>">
           </label>
           <label for="password">
             <p>Password</p>

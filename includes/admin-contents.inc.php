@@ -14,8 +14,11 @@
         case "admin-sales_invoice":
             require_once "admin/admin-sales_invoice.php";
             break;
-        case "admin-receipt_record":
+        case "admin-transaction_sales":
             require_once "admin/admin-transaction_sales.php";
+            break;
+        case "admin-view_receipt":
+            require_once "admin/admin-view_receipt.php";
             break;
         case "admin-transaction":
             require_once "admin/admin-transaction.php";
@@ -31,9 +34,6 @@
             break;
         case "admin-tracking_table":
             require_once "admin/admin-tracking_table.php";
-            break;
-        case "admin-transaction_sales":
-            require_once "admin/admin-transaction_sales.php";
             break;
         default:
             require_once "admin/admin-dashboard.php";

@@ -10,8 +10,8 @@
     echo '<tr class="empty-item"><td colspan="19">No data found</td></tr>';
 
     forEach($result as $database => $row){
-        if(strcmp($row['supplier name'], $_SESSION["supplier store name"]) == 0) {
-            echo "<tr data='" . $row['transaction no.'] . "'>";
+        if(strcmp($row['supplier name'], $_SESSION["store name"]) == 0) {
+            echo "<tr data='" . $row['transaction no.'] . "' code='" . $row['product code'] . "'>";
             echo "<td>" . date("F d, Y g:i:s A", strtotime($row['date'])) . "</td>";
             echo "<td>" . $row['transaction no.'] . "</td>";
             echo "<td>" . $row['customer name'] . "</td>";
@@ -31,11 +31,11 @@
             echo "<td>₱ " . $row['discount'] . "</td>";
             echo "<td>₱ " . $row['total'] . "</td>";
             echo '<td><select name="supplier" class="update_status" id="supplier" aria-label="update status">
-                    <option value="processing" ' . (!strcmp($row['order status'], "processing") ? "selected" : "") . '>Processing</option>
-                    <option value="to ship" ' . (!strcmp($row['order status'], "to ship") ? "selected" : "") . '>To ship</option>
-                    <option value="to receive" ' . (!strcmp($row['order status'], "to receive") ? "selected" : "") . '>To receive</option>
-                    <option value="completed" ' . (!strcmp($row['order status'], "completed") ? "selected" : "") . '>Completed</option>
-                    <option value="cancelled" ' . (!strcmp($row['order status'], "cancelled") ? "selected" : "") . '>Cancelled</option>
+                    <option value="Processing" ' . (!strcmp($row['order status'], "Processing") ? "selected" : "") . '>Processing</option>
+                    <option value="To ship" ' . (!strcmp($row['order status'], "To ship") ? "selected" : "") . '>To ship</option>
+                    <option value="To receive" ' . (!strcmp($row['order status'], "To receive") ? "selected" : "") . '>To receive</option>
+                    <option value="Completed" ' . (!strcmp($row['order status'], "Completed") ? "selected" : "") . '>Completed</option>
+                    <option value="Cancelled" ' . (!strcmp($row['order status'], "Cancelled") ? "selected" : "") . '>Cancelled</option>
                 </select></td>';
             echo "</tr>";
         }
@@ -95,11 +95,15 @@
                 type: "POST",
                 url: "../includes/update-status.inc.php",
                 data: {
+                    productCode: $(this).parents("tr").attr("code"),
                     transactionNo: $(this).parents("tr").attr("data"),
                     status: $(this).val()
                 },
                 success: function(result, status, xhr) {
-                    // console.log(result);
+                    console.log(result);
+                },
+                error(e) {
+                    console.log(e);
                 }
             });
         });

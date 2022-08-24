@@ -5,12 +5,12 @@
 
     $db = new Database();
 
-    $result = $db -> connect("select", "supplier_product", array("supplierUID" => $_SESSION["uid"]));
+    $result = $db -> connect("select", "supplier_product", array("supplierName" => $_SESSION["store name"]));
     
     echo '<tr class="empty-product"><td colspan="8">No data found</td></tr>';
 
     forEach($result as $database => $row){
-        if(strcmp($row['supplier name'], $_SESSION["supplier store name"]) == 0) {
+        if(strcmp($row['supplier name'], $_SESSION["store name"]) == 0) {
             echo "<tr data=" . $row['product code'] . " class='" . (($row['box quantity'] <= 10) ? "danger" : "")  . "'>";
             echo "<td>" . $row['product code'] . "</td>";
             echo "<td>" . $row['product name'] . "</td>";

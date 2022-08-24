@@ -151,6 +151,25 @@ body .section_main header .container-profile .container-label > p > span {
   border-radius: 5px;
 }
 
+body .section_main header .container-profile i {
+  cursor: pointer;
+}
+
+body .section_main header #signout {
+  display: none;
+  padding: 10px 20px;
+  position: absolute;
+  right: 30px;
+  bottom: -50px;
+  border: none;
+  line-height: 1;
+  -webkit-box-shadow: 0px 0px 5px var(--gray);
+          box-shadow: 0px 0px 5px var(--gray);
+  background-color: var(--light);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 body .section_main main {
   margin: auto;
   max-width: 1400px;
@@ -228,8 +247,8 @@ body .section_main main .container_main .container_table-products .table_transac
   color: var(--secondary-dark);
 }
 
-body .section_main main .container_main .container_table-products .table_transaction-sales .table-responsive table tbody tr.danger {
-  background-color: var(--red5) !important;
+body .section_main main .container_main .container_table-products .table_transaction-sales .table-responsive table tbody tr.empty-transaction td {
+  text-align: center;
 }
 
 body .section_main main .container_main .container_table-products .table_transaction-sales .table-responsive table tbody tr td {
@@ -238,7 +257,7 @@ body .section_main main .container_main .container_table-products .table_transac
   font-size: 12px;
 }
 
-body .section_main main .container_main .container_table-products .table_transaction-sales .table-responsive table tbody tr td:last-child #btn-view {
+body .section_main main .container_main .container_table-products .table_transaction-sales .table-responsive table tbody tr td:last-child .btn-view {
   padding: 5px 10px;
   border: none;
   border-radius: 5px;
@@ -250,7 +269,7 @@ body .section_main main .container_main .container_table-products .table_transac
   transition: all 350ms ease;
 }
 
-body .section_main main .container_main .container_table-products .table_transaction-sales .table-responsive table tbody tr td:last-child #btn-view:hover {
+body .section_main main .container_main .container_table-products .table_transaction-sales .table-responsive table tbody tr td:last-child .btn-view:hover {
   background-color: var(--blue);
 }
 
@@ -260,30 +279,5 @@ body .section_main main .container_main .container_table-products .table_transac
 
 body .section_main main .container_main .container_table-products .table_transaction-sales .table-responsive table tbody tr:hover {
   background-color: var(--table-hover);
-}
-
-@media only screen and (max-width: 1530px) {
-  body main .container_main .container_tables {
-    display: block;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-  body main .container_main .container_tables .stock_table, body main .container_main .container_tables .transaction_table {
-    margin: 10px 0;
-    max-width: 1500px !important;
-    width: 100%;
-  }
-  body main .container_main .container_tables .stock_table .table-responsive, body main .container_main .container_tables .transaction_table .table-responsive {
-    max-width: 1350px !important;
-    width: 100%;
-    -webkit-box-shadow: 0px 0px 5px var(--gray);
-            box-shadow: 0px 0px 5px var(--gray);
-    overflow: auto;
-  }
-  body main .container_main .container_tables .transaction_table {
-    margin-bottom: 100px;
-  }
 }
 /*# sourceMappingURL=admin-transaction_sales.css.map */

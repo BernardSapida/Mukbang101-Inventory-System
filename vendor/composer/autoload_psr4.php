@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Sapida\\CInventory\\' => array($baseDir . '/src'),
+    'PHPMailer\\PHPMailer\\' => array($vendorDir . '/phpmailer/phpmailer/src'),
+    'PHPMailer\\' => array($baseDir . '/PHPMailer'),
     'InventoryViews\\' => array($baseDir . '/views'),
-    'InventoryIncludes\\' => array($baseDir . '/includes'),
 );
