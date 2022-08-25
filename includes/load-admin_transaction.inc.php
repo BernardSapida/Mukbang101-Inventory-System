@@ -7,7 +7,7 @@
     echo '<tr class="empty-item"><td colspan="19">No data found</td></tr>';
     
     forEach($result as $database => $row){
-        echo "<tr data=" . $row['product code'] . " class='" . (($row['quantity'] <= 10) ? "danger" : "")  . "'>";
+        echo "<tr data=" . $row['product code'] . " transactionNo = '" . $row['transaction no.'] . "' class='" . (($row['quantity'] <= 10) ? "danger" : "")  . "'>";
         echo "<td>" . date("F d, Y", strtotime($row['date of stock'])) . "</td>";
         echo "<td>" . $row['transaction no.'] . "</td>";
         echo "<td>" . $row['name'] . "</td>";
@@ -26,7 +26,8 @@
         echo "<td>₱ " . number_format(intval($row['shipping fee']), 2) . "</td>";
         echo "<td>₱ " . number_format(intval($row['discount']), 2) . "</td>";
         echo "<td>₱ " . number_format(intval($row['total']), 2) . "</td>";
-        echo "<td>" . $row['order status'] . "</td>";
+        if(strcmp($row['order status'], "Processing") == 0) echo "<td>" . $row['order status'] . " <button type='button' class='btn-delete' aria-label='delete'><i class='fa-solid fa-xmark'></i> Cancel</button></td>";
+        else echo "<td>" . $row['order status'] . "</td>";
         echo "</tr>";
     }
 ?>
@@ -83,5 +84,22 @@
             $(".empty-item td").text("Empty table");
             $(".empty").show();
         }
+
+        $(".btn-delete").click(function(){
+            $.ajax({
+                type: "POST",
+                url: "../includes/admin-cancel_orders.inc.php",
+                data: {
+                    "transactionNo": $(this).parents("tr").attr("transactionNo"),
+                    "orderStatus": "Cancelled"
+                },
+                error(e) {
+                    console.log(e)
+                }
+            });
+
+            $(this).parent().text("Cancelled");
+            $(this).remove();
+        });
     });
 </script>

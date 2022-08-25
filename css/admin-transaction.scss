@@ -250,7 +250,8 @@ body {
                                             font-size: 12px;
 
                                             &:last-child {
-                                                & #btn-order, & #btn-edit, & #btn-delete {
+                                                & .btn-delete {
+                                                    margin-left: 10px;
                                                     padding: 5px 10px;
                                                     border: none;
                                                     border-radius: 5px;
@@ -258,25 +259,10 @@ body {
                                                     font-size: 12px;
                                                     cursor: pointer;
                                                     transition: all 350ms ease;
+                                                    line-height: 0;
                                                 }
 
-                                                & #btn-order {
-                                                    background-color: var(--blue);
-                                                    
-                                                    &:hover { 
-                                                        background-color: var(--blue-darken);
-                                                    }
-                                                }
-
-                                                & #btn-edit {
-                                                    background-color: var(--dark);
-                                                    
-                                                    &:hover { 
-                                                        background-color: var(--dark-blue);
-                                                    }
-                                                }
-
-                                                & #btn-delete {
+                                                & .btn-delete {
                                                     background-color: var(--red1);
                                                     
                                                     &:hover { 
