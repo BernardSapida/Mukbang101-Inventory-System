@@ -30,9 +30,9 @@
                 <p>Store Address</p>
                 <input type="text" name="store_address" id="store_address" aria-label="store_address" placeholder="Store Address" value="<?php echo isset($_SESSION["address"]) ? $_SESSION["address"] : ""; ?>">
             </label>
-            <label for="supplier_store_name">
+            <label for="store_name">
                 <p>Supplier Store Name</p>
-                <input type="text" name="supplier_store_name" id="supplier_store_name" aria-label="supplier_store_name" placeholder="Supplier Store Name" value="<?php echo isset($_SESSION["store name"]) ? $_SESSION["store name"] : ""; ?>">
+                <input type="text" name="store_name" id="store_name" aria-label="store_name" placeholder="Supplier Store Name" value="<?php echo isset($_SESSION["store name"]) ? $_SESSION["store name"] : ""; ?>">
             </label>
             <label for="contact_number">
                 <p>Contact No.</p>

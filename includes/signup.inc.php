@@ -128,7 +128,7 @@
                         "lastname" => $lastname,
                         "email" => $email,
                         "address" => $storeAddress,
-                        "supplier store name" => $storeName,
+                        "store name" => $storeName,
                         "contact no." => $contactNumber,
                         "password" => $encryptPassword,
                         "type" => "supplier",

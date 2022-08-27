@@ -109,8 +109,8 @@
                 <input type="text" name="category_edit" id="category_edit" placeholder="Product category" disabled>
             </label>
             <label for="quantity_edit">
-                <p>Quantity <span>*</span></p>
-                <input type="text" name="quantity_edit" id="quantity_edit" placeholder="Quantity">
+                <p>Quantity</p>
+                <input type="text" name="quantity_edit" id="quantity_edit" placeholder="Quantity" disabled>
             </label>
             <label for="price_edit">
                 <p>Product Price <span>*</span></p>

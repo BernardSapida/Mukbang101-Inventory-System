@@ -49,6 +49,7 @@ $(document).ready(function() {
                 cache: false,
                 processData: false,
                 success: function(result, status, xhr) {
+                    console.log(result);
                     if (result == "updated") {
                         $("#admin_password").find("input[type=password]").val("");
                         $("#information_validation").css({"background-color":"var(--green)"});

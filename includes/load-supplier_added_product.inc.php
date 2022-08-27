@@ -16,7 +16,7 @@
             "pricePerBox" => $_POST["pricePerBox"],
         ));
 
-        $result = $db -> connect("select", "supplier_product", array("supplierUID" => $_SESSION["uid"]));
+        $result = $db -> connect("select", "supplier_product", array("supplierName" => $_SESSION["store name"]));
 
         echo '<tr class="empty-product"><td colspan="8">No data found</td></tr>';
     

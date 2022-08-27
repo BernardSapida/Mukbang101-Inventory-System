@@ -34,8 +34,8 @@ $(document).ready(function() {
         if(!/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/.test($("#email").val())) errArray.push("Email is invalid!");
         if($("#store_address").val().length == 0) errArray.push("Store address is required!");
         if($("#store_address").val().length < 10) errArray.push("Store address is invalid!");
-        if($("#supplier_store_name").val().length == 0) errArray.push("Store name is required!");
-        if($("#supplier_store_name").val().length < 2) errArray.push("Store name is too short!");
+        if($("#store_name").val().length == 0) errArray.push("Store name is required!");
+        if($("#store_name").val().length < 2) errArray.push("Store name is too short!");
         if($("#contact_number").val().length == 0) errArray.push("Contact no. is required!");
         if($("#contact_number").val().length != 11 || $("#contact_number").val().indexOf("09") != 0) errArray.push("Contact no. is invalid!");
 
@@ -74,6 +74,9 @@ $(document).ready(function() {
                         $("#btn-edit-information").fadeIn(0);
                         $("#supplier_information [name]").prop("disabled", true);
                     }
+                },
+                error(e) {
+                    console.log(e);
                 }
             });
         } else {
@@ -124,6 +127,8 @@ $(document).ready(function() {
     });
 
     $("#btn-save-password").click(function(){
+        let form = $("#supplier_password")[0];
+        let data = new FormData(form);
         let errArray = [];
 
         if($("#current_password").val().length == 0) errArray.push("Current password is required");
@@ -138,8 +143,11 @@ $(document).ready(function() {
         if(errArray.length == 0) {
             $.ajax({
                 type: "POST",
-                url: "../includes/update-account_information.inc.php",
-                data: $("#supplier_password").serialize(),
+                url: "../includes/update-account_password.inc.php",
+                data: data,
+                contentType: false,
+                cache: false,
+                processData: false,
                 success: function(result, status, xhr) {
                     if(result == true) {
                         $("#supplier_password").find("input[type=password]").val("");

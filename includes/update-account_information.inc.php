@@ -15,20 +15,16 @@
         $image_err = $_FILES["account-image"]["error"];
 
         if($image_err === 0) {
-            if($image_size > 800000) {
-                $errImage = "Sorry, your profile image is too large!";
-            } else {
-                $image_external = pathinfo($image_name, PATHINFO_EXTENSION);
-                $image_external_lowercase = strtolower($image_external);
-                $allowed_externals = array("jpg", "jpeg", "png");
-                
-                if(in_array($image_external_lowercase, $allowed_externals)){
-                    $image_new_name = uniqid("img-", true) . '.' . $image_external_lowercase;
-                    $image_upload_path = '../profile/' . $image_new_name;
-                    move_uploaded_file($image_tmp, $image_upload_path);
+            $image_external = pathinfo($image_name, PATHINFO_EXTENSION);
+            $image_external_lowercase = strtolower($image_external);
+            $allowed_externals = array("jpg", "jpeg", "png");
+            
+            if(in_array($image_external_lowercase, $allowed_externals)){
+                $image_new_name = uniqid("img-", true) . '.' . $image_external_lowercase;
+                $image_upload_path = '../profile/' . $image_new_name;
+                move_uploaded_file($image_tmp, $image_upload_path);
 
-                    $image = $image_new_name;
-                }
+                $image = $image_new_name;
             }
         }
     }
@@ -53,7 +49,7 @@
     if(strcmp(htmlspecialchars($_SESSION["image"]), $image)) {
         echo $image;
     } else {
-        echo "updated";
+        echo $image_new_name;
     }
 
     if($result) {

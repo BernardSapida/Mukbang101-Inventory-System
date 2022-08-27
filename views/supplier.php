@@ -44,8 +44,9 @@
                     <p><?php echo $_SESSION["store name"]; ?></p>
                     <p><span></span> Online</p>
                 </div>
-                <i class="fa-solid fa-caret-down"></i>
+                <i class="fa-solid fa-caret-down" id="caret"></i>
             </div>
+            <button type="button" id="signout" aria-label="signout"><i class="fa-solid fa-right-from-bracket"></i> Signout</button>
         </header>
         <main>
             <?php include_once "../includes/supplier-contents.inc.php" ?>    

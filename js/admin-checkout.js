@@ -109,7 +109,10 @@ $(document).ready(function() {
             $(this).prop("disabled", true);
             $(".section_add-product").fadeOut(2000);
             $("#container_validation").fadeOut(2000);
-            $("#checkout-form")[0].reset();
+            setTimeout(function() {
+                window.location.href = "admin.php?page=admin-transaction";
+            }, 2000);
+            // $("#checkout-form")[0].reset();
         } else {
             $("#container_validation").css({"background-color":"var(--red3)"});
             $("#container_validation p").text(errArray[0]);
