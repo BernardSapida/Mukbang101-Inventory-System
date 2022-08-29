@@ -8,6 +8,8 @@
     if(isset($_POST["addedProduct"])) {
         $db -> connect("update", "admin_product", array(
             "productCode" => $_POST["productCode"],
+            "productName" => $_POST["productName"],
+            "category" => $_POST["category"],
             "quantity" => $_POST["quantity"],
             "price" => $_POST["price"],
         ));

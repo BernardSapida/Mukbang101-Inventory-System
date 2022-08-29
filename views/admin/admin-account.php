@@ -38,6 +38,14 @@
                 <p>Contact No.</p>
                 <input type="text" name="contact_number" id="contact_number" aria-label="contact_number" placeholder="Contact Number" value="<?php echo isset($_SESSION["contact no."]) ? $_SESSION["contact no."] : ""; ?>">
             </label>
+            <label for="payment_name">
+                <p>Gcash/Paymaya Name</p>
+                <input type="text" name="payment_name" id="payment_name" aria-label="payment_name" placeholder="Gcash/Paymaya name" value="<?php echo isset($_SESSION["payment name"]) ? $_SESSION["payment name"] : ""; ?>">
+            </label>
+            <label for="payment_number">
+                <p>Gcash/Paymaya Number</p>
+                <input type="text" name="payment_number" id="payment_number" aria-label="payment_number" placeholder="Gcash/Paymaya number" value="<?php echo isset($_SESSION["payment number"]) ? $_SESSION["payment number"] : ""; ?>">
+            </label>
             <div class="container_btn">
                 <button type="button" id="btn-cancel-information" aria-label="btn cancel"><i class="fa-solid fa-x"></i> Cancel</button>
                 <button type="button" id="btn-edit-information" aria-label="btn edit"><i class="fa-solid fa-pen-to-square"></i> Edit Information</button>

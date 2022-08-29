@@ -13,109 +13,42 @@
         $storeAddress = $_POST["storeAddress"];
         $storeName = $_POST["storeName"];
         $contactNumber = $_POST["contactNumber"];
+        $paymentName = $_POST["payment_name"];
+        $paymentNumber = $_POST["payment_number"];
         $password = $_POST["password"];
         $confirmPassword = $_POST["confirmPassword"];
         $image = "default.jpg";
         $type = "supplier";
-
-        $errFirstname = "";
-        $errLastname = "";
-        $errEmail = "";
-        $errStoreAddress = "";
-        $errStoreName = "";
-        $errContactNumber = "";
-        $errPassword = "";
-        $errConfirmPassword = "";
-      	$signup_success = false;
         $errArray = array();
 
-        if(empty($firstname)) {
-            $errFirstname = "Firstname is required!";
-            array_push($errArray, $errFirstname);
-        }
-
-        if(strlen($firstname) < 2) {
-            $errFirstname = "Firstname is too short!";
-            array_push($errArray, $errFirstname);
-        }
-
-        if(empty($lastname)) {
-            $errLastname = "Lastname is required!";
-            array_push($errArray, $errLastname);
-        }
-
-        if(strlen($lastname) < 2) {
-            $errLastname = "Lastname is too short!";
-            array_push($errArray, $errLastname);
-        }
-
-        if(empty($email)) {
-            $errEmail = "Email is required!";
-            array_push($errArray, $errEmail);
-        }
-
-        if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $errEmail = "Email is invalid!";
-            array_push($errArray, $errEmail);
-        }
-
-        if($db -> connect("select", "accounts", "email", $email)) {
-            $errEmail = "Email is already registered!";
-            array_push($errArray, $errEmail);
-        }
-
-        if(empty($storeAddress)) {
-            $errStoreAddress = "Store address is required!";
-            array_push($errArray, $errStoreAddress);
-        }
-
-        if(strlen($storeAddress) < 10) {
-            $errStoreAddress = "Store address is invalid!";
-            array_push($errArray, $errStoreAddress);
-        }
-
-        if(empty($storeName)) {
-            $errStoreName = "Store name is required!";
-            array_push($errArray, $errStoreName);
-        } 
-
-        if(strlen($storeName) < 2) {
-            $errStoreName = "Store name is too short!";
-            array_push($errArray, $errStoreName);
-        }
-
-        if(empty($contactNumber)) {
-            $errContactNumber = "Contact no. is required!";
-            array_push($errArray, $errContactNumber);
-        } 
-
-        if(strlen($contactNumber) != 11 || stripos($contactNumber, "09")) {
-            $errContactNumber = "Contact no. is invalid!";
-            array_push($errArray, $errContactNumber);
-        }
-
-        if(empty($password)) {
-            $errPassword = "Password is required!";
-            array_push($errArray, $errPassword);
-        } 
-
-        if(empty($confirmPassword)) {
-            $errConfirmPassword = "Confirm password is required!";
-            array_push($errArray, $errConfirmPassword);
-        } 
+        if(empty($firstname)) array_push($errArray, "Firstname is required!");
+        if(strlen($firstname) < 2) array_push($errArray, "Firstname is too short!");
+        if(empty($lastname)) array_push($errArray, "Lastname is required!");
+        if(strlen($lastname) < 2) array_push($errArray, "Lastname is too short!");
+        if(empty($email)) array_push($errArray, "Email is required!");
+        if(!filter_var($email, FILTER_VALIDATE_EMAIL)) array_push($errArray, "Email is invalid!");
+        if($db -> connect("select", "accounts", "email", $email)) array_push($errArray, "Email is already registered!");
+        if(empty($storeAddress)) array_push($errArray, "Store address is required!");
+        if(strlen($storeAddress) < 10) array_push($errArray, "Store address is invalid!");
+        if(empty($storeName)) array_push($errArray, "Store name is required!");
+        if(strlen($storeName) < 2) array_push($errArray, "Store name is too short!");
+        if(empty($contactNumber)) array_push($errArray, "Contact no. is required!");
+        if(strlen($contactNumber) != 11 || stripos($contactNumber, "09")) array_push($errArray, "Contact no. is invalid!");
+        if(empty($paymentName)) array_push($errArray, "Gcash/Paymaya name is required!");
+        if(strlen($paymentName) < 2) array_push($errArray, "Gcash/Paymaya name is too short!");
+        if(empty($paymentNumber)) array_push($errArray, "Gcash/Paymaya number is required!");
+        if(strlen($paymentNumber) != 11 || stripos($paymentNumber, "09")) array_push($errArray, "Gcash/Paymaya number is invalid!");
+        if(empty($password)) array_push($errArray, "Password is required!");
+        if(empty($confirmPassword)) array_push($errArray, "Confirm password is required!");
 
         if(!empty($firstname) && !empty($lastname) && !empty($email) && !empty($storeAddress) && !empty($storeName) && !empty($contactNumber) && !empty($password) && !empty($confirmPassword)) {
-            if(!preg_match_all("/\W/i", $password)) $errPassword = "Your password should contain unique symbols!";
-            if(!preg_match_all("/[A-Z]/", $password)) $errPassword = "Your password should have 1 or more uppercase letters!";
-            if(!preg_match_all("/[a-z]/", $password)) $errPassword = "Your password should have 1 or more lowercase letters!";
-            if(!preg_match_all("/[0-9]/", $password)) $errPassword = "Your password should have 1 or more numerical values!";
-            if($password != $confirmPassword) $errConfirmPassword = "Your new password and confirm password didn't matched!";
+            if(!preg_match_all("/\W/i", $password)) array_push($errArray, "Your password should contain unique symbols!");
+            if(!preg_match_all("/[A-Z]/", $password)) array_push($errArray, "Your password should have 1 or more uppercase letters!");
+            if(!preg_match_all("/[a-z]/", $password)) array_push($errArray, "Your password should have 1 or more lowercase letters!");
+            if(!preg_match_all("/[0-9]/", $password)) array_push($errArray, "Your password should have 1 or more numerical values!");
+            if($password != $confirmPassword) array_push($errArray, "Your new password and confirm password didn't matched!");
 
-            
-            if(!empty($errPassword)) array_push($errArray, $errPassword);
-            if(!empty($errConfirmPassword)) array_push($errArray, $errConfirmPassword);
-
-            if(empty($errFirstname) && empty($errLastname) && empty($errEmail) && empty($errStoreAddress) && empty($errStoreName) && empty($errContactNumber) && empty($errPassword) && empty($errConfirmPassword)) {
+            if(empty($errArray)) {
                 $encryptPassword = password_hash($password, PASSWORD_DEFAULT);
 
                 $db -> connect(
@@ -131,18 +64,11 @@
                         "store name" => $storeName,
                         "contact no." => $contactNumber,
                         "password" => $encryptPassword,
+                        "paymentName" => $paymentName,
+                        "paymentNumber" => $paymentNumber,
                         "type" => "supplier",
                     )
                 );
-                
-                $firstname = "";
-                $lastname = "";
-                $email = "";
-                $storeAddress = "";
-                $storeName = "";
-                $contactNumber = "";
-                $password = "";
-                $confirmPassword = "";
 
                 echo "<script>
                     alert('Your account has been created. You can signin now!');

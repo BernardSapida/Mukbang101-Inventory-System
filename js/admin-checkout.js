@@ -1,35 +1,4 @@
 $(document).ready(function() {
-    const params = new URLSearchParams(window.location.search);
-
-    $("#container_validation").hide();
-
-    $.ajax({
-        type: "POST",
-        url: "../includes/admin-checkout.inc.php",
-        data: {
-            productCode:  params.get("productCode")
-        },
-        dataType: "JSON",
-        success: function(result, status, xhr) {
-            $("#name").val(result["name"]);
-            $("#delivery_address").val(result["address"]);
-            $("#contact_number").val(result["contact no."]);
-            $("#supplier_name").val(result["supplier name"]);
-            $("#product_code").val(result["product code"]);
-            $("#product_name").val(result["product name"]);
-            $("#pcs_per_box").val(result["pcs per box"]);
-            $("#price_per_box").val(Number(result["price per box"]).toFixed(2));
-            $(".price").html("Php " + Number(result["price per box"]).toFixed(2) + " <span class='quantity'>x 0</span>");
-            $(".shippingFee").html("Php " + Number(result["shipping fee"]).toFixed(2));
-            $(".discount").html("Php " + Number(result["discount"]).toFixed(2));
-            $(".total-amount").html("Php " + (
-                Number(result["price per box"] * 0) +
-                Number(result["shipping fee"]) - 
-                Number(result["discount"])
-            ).toFixed(2));
-        }
-    });   
-    
     $("#box_quantity").keyup(function(){
         if($("#box_quantity").val() != "")  {
             $(".price").html("Php " + $("#price_per_box").val() + " <span class='quantity'>x " + $("#box_quantity").val() + "</span>");
@@ -53,26 +22,33 @@ $(document).ready(function() {
         $("#container_validation").hide();
 
         if($("#name").val().length <= 0) errArray.push("Name is required!");
-        if($("#delivery_address").val().length <= 0) errArray.push("Delivery address is required!");
-        if($("#contact_number").val().length <= 0) errArray.push("Contact number is required!");
-        if($("#supplier_name").val().length <= 0) errArray.push("Supplier name is required!");
-        if($("#product_code").val().length <= 0) errArray.push("Product code is required!");
-        if($("#product_name").val().length <= 0) errArray.push("Product name is required!");
-        if($("#box_quantity").val().length <= 0) errArray.push("Box quantity is required!");
-        if($("#pcs_per_box").val().length <= 0) errArray.push("Pcs per product is required!");
-        if($("#price_per_box").val().length <= 0) errArray.push("Price per box is required!");
+        if($("#delivery_address").val().length == 0) errArray.push("Delivery address is required!");
+        if($("#contact_number").val().length == 0) errArray.push("Contact number is required!");
+        if(!$("#contact_number").val().startsWith("09")) errArray.push("Contact number is invalid!");
+        if($("#supplier_name").val().length == 0) errArray.push("Supplier name is required!");
+        if($("#product_name").val().length == 0) errArray.push("Product name is required!");
+        if($("#product_code").val().length == 0) errArray.push("Product code is required!");
+        if($("#box_quantity").val().length == 0) errArray.push("Box quantity is required!");
+        if($("#pcs_per_box").val().length == 0) errArray.push("Pcs per product is required!");
+        if($("#price_per_box").val().length == 0) errArray.push("Price per box is required!");
         if($("input[name='payment_mode']:checked").val() == null) errArray.push("Payment method is required!");
 
         if($("input[name='payment_mode']:checked").val() === "gcash") {
+            if($("#paymaya_payment_name").val().length == 0) errArray.push("Supplier gcash name is required!");
+            if($("#paymaya_payment_number").val().length == 0) errArray.push("Supplier gcash number is required!");
+            if(($("#paymaya_payment_number").val().length != 11) || !$("#paymaya_payment_number").val().startsWith("09")) errArray.push("Supplier gcash number is invalid!");
             if($("#gcash_reference_number").val().length == 0) errArray.push("Gcash payment reference number is required!");
-            else if($("#gcash_reference_number").val().length != 13) errArray.push("Gcash payment reference number is invalid!");
-            else referenceNumber = $("#gcash_reference_number").val();
+            if($("#gcash_reference_number").val().length != 13) errArray.push("Gcash payment reference number is invalid!");
+            referenceNumber = $("#gcash_reference_number").val();
         }
 
         if($("input[name='payment_mode']:checked").val() === "paymaya") {
+            if($("#paymaya_payment_name").val().length == 0) errArray.push("Supplier paymaya name is required!");
+            if($("#paymaya_payment_number").val().length == 0) errArray.push("Supplier paymaya number is required!");
+            if(($("#paymaya_payment_number").val().length != 11) || !$("#paymaya_payment_number").val().startsWith("09")) errArray.push("Supplier paymaya number is invalid!");
             if($("#paymaya_reference_number").val().length == 0) errArray.push("Paymaya payment reference number is required!");
-            else if($("#paymaya_reference_number").val().length != 13) errArray.push("Paymaya payment reference number is invalid!");
-            else referenceNumber = $("#paymaya_reference_number").val();
+            if($("#paymaya_reference_number").val().length != 13) errArray.push("Paymaya payment reference number is invalid!");
+            referenceNumber = $("#paymaya_reference_number").val();
         }
 
         if(errArray.length == 0) {
@@ -99,6 +75,9 @@ $(document).ready(function() {
                 },
                 success: function(result, status, xhr) {
                     console.table(result);
+                },
+                error(e) {
+                    console.log(e);
                 }
             });
 
@@ -123,4 +102,61 @@ $(document).ready(function() {
     $("#btn-back").click(function() {
         window.location.href = "admin.php?page=admin-product";
     });
+
+    $("#supplier_name").on("change", function() {
+        $("#product_name").load("../includes/admin-add-product-name_options.inc.php", {
+            selectedSupplier: $("#supplier_name").val()
+        });
+
+        if($("#supplier_name").val() == "") {
+            $("#product_name").prop("disabled", "disabled");
+            $("#product_code").val("");
+            $("#pcs_per_box").val("");
+            $("#product_code").val("");
+            $("#gcash_payment_name").val("");
+            $("#gcash_payment_number").val("");
+            $("#paymaya_payment_name").val("");
+            $("#paymaya_payment_number").val("");
+        } else {
+            $("#product_name").prop("disabled", "");
+            $.ajax({
+                type: "POST",
+                url: "../includes/admin-checkout.inc.php",
+                dataType: "json",
+                data: { selectedSupplier: $("#supplier_name").val() },
+                success: function(result, status, xhr) {
+                    // console.table(result);
+                    $("#gcash_payment_name").val(result['payment name']);
+                    $("#gcash_payment_number").val(result['payment number']);
+                    $("#paymaya_payment_name").val(result['payment name']);
+                    $("#paymaya_payment_number").val(result['payment number']);
+                }
+            });
+        }
+    });
+
+    $("#product_name").change(function() {
+        if($(this).val() == "") {
+            $("#product_code").val("");
+            $("#product_code").val("");
+            $("#pcs_per_box").val("");
+            $("#price_per_box").val("");
+        } else {
+            $.ajax({
+                type: "POST",
+                url: "../includes/admin-order_details.inc.php",
+                data: {
+                    productName:  $("#product_name").val()
+                },
+                dataType: "JSON",
+                success: function(result, status, xhr) {
+                    $("#product_code").val(result["product code"]);
+                    $("#pcs_per_box").val(result["pcs per box"]);
+                    $("#price_per_box").val(result["price per box"]);
+                }
+            });
+        }
+    });
+
+    $("#supplier_name").load("../includes/admin-add-product-supplier_options.inc.php");
 });

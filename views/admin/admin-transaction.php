@@ -26,7 +26,6 @@
                                 <th>Delivery Address</th>
                                 <th>Contact No.</th>
                                 <th>Email Address</th>
-                                <th>Supplier Name</th>
                                 <th>Product Code</th>
                                 <th>Product Name</th>
                                 <th>Box Quantity</th>
@@ -41,9 +40,7 @@
                                 <th>Order Status</th>
                             </tr>
                         </thead>
-                        <tbody id="transaction_table">
-                            <tr class="empty-item"><td colspan="19">No data found</td></tr>
-                        </tbody>
+                        <tbody id="transaction_table"></tbody>
                     </table>
                 </div>
             </div>

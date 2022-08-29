@@ -1,6 +1,4 @@
 $(document).ready(function() {
-    $("#information_validation").hide();
-    $("#password_validation").hide();
     $("#supplier_information [name]").prop("disabled", true);
     $("#supplier_password [name]").prop("disabled", true);
     $("#eye-password").hide();
@@ -28,7 +26,9 @@ $(document).ready(function() {
         let errArray = [];
 
         data.append("image", $("#account-image")[0].files);
+        if($("#firstname").val().length == 0) errArray.push("Firstname is required!");
         if($("#firstname").val().length < 2) errArray.push("Firstname is too short!");
+        if($("#lastname").val().length == 0) errArray.push("Lastname is required!");
         if($("#lastname").val().length < 2) errArray.push("Lastname is required!");
         if($("#email").val().length < 2) errArray.push("Email is required!");
         if(!/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/.test($("#email").val())) errArray.push("Email is invalid!");
@@ -38,7 +38,11 @@ $(document).ready(function() {
         if($("#store_name").val().length < 2) errArray.push("Store name is too short!");
         if($("#contact_number").val().length == 0) errArray.push("Contact no. is required!");
         if($("#contact_number").val().length != 11 || $("#contact_number").val().indexOf("09") != 0) errArray.push("Contact no. is invalid!");
-
+        if($("#payment_name").val().length == 0) errArray.push("Gcash/Paymaya name is required!");
+        if($("#payment_name").val().length < 2) errArray.push("Gcash/Paymaya name is too short!");
+        if($("#payment_number").val().length == 0) errArray.push("Gcash/Paymaya number is required!");
+        if($("#payment_number").val().length != 11 || $("#payment_number").val().indexOf("09") != 0) errArray.push("Gcash/Paymaya number is invalid!");
+        
         if(errArray.length == 0) {
             $.ajax({
                 type: "POST",
@@ -49,6 +53,7 @@ $(document).ready(function() {
                 cache: false,
                 processData: false,
                 success: function(result, status, xhr) {
+                    console.log(result)
                     if (result == "updated") {
                         $("#supplier_password").find("input[type=password]").val("");
                         $("#information_validation").css({"background-color":"var(--green)"});
@@ -70,13 +75,11 @@ $(document).ready(function() {
                         $("#information_validation p").text("Successfully changed information!");
                         $("#information_validation").fadeIn(0);
                         $("#information_validation").fadeOut(5000);
+                        $("#btn-cancel-information").hide();
                         $("#btn-save-information").hide();
                         $("#btn-edit-information").fadeIn(0);
                         $("#supplier_information [name]").prop("disabled", true);
                     }
-                },
-                error(e) {
-                    console.log(e);
                 }
             });
         } else {

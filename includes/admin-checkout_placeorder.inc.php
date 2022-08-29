@@ -12,7 +12,6 @@
         "deliveryAddress" => $_POST["deliveryAddress"],
         "contactNo" => $_POST["contactNo"],
         "emailAddress" => $_SESSION["email"],
-        "supplierName" => $_POST["supplierName"],
         "productCode" => $_POST["productCode"],
         "productName" => $_POST["productName"],
         "boxQuantity" => $_POST["boxQuantity"],

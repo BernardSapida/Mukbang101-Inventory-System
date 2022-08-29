@@ -49,14 +49,75 @@ body .section_navigation .nav_main-navigation {
 }
 
 body .section_navigation .nav_main-navigation .container_banner {
+  padding: 0 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   margin: auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 body .section_navigation .nav_main-navigation .container_banner img {
   display: block;
-  margin: auto;
   margin-bottom: 20px;
   max-width: 160px;
+}
+
+body .section_navigation .nav_main-navigation .container_banner #humberger-menu-nav {
+  visibility: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 50px;
+  position: relative;
+  padding: 8px;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  color: var(--light);
+  border: 1px solid var(--secondary-dark);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+body .section_navigation .nav_main-navigation .container_banner #humberger-menu-nav > div {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  position: relative;
+  background: transparent;
+  height: 4px;
+  width: 40px;
+  border-radius: 2px;
+}
+
+body .section_navigation .nav_main-navigation .container_banner #humberger-menu-nav > div::before, body .section_navigation .nav_main-navigation .container_banner #humberger-menu-nav > div::after {
+  content: "";
+  display: block;
+  position: absolute;
+  background: var(--light);
+  height: 4px;
+  width: 40px;
+  border-radius: 2px;
+}
+
+body .section_navigation .nav_main-navigation .container_banner #humberger-menu-nav > div::before {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+body .section_navigation .nav_main-navigation .container_banner #humberger-menu-nav > div::after {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
 }
 
 body .section_navigation .nav_main-navigation .container_navigation > p {
@@ -105,12 +166,65 @@ body .section_main {
 }
 
 body .section_main header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
   padding: 15px 30px;
   background-color: var(--dark);
   z-index: 1;
+}
+
+body .section_main header #humberger-menu-header {
+  visibility: hidden;
+  height: 50px;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 8px;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  color: var(--light);
+  border: 1px solid var(--secondary-dark);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+body .section_main header #humberger-menu-header > div {
+  position: relative;
+  background: var(--light);
+  height: 4px;
+  width: 40px;
+  border-radius: 2px;
+}
+
+body .section_main header #humberger-menu-header > div::before, body .section_main header #humberger-menu-header > div::after {
+  content: "";
+  display: block;
+  position: absolute;
+  background: var(--light);
+  height: 4px;
+  width: 40px;
+  border-radius: 2px;
+}
+
+body .section_main header #humberger-menu-header > div::before {
+  bottom: 10px;
+}
+
+body .section_main header #humberger-menu-header > div::after {
+  top: 10px;
 }
 
 body .section_main header .container-profile {
@@ -125,6 +239,7 @@ body .section_main header .container-profile {
           align-items: center;
   gap: 10px;
   color: var(--light);
+  cursor: pointer;
 }
 
 body .section_main header .container-profile img {
@@ -173,9 +288,9 @@ body .section_main header #signout {
 body .section_main main {
   margin: auto;
   max-width: 1400px;
-  width: 100%;
+  width: 95%;
   height: 90vh;
-  padding: 30px 50px;
+  padding: 30px 0;
 }
 
 body .section_main main .container_main {
@@ -215,6 +330,7 @@ body .section_main main .container_main .container_title > button:hover {
 }
 
 body .section_main main .container_main .container_validation {
+  display: none;
   margin-bottom: 10px;
   width: 100%;
   padding: 10px 15px;
@@ -229,7 +345,7 @@ body .section_main main .container_main .container_validation > p {
 }
 
 body .section_main main .container_main .container_form {
-  padding: 40px;
+  padding: 30px 15px;
   width: 100%;
   -webkit-box-shadow: 0px 0px 5px var(--gray);
           box-shadow: 0px 0px 5px var(--gray);
@@ -277,7 +393,7 @@ body .section_main main .container_main .container_form form .container_details 
   color: var(--red2);
 }
 
-body .section_main main .container_main .container_form form .container_details .container_contact-details label input[type="text"], body .section_main main .container_main .container_form form .container_details .container_contact-details label input[type="number"], body .section_main main .container_main .container_form form .container_details .container_supplier-details label input[type="text"], body .section_main main .container_main .container_form form .container_details .container_supplier-details label input[type="number"] {
+body .section_main main .container_main .container_form form .container_details .container_contact-details label select, body .section_main main .container_main .container_form form .container_details .container_contact-details label input[type="text"], body .section_main main .container_main .container_form form .container_details .container_contact-details label input[type="number"], body .section_main main .container_main .container_form form .container_details .container_supplier-details label select, body .section_main main .container_main .container_form form .container_details .container_supplier-details label input[type="text"], body .section_main main .container_main .container_form form .container_details .container_supplier-details label input[type="number"] {
   width: 100%;
   padding: 5px 15px;
   border-radius: 5px;
@@ -288,7 +404,7 @@ body .section_main main .container_main .container_form form .container_details 
   color: var(--gray);
 }
 
-body .section_main main .container_main .container_form form .container_details .container_contact-details label input[type="text"]::-webkit-outer-spin-button, body .section_main main .container_main .container_form form .container_details .container_contact-details label input[type="text"]::-webkit-inner-spin-button, body .section_main main .container_main .container_form form .container_details .container_contact-details label input[type="number"]::-webkit-outer-spin-button, body .section_main main .container_main .container_form form .container_details .container_contact-details label input[type="number"]::-webkit-inner-spin-button, body .section_main main .container_main .container_form form .container_details .container_supplier-details label input[type="text"]::-webkit-outer-spin-button, body .section_main main .container_main .container_form form .container_details .container_supplier-details label input[type="text"]::-webkit-inner-spin-button, body .section_main main .container_main .container_form form .container_details .container_supplier-details label input[type="number"]::-webkit-outer-spin-button, body .section_main main .container_main .container_form form .container_details .container_supplier-details label input[type="number"]::-webkit-inner-spin-button {
+body .section_main main .container_main .container_form form .container_details .container_contact-details label select::-webkit-outer-spin-button, body .section_main main .container_main .container_form form .container_details .container_contact-details label select::-webkit-inner-spin-button, body .section_main main .container_main .container_form form .container_details .container_contact-details label input[type="text"]::-webkit-outer-spin-button, body .section_main main .container_main .container_form form .container_details .container_contact-details label input[type="text"]::-webkit-inner-spin-button, body .section_main main .container_main .container_form form .container_details .container_contact-details label input[type="number"]::-webkit-outer-spin-button, body .section_main main .container_main .container_form form .container_details .container_contact-details label input[type="number"]::-webkit-inner-spin-button, body .section_main main .container_main .container_form form .container_details .container_supplier-details label select::-webkit-outer-spin-button, body .section_main main .container_main .container_form form .container_details .container_supplier-details label select::-webkit-inner-spin-button, body .section_main main .container_main .container_form form .container_details .container_supplier-details label input[type="text"]::-webkit-outer-spin-button, body .section_main main .container_main .container_form form .container_details .container_supplier-details label input[type="text"]::-webkit-inner-spin-button, body .section_main main .container_main .container_form form .container_details .container_supplier-details label input[type="number"]::-webkit-outer-spin-button, body .section_main main .container_main .container_form form .container_details .container_supplier-details label input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
@@ -401,11 +517,11 @@ body .section_main main .container_main .container_form form .container_payment 
   font-weight: 400;
 }
 
-body .section_main main .container_main .container_form form .container_payment > label .payment_mode .container_details label[for="gcash_reference_number"], body .section_main main .container_main .container_form form .container_payment > label .payment_mode .container_details label[for="paymaya_reference_number"] {
+body .section_main main .container_main .container_form form .container_payment > label .payment_mode .container_details label {
   display: none;
 }
 
-body .section_main main .container_main .container_form form .container_payment > label .payment_mode .container_details label[for="gcash_reference_number"] input[type="text"], body .section_main main .container_main .container_form form .container_payment > label .payment_mode .container_details label[for="paymaya_reference_number"] input[type="text"] {
+body .section_main main .container_main .container_form form .container_payment > label .payment_mode .container_details label input[type="text"] {
   width: 100%;
   padding: 5px 15px;
   border-radius: 5px;
@@ -416,7 +532,7 @@ body .section_main main .container_main .container_form form .container_payment 
   border: 0.5px solid var(--border);
 }
 
-body .section_main main .container_main .container_form form .container_payment > label .payment_mode .container_details label[for="gcash_reference_number"] span, body .section_main main .container_main .container_form form .container_payment > label .payment_mode .container_details label[for="paymaya_reference_number"] span {
+body .section_main main .container_main .container_form form .container_payment > label .payment_mode .container_details label span {
   color: var(--red2);
 }
 
@@ -488,5 +604,30 @@ body .section_main main .container_main .container_form form button {
 
 body .section_main main .container_main .container_form form button:hover {
   background-color: var(--purple-lighten);
+}
+
+@media only screen and (max-width: 768px) {
+  body {
+    position: relative;
+  }
+  body .section_main header #humberger-menu-header {
+    visibility: visible;
+  }
+  body .section_navigation {
+    display: none;
+    position: absolute;
+    width: 100%;
+    max-width: 100vw;
+    z-index: 2;
+  }
+  body .section_navigation .nav_main-navigation .container_banner #humberger-menu-nav {
+    visibility: visible;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  body .section_main header .container-profile .container-label, body .section_main header .container-profile i {
+    display: none;
+  }
 }
 /*# sourceMappingURL=admin-checkout.css.map */

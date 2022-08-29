@@ -12,16 +12,14 @@
     forEach($result as $database => $row){
         echo "<tr data=" . $row['product code'] . " class='" . (($row['quantity'] <= 10) ? "danger" : "")  . "'>";
         echo "<td>" . $row['product code'] . "</td>";
-        echo "<td>" . $row['supplier name'] . "</td>";
         echo "<td>" . $row['product name'] . "</td>";
         echo "<td>" . $row['category'] . "</td>";
         echo "<td>" . $row['quantity'] . "</td>";
         echo "<td>₱ " . number_format(intval($row['price']), 2) . "</td>";
-        echo "<td>" . date("F d, Y", strtotime($row['date of stock'])) . "</td>";
+        echo "<td>" . date("F d, Y", strtotime($row['date of stocks'])) . "</td>";
         echo '<td>
-                <button type="button" class="btn-order" aria-label="btn-order"><i class="fa-solid fa-box"></i> Order</button>
-                <button type="button" class="btn-edit" aria-label="btn-edit"><i class="fa-solid fa-pen-to-square"></i></button>
-                <button type="button" class="btn-delete" aria-label="btn-delete"><i class="fa-solid fa-trash-can"></i></button>
+                <button type="button" class="btn-edit" aria-label="btn-edit"><i class="fa-solid fa-pen-to-square"></i> Edit</button>
+                ' . ((strcmp($row["status"], "ACTIVE") == 0) ? '<button type="button" class="btn-active btn-status" aria-label="btn-status">ACTIVE</button>' : '<button type="button" class="btn-inactive btn-status" aria-label="btn-status">INACTIVE</button>') . '
             </td>';
         echo "</tr>";
     }
@@ -31,8 +29,34 @@
     $(document).ready(function() {
         $(".empty-product").hide();
 
-        $(".btn-order").click(function(){
-            window.location.href = `admin.php?page=admin-checkout&&productCode=${$(this).parents("tr").attr("data")}`;
+        $(".btn-status").click(function() {
+            let productCode = $(this).parents("tr").attr("data");
+
+            if($(this).hasClass("btn-active")) {
+                $(this).removeClass("btn-active");
+                $(this).addClass("btn-inactive");
+                $(this).text("INACTIVE")
+            } else {
+                $(this).removeClass("btn-inactive");
+                $(this).addClass("btn-active");
+                $(this).text("ACTIVE")
+            }
+            
+            $.ajax({
+                type: "POST",
+                url: "../includes/update-admin_product_status.inc.php",
+                data: {
+                    productCode: productCode,
+                    status: $(this).text()
+                },
+                success: function(result, status, xhr) {
+                    console.log(result);
+                    if($("table tbody tr").length == 0) {
+                        $(".empty-product td").text("Empty table");
+                        $(".empty-product").show();
+                    }
+                }
+            });
         });
 
         $(".btn-edit").click(function(){
@@ -46,8 +70,7 @@
                 dataType: "JSON",
                 success: function(result, status, xhr) {
                     $("#product_code_edit").val(result["product code"]);
-                    $("#supplier_edit").val(result["supplier name"]);
-                    $("#product_edit").val(result["product name"]);
+                    $("#product_name_edit").val(result["product name"]);
                     $("#category_edit").val(result["category"]);
                     $("#quantity_edit").val(result["quantity"]);
                     $("#price_edit").val(result["price"]);
@@ -58,26 +81,7 @@
         $("#btn_x_edit").click(function(){
             $(".section_edit-product").fadeOut();
             $("#information_validation_edit").fadeOut();
-        });
-
-        $(".btn-delete").click(function() {
-            let productCode = $(this).parents("tr").attr("data");
-
-            $.ajax({
-                type: "POST",
-                url: "../includes/delete-admin_product.inc.php",
-                data: {
-                    productCode: $(this).parents("tr").attr("data")
-                },
-                success: function(result, status, xhr) {
-                    $(`tr[data = ${productCode}]`).remove();
-
-                    if($("table tbody tr").length == 0) {
-                        $(".empty-product td").text("Empty table");
-                        $(".empty-product").show();
-                    }
-                }
-            });
+            $("#container_validation_edit").fadeOut();
         });
 
         $(".btn-edit_product").click(function() {
@@ -85,9 +89,7 @@
 
             let errArray = [];
 
-            if($("#supplier_edit").val().length <= 0) errArray.push("Supplier is required!");
-            if($("#product_edit").val().length <= 0) errArray.push("Product is required!");
-            if($("#product_code_edit").val().length <= 0) errArray.push("Product code is required!");
+            if($("#product_name_edit").val().length <= 0) errArray.push("Product name is required!");
             if($("#category_edit").val().length <= 0) errArray.push("Category is required!");
             if($("#quantity_edit").val().length <= 0) errArray.push("Quantity is required!");
             if(!/^(\d)+$/g.test($("#quantity_edit").val())) errArray.push("Quantity is invalid!");
@@ -100,10 +102,9 @@
                     url: "../includes/update-admin_product.inc.php",
                     data: {
                         productCode: $("#product_code_edit").val(),
-                        // productName: $("#product_name_edit").val(),
-                        // category: $("#category_edit").val(),
+                        productName: $("#product_name_edit").val(),
+                        category: $("#category_edit").val(),
                         quantity: $("#quantity_edit").val(),
-                        // pcsPerBox: $("#pcs_per_box_edit").val(),
                         price: $("#price_edit").val(),
                         addedProduct: true
                     },

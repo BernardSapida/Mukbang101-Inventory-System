@@ -4,7 +4,7 @@
     $db = new Database();
 
     $result = $db -> connect("select", "admin_product");
-    
+
     echo '<tr class="empty-product"><td colspan="6">No data found</td></tr>';
 
     forEach($result as $database => $row){

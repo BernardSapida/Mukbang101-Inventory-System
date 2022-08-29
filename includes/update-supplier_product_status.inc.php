@@ -5,12 +5,16 @@
 
 
     if(isset($_POST['productCode'])) {
-        $db -> connect(
-            "delete", 
+        $result = $db -> connect(
+            "update", 
             "supplier_product", 
             array(
                 "productCode" => $_POST["productCode"], 
-            )
+                "status" => $_POST["status"]
+            ),
+            "status"
         );
+
+        echo $result;
     }
 ?>

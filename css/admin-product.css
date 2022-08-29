@@ -50,14 +50,75 @@ body .section_navigation .nav_main-navigation {
 }
 
 body .section_navigation .nav_main-navigation .container_banner {
+  padding: 0 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   margin: auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 body .section_navigation .nav_main-navigation .container_banner img {
   display: block;
-  margin: auto;
   margin-bottom: 20px;
   max-width: 160px;
+}
+
+body .section_navigation .nav_main-navigation .container_banner #humberger-menu-nav {
+  visibility: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 50px;
+  position: relative;
+  padding: 8px;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  color: var(--light);
+  border: 1px solid var(--secondary-dark);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+body .section_navigation .nav_main-navigation .container_banner #humberger-menu-nav > div {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  position: relative;
+  background: transparent;
+  height: 4px;
+  width: 40px;
+  border-radius: 2px;
+}
+
+body .section_navigation .nav_main-navigation .container_banner #humberger-menu-nav > div::before, body .section_navigation .nav_main-navigation .container_banner #humberger-menu-nav > div::after {
+  content: "";
+  display: block;
+  position: absolute;
+  background: var(--light);
+  height: 4px;
+  width: 40px;
+  border-radius: 2px;
+}
+
+body .section_navigation .nav_main-navigation .container_banner #humberger-menu-nav > div::before {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+body .section_navigation .nav_main-navigation .container_banner #humberger-menu-nav > div::after {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
 }
 
 body .section_navigation .nav_main-navigation .container_navigation > p {
@@ -100,17 +161,71 @@ body .section_navigation .nav_main-navigation .container_navigation > ul li a.ac
 }
 
 body .section_main {
+  position: relative;
   width: 100%;
   overflow-y: scroll;
 }
 
 body .section_main header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
   padding: 15px 30px;
   background-color: var(--dark);
   z-index: 1;
+}
+
+body .section_main header #humberger-menu-header {
+  visibility: hidden;
+  height: 50px;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 8px;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  color: var(--light);
+  border: 1px solid var(--secondary-dark);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+body .section_main header #humberger-menu-header > div {
+  position: relative;
+  background: var(--light);
+  height: 4px;
+  width: 40px;
+  border-radius: 2px;
+}
+
+body .section_main header #humberger-menu-header > div::before, body .section_main header #humberger-menu-header > div::after {
+  content: "";
+  display: block;
+  position: absolute;
+  background: var(--light);
+  height: 4px;
+  width: 40px;
+  border-radius: 2px;
+}
+
+body .section_main header #humberger-menu-header > div::before {
+  bottom: 10px;
+}
+
+body .section_main header #humberger-menu-header > div::after {
+  top: 10px;
 }
 
 body .section_main header .container-profile {
@@ -173,9 +288,9 @@ body .section_main header #signout {
 body .section_main main {
   margin: auto;
   max-width: 1400px;
-  width: 100%;
-  height: 90vh;
-  padding: 30px 50px;
+  width: 95%;
+  height: 100%;
+  padding: 30px 0;
 }
 
 body .section_main main .container_main .container_table-products .product_table {
@@ -189,6 +304,9 @@ body .section_main main .container_main .container_table-products .product_table
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-bottom: 15px;
 }
 
 body .section_main main .container_main .container_table-products .product_table .container_table-title .container_title {
@@ -199,7 +317,7 @@ body .section_main main .container_main .container_table-products .product_table
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 20px;
+  gap: 10px;
 }
 
 body .section_main main .container_main .container_table-products .product_table .container_table-title .container_title > h1 {
@@ -215,18 +333,29 @@ body .section_main main .container_main .container_table-products .product_table
           align-items: center;
   gap: 5px;
   padding: 5px 10px;
-  background-color: var(--green-darken);
   border: none;
   border-radius: 5px;
   color: var(--light);
-  font-size: 12px;
+  font-size: 10px;
   -webkit-transition: all 350ms ease;
   transition: all 350ms ease;
   cursor: pointer;
 }
 
-body .section_main main .container_main .container_table-products .product_table .container_table-title .container_title > button:hover {
+body .section_main main .container_main .container_table-products .product_table .container_table-title .container_title > button#add-product {
+  background-color: var(--green-darken);
+}
+
+body .section_main main .container_main .container_table-products .product_table .container_table-title .container_title > button#add-product:hover {
   background-color: var(--green);
+}
+
+body .section_main main .container_main .container_table-products .product_table .container_table-title .container_title > button#order-product {
+  background-color: var(--purple);
+}
+
+body .section_main main .container_main .container_table-products .product_table .container_table-title .container_title > button#order-product:hover {
+  background-color: var(--purple-lighten);
 }
 
 body .section_main main .container_main .container_table-products .product_table .container_table-title input[type="text"] {
@@ -288,7 +417,7 @@ body .section_main main .container_main .container_table-products .product_table
   font-size: 12px;
 }
 
-body .section_main main .container_main .container_table-products .product_table .table-responsive table tbody tr td:last-child .btn-order, body .section_main main .container_main .container_table-products .product_table .table-responsive table tbody tr td:last-child .btn-edit, body .section_main main .container_main .container_table-products .product_table .table-responsive table tbody tr td:last-child .btn-delete {
+body .section_main main .container_main .container_table-products .product_table .table-responsive table tbody tr td:last-child .btn-order, body .section_main main .container_main .container_table-products .product_table .table-responsive table tbody tr td:last-child .btn-edit, body .section_main main .container_main .container_table-products .product_table .table-responsive table tbody tr td:last-child .btn-active, body .section_main main .container_main .container_table-products .product_table .table-responsive table tbody tr td:last-child .btn-inactive {
   padding: 5px 10px;
   border: none;
   border-radius: 5px;
@@ -315,12 +444,20 @@ body .section_main main .container_main .container_table-products .product_table
   background-color: var(--dark-blue);
 }
 
-body .section_main main .container_main .container_table-products .product_table .table-responsive table tbody tr td:last-child .btn-delete {
+body .section_main main .container_main .container_table-products .product_table .table-responsive table tbody tr td:last-child .btn-inactive {
   background-color: var(--red1);
 }
 
-body .section_main main .container_main .container_table-products .product_table .table-responsive table tbody tr td:last-child .btn-delete:hover {
+body .section_main main .container_main .container_table-products .product_table .table-responsive table tbody tr td:last-child .btn-inactive:hover {
   background-color: var(--red2);
+}
+
+body .section_main main .container_main .container_table-products .product_table .table-responsive table tbody tr td:last-child .btn-active {
+  background-color: var(--green-darken);
+}
+
+body .section_main main .container_main .container_table-products .product_table .table-responsive table tbody tr td:last-child .btn-active:hover {
+  background-color: var(--green);
 }
 
 body .section_main main .container_main .container_table-products .product_table .table-responsive table tbody tr:nth-child(odd) {
@@ -343,6 +480,7 @@ body .section_main main .section_add-product, body .section_main main .section_e
 }
 
 body .section_main main .section_add-product .container_validation_add, body .section_main main .section_add-product .container_validation_edit, body .section_main main .section_edit-product .container_validation_add, body .section_main main .section_edit-product .container_validation_edit {
+  display: none;
   margin-bottom: 10px;
   width: 100%;
   padding: 10px 15px;
@@ -402,7 +540,7 @@ body .section_main main .section_add-product .container_add-product label p span
   color: var(--red2);
 }
 
-body .section_main main .section_add-product .container_add-product label select, body .section_main main .section_add-product .container_add-product label input[type="text"], body .section_main main .section_add-product .container_edit-product label select, body .section_main main .section_add-product .container_edit-product label input[type="text"], body .section_main main .section_edit-product .container_add-product label select, body .section_main main .section_edit-product .container_add-product label input[type="text"], body .section_main main .section_edit-product .container_edit-product label select, body .section_main main .section_edit-product .container_edit-product label input[type="text"] {
+body .section_main main .section_add-product .container_add-product label input[type="text"], body .section_main main .section_add-product .container_edit-product label input[type="text"], body .section_main main .section_edit-product .container_add-product label input[type="text"], body .section_main main .section_edit-product .container_edit-product label input[type="text"] {
   margin-bottom: 7px;
   height: 35px;
   max-width: 400px;
@@ -436,28 +574,28 @@ body .section_main main .section_add-product .container_add-product .btn-add_pro
   background-color: var(--purple-lighten);
 }
 
-@media only screen and (max-width: 1530px) {
-  body main .container_main .container_tables {
-    display: block;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+@media only screen and (max-width: 768px) {
+  body {
+    position: relative;
   }
-  body main .container_main .container_tables .stock_table, body main .container_main .container_tables .transaction_table {
-    margin: 10px 0;
-    max-width: 1500px !important;
+  body .section_main header #humberger-menu-header {
+    visibility: visible;
+  }
+  body .section_navigation {
+    display: none;
+    position: absolute;
     width: 100%;
+    max-width: 100vw;
+    z-index: 2;
   }
-  body main .container_main .container_tables .stock_table .table-responsive, body main .container_main .container_tables .transaction_table .table-responsive {
-    max-width: 1350px !important;
-    width: 100%;
-    -webkit-box-shadow: 0px 0px 5px var(--gray);
-            box-shadow: 0px 0px 5px var(--gray);
-    overflow: auto;
+  body .section_navigation .nav_main-navigation .container_banner #humberger-menu-nav {
+    visibility: visible;
   }
-  body main .container_main .container_tables .transaction_table {
-    margin-bottom: 100px;
+}
+
+@media only screen and (max-width: 320px) {
+  body .section_main header .container-profile .container-label, body .section_main header .container-profile i {
+    display: none;
   }
 }
 /*# sourceMappingURL=admin-product.css.map */

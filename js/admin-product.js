@@ -1,54 +1,19 @@
 $(document).ready(function() {
     $(".empty-product").hide();
-    $("#container_validation_add").hide();
-    $("#container_validation_edit").hide();
-    $("#product_add").prop("disabled", "disabled");
 
     $("#add-product").click(function(){
         $(".section_add-product").fadeIn();
         $(".btn-add_product").prop("disabled", false);
+        $("#product_code_add").val(Math.random().toString().replace("0.", "10").substring(0, 12));
     });
 
-    $("#supplier_add").on("change", function() {
-        $("#container_validation_add").hide();
-
-        $("#product_add").load("../includes/admin-add-product-name_options.inc.php", {
-            selectedSupplier: $("#supplier_add").val()
-        });
-
-        $("#category_add").val("Product category");
-
-        if($("#supplier_add").val() == "") {
-            $("#product_add").prop("disabled", "disabled");
-        } else {
-            $("#product_add").prop("disabled", "");
-        }
-    });
-
-    $("#product_add").on("change", function() {
-        $("#container_validation_add").hide();
-
-        if($("#product_add").val() == "") {
-            $("#product_code_add").val("Product code");
-            $("#category_add").val("Product category");
-        } else {
-            $.ajax({
-                type: "POST",
-                url: "../includes/admin-order_details.inc.php",
-                data: {
-                    productName:  $("#product_add").val()
-                },
-                dataType: "JSON",
-                success: function(result, status, xhr) {
-                    $("#product_code_add").val(result["product code"]);
-                    $("#category_add").val(result["category"]);
-                }
-            });
-        };
+    $("#order-product").click(function(){
+        window.location.href = "admin.php?page=admin-checkout";
     });
 
     $("#btn_x_add").click(function(){
         $(".section_add-product").fadeOut();
+        $("#container_validation_add").fadeOut();
         $("#information_validation_add").fadeOut();
         $("#add_product")[0].reset();
     });
@@ -57,10 +22,8 @@ $(document).ready(function() {
         event.preventDefault();
 
         let errArray = [];
-        if($("#supplier_add").val().length <= 0) errArray.push("Supplier is required!");
-        if($("#product_add").val().length <= 0) errArray.push("Product is required!");
-        if($("#product_code_add").val().length <= 0) errArray.push("Product code is required!");
-        if(doesExist($("#product_code_add").val()) != true) errArray.push("Product code is existing in product table!");
+        if($("#product_add").val().length <= 0) errArray.push("Product name is required!");
+        if(doesExist($("#product_add").val()) != true) errArray.push("Product name is existing in product table!");
         if($("#category_add").val().length <= 0) errArray.push("Category is required!");
         if($("#quantity_add").val().length <= 0) errArray.push("Quantity is required!");
         if(!/^(\d)+$/g.test($("#quantity_add").val())) errArray.push("Quantity is invalid!");
@@ -71,7 +34,6 @@ $(document).ready(function() {
         if(errArray.length == 0) {
             $(".table_product").load("../includes/load-admin_added_product.inc.php", {
                 productCode: $("#product_code_add").val(),
-                supplierName: $("#supplier_add").val(),
                 productName: $("#product_add").val(),
                 category: $("#category_add").val(),
                 quantity: $("#quantity_add").val(),
@@ -159,5 +121,4 @@ $(document).ready(function() {
     }
 
     $(".table_product").load("../includes/load-admin_product_table.inc.php");
-    $("#supplier_add").load("../includes/admin-add-product-supplier_options.inc.php");
 });

@@ -4,9 +4,9 @@
     session_start();
 
     $db = new Database();
-    
+
     if(isset($_POST["addedProduct"])) {
-        $db -> connect("insert", "supplier_product", array(
+        $test = $db -> connect("insert", "supplier_product", array(
             "supplierName" => $_SESSION["store name"],
             "productCode" => $_POST["productCode"],
             "productName" => $_POST["productName"],
@@ -14,11 +14,15 @@
             "boxQuantity" => $_POST["boxQuantity"],
             "pcsPerBox" => $_POST["pcsPerBox"],
             "pricePerBox" => $_POST["pricePerBox"],
+            "shippingFee" => $_POST["shippingFee"],
+            "discount" => $_POST["discount"],
         ));
 
         $result = $db -> connect("select", "supplier_product", array("supplierName" => $_SESSION["store name"]));
 
-        echo '<tr class="empty-product"><td colspan="8">No data found</td></tr>';
+        var_dump($result);
+        
+        echo '<tr class="empty-product"><td colspan="10">No data found</td></tr>';
     
         forEach($result as $database => $row){
             echo "<tr data=" . $row['product code'] . " class='" . (($row['box quantity'] <= 10) ? "danger" : "")  . "'>";
@@ -27,11 +31,13 @@
             echo "<td>" . $row['category'] . "</td>";
             echo "<td>" . $row['box quantity'] . "</td>";
             echo "<td>" . $row['pcs per box'] . "</td>";
+            echo "<td>" . $row['shipping fee'] . "</td>";
+            echo "<td>" . $row['discount'] . "</td>";
             echo "<td>₱ " . number_format($row['price per box'], 2). "</td>";
             echo "<td>" . date("F d, Y", strtotime($row['date of stock'])) . "</td>";
             echo '<td>
                     <button type="button" class="btn-edit" aria-label="btn-edit"><i class="fa-solid fa-pen-to-square"></i> Edit</button>
-                    <button type="button" class="btn-delete" aria-label="btn-delete"><i class="fa-solid fa-trash-can"></i></button>
+                    ' . ((strcmp($row["status"], "ACTIVE") == 0) ? '<button type="button" class="btn-active btn-status" aria-label="btn-status">ACTIVE</button>' : '<button type="button" class="btn-inactive btn-status" aria-label="btn-status">INACTIVE</button>') . '
                 </td>';
             echo "</tr>";
         }
@@ -42,18 +48,29 @@
     $(document).ready(function() {
         $(".empty-product").hide();
 
-        $(".btn-delete").click(function() {
+        $(".btn-status").click(function() {
             let productCode = $(this).parents("tr").attr("data");
 
+            if($(this).hasClass("btn-active")) {
+                $(this).removeClass("btn-active");
+                $(this).addClass("btn-inactive");
+                $(this).text("INACTIVE")
+            } else {
+                $(this).removeClass("btn-inactive");
+                $(this).addClass("btn-active");
+                $(this).text("ACTIVE")
+            }
+            
             $.ajax({
                 type: "POST",
-                url: "../includes/delete-supplier_product.inc.php",
+                url: "../includes/update-supplier_product_status.inc.php",
                 data: {
-                    productCode: $(this).parents("tr").attr("data")
+                    productCode: $(this).parents("tr").attr("data"),
+                    status: $(this).text()
                 },
                 success: function(result, status, xhr) {
-                    $(`tr[data = ${productCode}]`).remove();
-                    if($("table tbody tr").length == 1) {
+                    console.log(result);
+                    if($("table tbody tr").length == 0) {
                         $(".empty-product td").text("Empty table");
                         $(".empty-product").show();
                     }
@@ -112,6 +129,8 @@
                         boxQuantity: $("#box_quantity_edit").val(),
                         pcsPerBox: $("#pcs_per_box_edit").val(),
                         pricePerBox: $("#price_per_box_edit").val(),
+                        shippingFee: $("#shippingFee_edit").val(),
+                        discount: $("#discount_edit").val(),
                         addedProduct: true
                     },
                     dataType: "JSON",
@@ -122,6 +141,8 @@
                         $("#box_quantity_edit").val(result["box quantity"]);
                         $("#pcs_per_box_edit").val(result["pcs per box"]);
                         $("#price_per_box_edit").val(result["price per box"]);
+                        $("#shippingFee_edit").val(result["shipping fee"]);
+                        $("#discount_edit").val(result["discount"]);
                     }
                 });
 

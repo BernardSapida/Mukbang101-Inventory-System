@@ -26,6 +26,10 @@ $(document).ready(function() {
         if(!/^(\d)+$/g.test($("#pcs_per_box_add").val())) errArray.push("Pcs per box is invalid!");
         if($("#price_per_box_add").val().length <= 0) errArray.push("Price per box is required!");
         if(!/^(\d)+$|^(\d)+.(\d{2})$/g.test($("#price_per_box_add").val())) errArray.push("Price per box is invalid!");
+        if($("#shippingFee_add").val().length <= 0) errArray.push("Shipping fee is required!");
+        if(!/^(\d)+$|^(\d)+.(\d{2})$/g.test($("#shippingFee_add").val())) errArray.push("Shipping fee is invalid!");
+        if($("#discount_add").val().length <= 0) errArray.push("Discount is required!");
+        if(!/^(\d)+$|^(\d)+.(\d{2})$/g.test($("#discount_add").val())) errArray.push("Discount is invalid!");
     
         if(errArray.length == 0) {
             $(".table_product").load("../includes/load-supplier_added_product.inc.php", {
@@ -35,6 +39,8 @@ $(document).ready(function() {
                 boxQuantity: $("#box_quantity_add").val(),
                 pcsPerBox: $("#pcs_per_box_add").val(),
                 pricePerBox: $("#price_per_box_add").val(),
+                shippingFee: $("#shippingFee_add").val(),
+                discount: $("#discount_add").val(),
                 addedProduct: true
             });
 

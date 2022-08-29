@@ -12,11 +12,3 @@
         echo "<option value='" . $row["store name"] . "'>" . $row["store name"] . "</option>";
     }
 ?>
-
-<script>
-    $("#supplier_add").on("change", function() {
-        $("#product_add").load("../includes/admin-add-product-name_options.inc.php", {
-            selectedSupplier: $("#supplier_add").val()
-        });
-    });
-</script>

@@ -11,7 +11,7 @@
 
     forEach($result as $database => $row){
         echo "<tr data='" . $row['store name'] . "'>";
-        echo "<td><img src='../images/" . $row['image'] . "' alt='supplier image'></td>";
+        echo "<td><img src='../profile/" . $row['image'] . "' alt='supplier image'></td>";
         echo "<td>" . $row['store name'] . "</td>";
         echo "<td>" . $row['firstname'] . " " . $row['lastname'] . "</td>";
         echo "<td>" . $row['email'] . "</td>";

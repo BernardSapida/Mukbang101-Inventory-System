@@ -15,16 +15,18 @@
                             <tr>
                                 <th>Product Code</th>
                                 <th>Product Name</th>
-                                <th>category_add</th>
+                                <th>Category</th>
                                 <th>Box Quantity</th>
                                 <th>Pcs per box</th>
                                 <th>Price per box</th>
+                                <th>Shipping fee</th>
+                                <th>Discount</th>
                                 <th>Date of Stocks</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody class="table_product">
-                            <tr class="empty-product"><td colspan="8">No data found</td></tr>
+                            <tr class="empty-product"><td colspan="10">No data found</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -64,6 +66,14 @@
                 <p>Price per box <span>*</span></p>
                 <input type="text" name="price_per_box_add" id="price_per_box_add" placeholder="Price per box">
             </label>
+            <label for="shippingFee_add">
+                <p>Shipping fee <span>*</span></p>
+                <input type="text" name="shippingFee_add" id="shippingFee_add" placeholder="Shipping fee">
+            </label>
+            <label for="discount_add">
+                <p>Discount <span>*</span></p>
+                <input type="text" name="discount_add" id="discount_add" placeholder="Discount">
+            </label>
             <button class="btn-add_product" id="btn-add_product" aria-label="add product">Add Product</button>
         </form>
     </div>
@@ -99,6 +109,14 @@
             <label for="price_per_box_edit">
                 <p>Price per box <span>*</span></p>
                 <input type="text" name="price_per_box_edit" id="price_per_box_edit" placeholder="Price per box">
+            </label>
+            <label for="shippingFee_edit">
+                <p>Shipping fee <span>*</span></p>
+                <input type="text" name="shippingFee_edit" id="shippingFee_edit" placeholder="Shipping fee">
+            </label>
+            <label for="discount_edit">
+                <p>Discount <span>*</span></p>
+                <input type="text" name="discount_edit" id="discount_edit" placeholder="Discount">
             </label>
             <button class="btn-edit_product" id="btn-edit_product" aria-label="edit product">Save Changes</button>
         </form>

@@ -23,7 +23,7 @@
             echo "<td>" . $row['product name'] . "</td>";
             echo "<td>" . $row['box quantity'] . "</td>";
             echo "<td>" . $row['pcs per box'] . "</td>";
-            echo "<td>₱ " . number_format($row['price per box'], 2) . "</td>";
+            echo "<td>₱ " . number_format(intval($row['price per box']), 2) . "</td>";
             echo "<td>" . $row['payment method'] . "</td>";
             echo "<td>" . $row['reference no.'] . "</td>";
             echo "<td>₱ " . number_format($row['vat 12%'], 2) . "</td>";
@@ -74,18 +74,6 @@
             } else {
                 $(".empty").hide();
             }
-
-            if(value.length == 0) {
-                if($("table tbody tr").length == 1) {
-                    $(".empty td").text("Empty table");
-                    $(".empty").show();
-                }
-            }
-        }
-
-        if($("table tbody tr").length == 1) {
-            $(".empty td").text("Empty table");
-            $(".empty").show();
         }
     });
 </script>

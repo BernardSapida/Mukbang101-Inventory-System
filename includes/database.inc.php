@@ -77,31 +77,6 @@
                 $stmt -> execute();
                 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
             }
-            
-
-            // foreach($result as $array => $row){
-            //     echo "<tr>";
-            //         echo "<td>" . $row['date'] . "</td>";
-            //         echo "<td>" . $row['transaction no.'] . "</td>";
-            //         echo "<td>" . $row['customer name'] . "</td>";
-            //         echo "<td>" . $row['delivery address'] . "</td>";
-            //         echo "<td>" . $row['contact no.'] . "</td>";
-            //         echo "<td>" . $row['email address'] . "</td>";
-            //         echo "<td>" . $row['customer store name'] . "</td>";
-            //         echo "<td>" . $row['product code'] . "</td>";
-            //         echo "<td>" . $row['product name'] . "</td>";
-            //         echo "<td>" . $row['box quantity'] . "</td>";
-            //         echo "<td>" . $row['pcs per box'] . "</td>";
-            //         echo "<td>" . $row['price per box'] . "</td>";
-            //         echo "<td>" . $row['payment method'] . "</td>";
-            //         echo "<td>" . $row['reference no.'] . "</td>";
-            //         echo "<td>" . $row['vat 12%'] . "</td>";
-            //         echo "<td>" . $row['shipping fee'] . "</td>";
-            //         echo "<td>" . $row['discount'] . "</td>";
-            //         echo "<td>" . $row['total'] . "</td>";
-            //         echo "<td>" . $row['order status'] . "</td>";
-            //     echo "</tr>";
-            // }
 
             return $result;
         }
@@ -119,9 +94,11 @@
                         $supplier = $data['store name'];
                         $contact = $data['contact no.'];
                         $password = $data['password'];
+                        $paymentName = $data['paymentName'];
+                        $paymentNumber = $data['paymentNumber'];
                         $type = $data['type'];
 
-                        $stmt = $conn->prepare("INSERT INTO `$tableName` (`uid`, `image`, `firstname`, `lastname`, `email`, `address`, `store name`, `contact no.`, `password`, `type`) VALUES (:uid, :image, :firstname, :lastname, :email, :address, :supplier, :contact, :password, :type)");
+                        $stmt = $conn->prepare("INSERT INTO `$tableName` (`uid`, `image`, `firstname`, `lastname`, `email`, `address`, `store name`, `contact no.`, `password`, `payment name`, `payment number`, `type`) VALUES (:uid, :image, :firstname, :lastname, :email, :address, :supplier, :contact, :password, :paymentName, :paymentNumber, :type)");
                         $stmt -> bindParam(':uid', $uid);
                         $stmt -> bindParam(':image', $image);
                         $stmt -> bindParam(':firstname', $firstname);
@@ -131,6 +108,8 @@
                         $stmt -> bindParam(':supplier', $supplier);
                         $stmt -> bindParam(':contact', $contact);
                         $stmt -> bindParam(':password', $password);
+                        $stmt -> bindParam(':paymentName', $paymentName);
+                        $stmt -> bindParam(':paymentNumber', $paymentNumber);
                         $stmt -> bindParam(':type', $type);
                         $stmt->execute();
                     };
@@ -142,7 +121,6 @@
                         $deliveryAddress = $data['deliveryAddress'];
                         $contactNo = $data['contactNo'];
                         $emailAddress = $data['emailAddress'];
-                        $supplierName = $data['supplierName'];
                         $productCode = $data['productCode'];
                         $productName = $data['productName'];
                         $boxQuantity = $data['boxQuantity'];
@@ -156,14 +134,13 @@
                         $total = $data['total'];
                         $orderStatus = $data['orderStatus'];
 
-                        $stmt = $conn->prepare("INSERT INTO `$tableName` (`transaction no.`, `name`, `delivery address`, `contact no.`, `email address`, `supplier name`, `product code`, `product name`, `box quantity`, `pcs per box`, `price per box`, `payment method`, `reference no.`, `vat 12%`, `shipping fee`, `discount`, `total`, `order status`) 
-                        VALUES (:transactionNo, :name, :deliveryAddress, :contactNo, :emailAddress, :supplierName, :productCode, :productName, :boxQuantity, :pcsPerBox, :pricePerBox, :paymentMethod, :referenceNo, :vat12, :shippingFee, :discount, :total, :orderStatus)");
+                        $stmt = $conn->prepare("INSERT INTO `$tableName` (`transaction no.`, `name`, `delivery address`, `contact no.`, `email address`, `product code`, `product name`, `box quantity`, `pcs per box`, `price per box`, `payment method`, `reference no.`, `vat 12%`, `shipping fee`, `discount`, `total`, `order status`) 
+                        VALUES (:transactionNo, :name, :deliveryAddress, :contactNo, :emailAddress, :productCode, :productName, :boxQuantity, :pcsPerBox, :pricePerBox, :paymentMethod, :referenceNo, :vat12, :shippingFee, :discount, :total, :orderStatus)");
                         $stmt -> bindParam(':transactionNo', $transactionNo);
                         $stmt -> bindParam(':name', $name);
                         $stmt -> bindParam(':deliveryAddress', $deliveryAddress);
                         $stmt -> bindParam(':contactNo', $contactNo);
                         $stmt -> bindParam(':emailAddress', $emailAddress);
-                        $stmt -> bindParam(':supplierName', $supplierName);
                         $stmt -> bindParam(':productCode', $productCode);
                         $stmt -> bindParam(':productName', $productName);
                         $stmt -> bindParam(':boxQuantity', $boxQuantity);
@@ -182,20 +159,20 @@
                 case "admin_product":
                     {
                         $productCode = $data['productCode'];
-                        $supplierName = $data['supplierName'];
                         $productName = $data['productName'];
                         $category = $data['category'];
                         $quantity = $data['quantity'];
                         $price = $data['price'];
+                        $status = $data['status'];
 
-                        $stmt = $conn->prepare("INSERT INTO `$tableName` (`product code`, `supplier name`, `product name`, `category`, `quantity`, `price`) 
-                        VALUES (:productCode, :supplierName, :productName, :category, :quantity, :price)");
+                        $stmt = $conn->prepare("INSERT INTO `$tableName` (`product code`, `product name`, `category`, `quantity`, `price`, `status`) 
+                        VALUES (:productCode, :productName, :category, :quantity, :price, :status)");
                         $stmt -> bindParam(':productCode', $productCode);
-                        $stmt -> bindParam(':supplierName', $supplierName);
                         $stmt -> bindParam(':productName', $productName);
                         $stmt -> bindParam(':category', $category);
                         $stmt -> bindParam(':quantity', $quantity);
                         $stmt -> bindParam(':price', $price);
+                        $stmt -> bindParam(':status', $status);
                         $stmt->execute();
 
                         return "sucess";
@@ -232,9 +209,12 @@
                         $boxQuantity = $data['boxQuantity'];
                         $pcsPerBox = $data['pcsPerBox'];
                         $pricePerBox = $data['pricePerBox'];
+                        $shippingFee = $data['shippingFee'];
+                        $discount = $data['discount'];
+                        $status = "ACTIVE";
 
-                        $stmt = $conn->prepare("INSERT INTO `$tableName` (`supplier name`, `product code`, `product name`, `category`, `box quantity`, `pcs per box`, `price per box`) 
-                        VALUES (:supplierName, :productCode, :productName, :category, :boxQuantity, :pcsPerBox, :pricePerBox)");
+                        $stmt = $conn->prepare("INSERT INTO `$tableName` (`supplier name`, `product code`, `product name`, `category`, `box quantity`, `pcs per box`, `price per box`, `shipping fee`, `discount`, `status`) 
+                        VALUES (:supplierName, :productCode, :productName, :category, :boxQuantity, :pcsPerBox, :pricePerBox, :shippingFee, :discount, :status)");
                         $stmt -> bindParam(':supplierName', $supplierName);
                         $stmt -> bindParam(':productCode', $productCode);
                         $stmt -> bindParam(':productName', $productName);
@@ -242,6 +222,9 @@
                         $stmt -> bindParam(':boxQuantity', $boxQuantity);
                         $stmt -> bindParam(':pcsPerBox', $pcsPerBox);
                         $stmt -> bindParam(':pricePerBox', $pricePerBox);
+                        $stmt -> bindParam(':shippingFee', $shippingFee);
+                        $stmt -> bindParam(':discount', $discount);
+                        $stmt -> bindParam(':status', $status);
                         $stmt->execute();
                     };
                     break;
@@ -308,11 +291,13 @@
                                 $lastname = $data['lastname'];
                                 $email = $data['email'];
                                 $address = $data['address'];
-                                $storeName = $data['store name'];
+                                $storeName = $data['storeName'];
                                 $contact = $data['contact no.'];
+                                $paymentName = $data['paymentName'];
+                                $paymentNumber = $data['paymentNumber'];
                                 $type = $data['type'];
                                 
-                                $stmt = $conn->prepare("UPDATE `$tableName` SET `uid` = '$uid', `image` = '$image', `firstname` = '$firstname', `lastname` = '$lastname', `email` = '$email', `address` = '$address', `store name` = '$storeName', `contact no.` = '$contact', `type` = '$type' WHERE `uid` = '$uid'");
+                                $stmt = $conn->prepare("UPDATE `$tableName` SET `uid` = '$uid', `image` = '$image', `firstname` = '$firstname', `lastname` = '$lastname', `email` = '$email', `address` = '$address', `store name` = '$storeName', `contact no.` = '$contact', `payment name` = '$paymentName', `payment number` = '$paymentNumber', `type` = '$type' WHERE `uid` = '$uid'");
                                 break;
                             case "password":
                                 $uid = $data['uid'];
@@ -339,11 +324,20 @@
                 case "admin_product":
                     {
                         $productCode = $data['productCode'];
-                        $quantity = $data['quantity'];
-                        $price = $data['price'];
+                        if(!empty($account)) {
+                            $status = $data['status'];
 
-                        $stmt = $conn->prepare("UPDATE `$tableName` SET `price` = '$price', `quantity` = '$quantity' WHERE `product code` = '$productCode'");
-                        $stmt->execute();
+                            $stmt = $conn->prepare("UPDATE `$tableName` SET `status` = '$status' WHERE `product code` = '$productCode'");
+                            $stmt->execute();
+                        } else {
+                            $productName = $data['productName'];
+                            $category = $data['category'];
+                            $quantity = $data['quantity'];
+                            $price = $data['price'];
+
+                            $stmt = $conn->prepare("UPDATE `$tableName` SET `product name` = '$productName', `category` = '$category', `price` = '$price', `quantity` = '$quantity' WHERE `product code` = '$productCode'");
+                            $stmt->execute();
+                        }
                     };
                     break;
                 case "supplier_customer":
@@ -357,15 +351,27 @@
                     break;
                 case "supplier_product":
                     {
-                        $productCode = $data['productCode'];
-                        $productName = $data['productName'];
-                        $category = $data['category'];
-                        $boxQuantity = $data['boxQuantity'];
-                        $pcsPerBox = $data['pcsPerBox'];
-                        $pricePerBox = $data['pricePerBox'];
+                        if(!empty($account)) {
+                            $productCode = $data['productCode'];
+                            $status = $data['status'];
 
-                        $stmt = $conn->prepare("UPDATE `$tableName` SET `product code` = '$productCode', `product name` = '$productName', `category` = '$category', `box quantity` = '$boxQuantity', `pcs per box` = '$pcsPerBox', `price per box` = '$pricePerBox' WHERE `product code` = '$productCode'");
-                        $stmt->execute();
+                            $stmt = $conn->prepare("UPDATE `$tableName` SET `status` = '$status' WHERE `product code` = '$productCode'");
+                            $stmt->execute();
+
+                            return "SUCCESS";
+                        } else {
+                            $productCode = $data['productCode'];
+                            $productName = $data['productName'];
+                            $category = $data['category'];
+                            $boxQuantity = $data['boxQuantity'];
+                            $pcsPerBox = $data['pcsPerBox'];
+                            $pricePerBox = $data['pricePerBox'];
+                            $shippingFee = $data['shippingFee'];
+                            $discount = $data['discount'];
+
+                            $stmt = $conn->prepare("UPDATE `$tableName` SET `product code` = '$productCode', `product name` = '$productName', `category` = '$category', `box quantity` = '$boxQuantity', `pcs per box` = '$pcsPerBox', `price per box` = '$pricePerBox', `shipping fee` = '$shippingFee', `discount` = '$discount' WHERE `product code` = '$productCode'");
+                            $stmt->execute();
+                        }
                     };
                     break;
                 }

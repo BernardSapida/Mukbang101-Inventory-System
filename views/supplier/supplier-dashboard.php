@@ -55,7 +55,7 @@
         </div>
         <div class="transaction_table">
             <div class="container_table-title">
-                <h1>List of Customers Order</h1>
+                <h1>Customers Order</h1>
                 <input type="text" name="search-transaction" id="search-transaction" placeholder="Search a transaction...">
             </div>
             <div class="table-responsive">

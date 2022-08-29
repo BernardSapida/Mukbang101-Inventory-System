@@ -34,6 +34,8 @@
                     $_SESSION["address"] = $result['address'];
                     $_SESSION["store name"] = $result['store name'];
                     $_SESSION["contact no."] = $result['contact no.'];
+                    $_SESSION["payment name"] = $result['payment name'];
+                    $_SESSION["payment number"] = $result['payment number'];
                     $_SESSION["password"] = $result['password'];
                     $_SESSION["type"] = $result['type'];
 

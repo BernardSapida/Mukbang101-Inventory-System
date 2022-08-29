@@ -22,7 +22,10 @@
     <section class="section_navigation">
       <nav class="nav_main-navigation">
         <div class="container_banner">
-            <img src="../images/banner1.jpg" alt="mukbang101 image banner">
+          <img src="../images/banner1.jpg" alt="mukbang101 image banner">
+          <div id="humberger-menu-nav">
+            <div></div>
+          </div>
         </div>
         <div class="container_navigation">
             <p>MAIN NAVIGATION</p>
@@ -38,15 +41,18 @@
     </section>
     <section class="section_main">
         <header>
-            <div class="container-profile">
-                <img src="../profile/<?php echo $_SESSION['image']; ?>" id="profile" alt="supplier profile">
-                <div class="container-label">
-                    <p><?php echo $_SESSION["store name"]; ?></p>
-                    <p><span></span> Online</p>
-                </div>
-                <i class="fa-solid fa-caret-down" id="caret"></i>
-            </div>
-            <button type="button" id="signout" aria-label="signout"><i class="fa-solid fa-right-from-bracket"></i> Signout</button>
+          <div id="humberger-menu-header">
+            <div></div>
+          </div>
+          <div class="container-profile">
+              <img src="../profile/<?php echo $_SESSION['image']; ?>" id="profile" alt="supplier profile">
+              <div class="container-label">
+                  <p id="account-name"><?php echo $_SESSION["store name"]; ?></p>
+                  <p><span></span> Online</p>
+              </div>
+              <i class="fa-solid fa-caret-down" id="caret"></i>
+          </div>
+          <button type="button" id="signout" aria-label="signout"><i class="fa-solid fa-right-from-bracket"></i> Signout</button>
         </header>
         <main>
             <?php include_once "../includes/supplier-contents.inc.php" ?>    

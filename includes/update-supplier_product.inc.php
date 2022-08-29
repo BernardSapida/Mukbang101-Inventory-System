@@ -6,7 +6,7 @@
     $db = new Database();
     
     if(isset($_POST["addedProduct"])) {
-        $db -> connect("update", "supplier_product", array(
+        $test = $db -> connect("update", "supplier_product", array(
             "supplierUID" => $_SESSION["uid"],
             "productCode" => $_POST["productCode"],
             "productName" => $_POST["productName"],
@@ -14,6 +14,8 @@
             "boxQuantity" => $_POST["boxQuantity"],
             "pcsPerBox" => $_POST["pcsPerBox"],
             "pricePerBox" => $_POST["pricePerBox"],
+            "shippingFee" => $_POST["shippingFee"],
+            "discount" => $_POST["discount"],
         ));
 
         $result = $db -> connect("select", "supplier_product", "product code", $_POST["productCode"]);

@@ -14,7 +14,6 @@
         echo "<td>" . $row['delivery address'] . "</td>";
         echo "<td>" . $row['contact no.'] . "</td>";
         echo "<td>" . $row['email address'] . "</td>";
-        echo "<td>" . $row['supplier name'] . "</td>";
         echo "<td>" . $row['product code'] . "</td>";
         echo "<td>" . $row['product name'] . "</td>";
         echo "<td>" . $row['box quantity'] . "</td>";

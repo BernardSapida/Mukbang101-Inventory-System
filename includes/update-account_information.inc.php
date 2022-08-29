@@ -39,14 +39,16 @@
             "lastname" => $_POST["lastname"],
             "email" => $_POST["email"],
             "address" => $_POST["store_address"],
-            "store name" => $_POST["store_name"],
+            "storeName" => $_POST["store_name"],
             "contact no." => $_POST["contact_number"],
+            "paymentName" => $_POST["payment_name"],
+            "paymentNumber" => $_POST["payment_number"],
             "type" => $_SESSION["type"]
         ),
         "information"
     );
 
-    if(strcmp(htmlspecialchars($_SESSION["image"]), $image)) {
+    if(strcmp(htmlspecialchars($_SESSION["image"]), $image) == 0) {
         echo $image;
     } else {
         echo $image_new_name;
@@ -60,5 +62,7 @@
         $_SESSION["address"] = $_POST["store_address"];
         $_SESSION["store name"] = $_POST["store_name"];
         $_SESSION["contact no."] = $_POST["contact_number"];
+        $_SESSION["payment name"] = $_POST["payment_name"];
+        $_SESSION["payment number"] = $_POST["payment_number"];
     }
 ?>

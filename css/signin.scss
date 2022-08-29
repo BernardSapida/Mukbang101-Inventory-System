@@ -14,10 +14,11 @@
 
 body {
     background-color: var(--dark-blue);
+    margin: auto;
 
     & .section_signin {
         height: 100vh;
-        width: 100vw;
+        width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -147,6 +148,26 @@ body {
                             }
                         }
                     }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    body {
+        & .section_signin {
+            & .container_signin {
+                margin: auto;
+                width: 95%;
+    
+                & img {
+                    max-width: 200px;
+                    width: 100%;
+                }
+    
+                & h1 {
+                    font-size: 28px;
                 }
             }
         }

@@ -57,6 +57,14 @@
                     <p>Contact No.</p>
                     <input type="text" id="contactNumber" name="contactNumber" placeholder="Contact Number" autocomplete="tel-national" value="<?php echo isset($_POST["contactNumber"]) ? $contactNumber : ""?>">
                 </label>
+                <label for="payment_name">
+                    <p>Supplier Gcash/Paymaya Name:</p>
+                    <input type="text" name="payment_name" id="payment_name" placeholder="Gcash/Paymaya name" value="<?php echo isset($_POST["payment_name"]) ? $paymentName : ""?>">
+                </label>
+                <label for="payment_number">
+                    <p>Supplier Gcash/Paymaya Number:</p>
+                    <input type="text" name="payment_number" id="payment_number" placeholder="Gcash/Paymaya number" value="<?php echo isset($_POST["payment_number"]) ? $paymentNumber : ""?>">
+                </label>
                 <div class="container_password">
                     <label for="password">
                         <p>Password</p>

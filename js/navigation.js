@@ -1,10 +1,18 @@
 $(document).ready(function() {
+    $("#humberger-menu-header").click(function() {
+        $(".section_navigation").show();
+    });
+
+    $("#humberger-menu-nav").click(function() {
+        $(".section_navigation").hide();
+    });
+
     $("ul li a").click(function() {
         $("ul li a").removeClass("active");
         $(this).addClass("active");
     });
 
-    $("#caret").click(function() {
+    $(".container-profile").click(function() {
         $("#signout").fadeToggle();
     });
 

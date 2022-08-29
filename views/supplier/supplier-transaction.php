@@ -30,7 +30,9 @@
                                 <th>Total</th>
                             </tr>
                         </thead>
-                        <tbody class="table_transactions"></tbody>
+                        <tbody class="table_transactions">
+                            <tr class="empty"><td colspan="20">No data found</td></tr>
+                        </tbody>
                     </table>
                 </div>
             </div>

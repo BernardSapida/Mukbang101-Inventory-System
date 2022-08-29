@@ -8,7 +8,7 @@
                 </div>
                 <div class="value">
                     <p class="amount" id="admin_total_profit">0</p>
-                    <p class="label">Total Suppliers</p>
+                    <p class="label">Number of Suppliers</p>
                 </div>
             </div>
             <div class="card">
@@ -26,7 +26,7 @@
                 </div>
                 <div class="value">
                     <p class="amount" id="admin_total_transactions">Php 0.00</p>
-                    <p class="label">Total Transactions</p>
+                    <p class="label">Sales Transactions</p>
                 </div>
             </div>
         </div>
@@ -58,7 +58,7 @@
                 <h1>List of transaction</h1>
                 <input type="text" name="search-transaction" id="search-transaction" placeholder="Search a transaction...">
             </div>
-            <div class="table-responsive">
+            <div class="table-responsive overflow-x-auto">
                 <table>
                     <thead>
                         <tr>
