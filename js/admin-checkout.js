@@ -1,15 +1,15 @@
 $(document).ready(function() {
     $("#box_quantity").keyup(function(){
         if($("#box_quantity").val() != "")  {
-            $(".price").html("Php " + $("#price_per_box").val() + " <span class='quantity'>x " + $("#box_quantity").val() + "</span>");
-            $(".total-amount").html("Php " + Intl.NumberFormat('en-US').format(
+            $(".price").html("₱" + $("#price_per_box").val() + " <span class='quantity'>x " + $("#box_quantity").val() + "</span>");
+            $(".total-amount").html("₱" + Intl.NumberFormat('en-US').format(
                 Number($("#price_per_box").val()) * Number($("#box_quantity").val()) +
-                Number($(".shippingFee").val()) -   
-                Number($(".discount").val())
+                Number($(".shippingFee").text().slice(1,)) -   
+                Number($(".discount").text().slice(1,))
             ));
         } else {
-            $(".price").html("Php " + $("#price_per_box").val() + " <span class='quantity'>x 0</span>");
-            $(".total-amount").html("Php 0.00");
+            $(".price").html("₱" + $("#price_per_box").val() + " <span class='quantity'>x 0</span>");
+            $(".total-amount").html("₱0.00");
         }
     });
 
@@ -65,13 +65,13 @@ $(document).ready(function() {
                     productName: $("#product_name").val(),
                     boxQuantity: $("#box_quantity").val(),
                     pcsPerBox: $("#pcs_per_box").val(),
-                    pricePerBox: $("#price_per_box").val().slice(0, -3),
+                    pricePerBox: $("#price_per_box").val(),
                     paymentMethod: $("input[name='payment_mode']:checked").val(),
                     referenceNo: (referenceNumber == null ? "none" : referenceNumber),
                     vat: 0,
-                    shippingFee: $(".shippingFee").text().slice(4, -3),
-                    discount: $(".discount").text().slice(4, -3),
-                    total: $(".total-amount").text().replace(/,/g, '').slice(4,),
+                    shippingFee: $(".shippingFee").text().slice(1,),
+                    discount: $(".discount").text().slice(1,),
+                    total: $(".total-amount").text().replace(/,/g, '').slice(1,),
                 },
                 success: function(result, status, xhr) {
                     console.table(result);
@@ -91,7 +91,7 @@ $(document).ready(function() {
             setTimeout(function() {
                 window.location.href = "admin.php?page=admin-transaction";
             }, 2000);
-            // $("#checkout-form")[0].reset();
+            $("#checkout-form")[0].reset();
         } else {
             $("#container_validation").css({"background-color":"var(--red3)"});
             $("#container_validation p").text(errArray[0]);
@@ -150,9 +150,25 @@ $(document).ready(function() {
                 },
                 dataType: "JSON",
                 success: function(result, status, xhr) {
+                    console.table(result);
                     $("#product_code").val(result["product code"]);
                     $("#pcs_per_box").val(result["pcs per box"]);
                     $("#price_per_box").val(result["price per box"]);
+                    $(".price").html(new Intl.NumberFormat("en-US",{
+                        style: "currency",
+                        currency: "Php",
+                        maximumFractionDigits: 2,
+                      }).format(Number(result["price per box"])) + " <span class='quantity'>x 0</span>");
+                    $(".shippingFee").html(new Intl.NumberFormat("en-US",{
+                        style: "currency",
+                        currency: "Php",
+                        maximumFractionDigits: 2,
+                      }).format(Number(result["shipping fee"]).toFixed(2)));
+                    $(".discount").html(new Intl.NumberFormat("en-US",{
+                        style: "currency",
+                        currency: "Php",
+                        maximumFractionDigits: 2,
+                      }).format(Number(result["discount"]).toFixed(2)));
                 }
             });
         }

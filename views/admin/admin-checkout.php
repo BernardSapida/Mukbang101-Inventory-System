@@ -124,24 +124,24 @@
                     <hr>
                     <div class="container_computation">
                         <p class="label">Price <span>x Quantity</span></p>
-                        <p class="price">Php 0.00 <span class="quantity">x 0</span></p>
+                        <p class="price">₱0.00 <span class="quantity">x 0</span></p>
                     </div>
                     <div class="container_computation">
                         <p class="label">VAT 12%</span></p>
-                        <p class="vat">Php 0</p>
+                        <p class="vat">₱0</p>
                     </div>
                     <div class="container_computation">
                         <p class="label">Shipping Fee</span></p>
-                        <p class="shippingFee">Php 0.00</p>
+                        <p class="shippingFee">₱0.00</p>
                     </div>
                     <div class="container_computation">
                         <p class="label">Discount</span></p>
-                        <p class="discount">Php 0.00</p>
+                        <p class="discount">₱0.00</p>
                     </div>
                     <hr>
                     <div class="container_computation">
                         <p class="label">Total</span></p>
-                        <p class="total-amount">Php 0.00</p>
+                        <p class="total-amount">₱0.00</p>
                     </div>
                 </div>
                 <button type="submit" id="btn-submit" aria-label="place order">Place Order</button>

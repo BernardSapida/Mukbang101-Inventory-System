@@ -19,6 +19,7 @@ $(document).ready(function() {
         let errArray = [];
 
         if($("#product_name_add").val().length <= 0) errArray.push("Product name is required!");
+        if(doesExist($("#product_name_add").val()) != true) errArray.push("Product name is existing in product table!");
         if($("#category_add").val().length <= 0) errArray.push("Category is required!");
         if($("#box_quantity_add").val().length <= 0) errArray.push("Box quantity is required!");
         if(!/^(\d)+$/g.test($("#box_quantity_add").val())) errArray.push("Box quantity is invalid!");
@@ -58,6 +59,24 @@ $(document).ready(function() {
             $("#information_validation_add").fadeIn();
         }
     });
+
+    function doesExist(value) {
+        let isEmpty = true;
+
+        $("table tbody tr").each(function() {
+            let isFound = false;
+            
+            $(this).each(function() {
+                if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0) {
+                    isFound = true;
+                }
+            });
+            
+            if(isFound) isEmpty = false;
+        });
+
+        return isEmpty;
+    }
 
     $(".table_product").load("../includes/load-supplier_product.inc.php");
 });

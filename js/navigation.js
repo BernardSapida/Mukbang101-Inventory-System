@@ -7,6 +7,11 @@ $(document).ready(function() {
         $(".section_navigation").hide();
     });
 
+    $(window).resize(function() {
+        if(window.innerWidth >= 768) $(".section_navigation").show();
+        else $(".section_navigation").hide();
+    });
+
     $("ul li a").click(function() {
         $("ul li a").removeClass("active");
         $(this).addClass("active");
