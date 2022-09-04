@@ -3,7 +3,7 @@
         <div class="container_tables">
             <div class="table_transaction-sales">
                 <div class="container_table-title">
-                    <h1>List of Transaction Sales</h1>
+                    <h1>List of Sales Transaction</h1>
                     <input type="text" name="search-receipt" id="search-receipt" placeholder="Search an item...">
                 </div>
                 <div class="table-responsive">

@@ -77,4 +77,19 @@
             </div>
         </div>
     </div>
+    <div class="container_notifications">
+        <div class="container_notifications-box">
+            <div class="notification-header">
+                <h1>Notifications</h1>
+            </div>
+        </div>
+        <div class="container_notification-icon" id="icon-notification">
+            <?php 
+                if($_SESSION["notification number"] > 0) {
+                    echo '<p>' . $_SESSION["notification number"] . '</p>';
+                }
+            ?>
+            <i class="fa-regular fa-bell"></i>
+        </div>
+    </div>
 </div>

@@ -31,32 +31,35 @@
 
         $(".btn-status").click(function() {
             let productCode = $(this).parents("tr").attr("data");
+            let updateStatus = window.confirm($(this).hasClass("btn-active") ? "Are you sure you want to Inactivate?" : "Are you sure you want to Activate?");
 
-            if($(this).hasClass("btn-active")) {
-                $(this).removeClass("btn-active");
-                $(this).addClass("btn-inactive");
-                $(this).text("INACTIVE")
-            } else {
-                $(this).removeClass("btn-inactive");
-                $(this).addClass("btn-active");
-                $(this).text("ACTIVE")
-            }
-            
-            $.ajax({
-                type: "POST",
-                url: "../includes/update-admin_product_status.inc.php",
-                data: {
-                    productCode: productCode,
-                    status: $(this).text()
-                },
-                success: function(result, status, xhr) {
-                    console.log(result);
-                    if($("table tbody tr").length == 0) {
-                        $(".empty-product td").text("Empty table");
-                        $(".empty-product").show();
-                    }
+            if(updateStatus) {
+                if($(this).hasClass("btn-active")) {
+                    $(this).removeClass("btn-active");
+                    $(this).addClass("btn-inactive");
+                    $(this).text("INACTIVE")
+                } else {
+                    $(this).removeClass("btn-inactive");
+                    $(this).addClass("btn-active");
+                    $(this).text("ACTIVE")
                 }
-            });
+                
+                $.ajax({
+                    type: "POST",
+                    url: "../includes/update-admin_product_status.inc.php",
+                    data: {
+                        productCode: productCode,
+                        status: $(this).text()
+                    },
+                    success: function(result, status, xhr) {
+                        console.log(result);
+                        if($("table tbody tr").length == 0) {
+                            $(".empty-product td").text("Empty table");
+                            $(".empty-product").show();
+                        }
+                    }
+                });
+            }
         });
 
         $(".btn-edit").click(function(){

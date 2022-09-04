@@ -3,10 +3,9 @@
 * {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   color: var(--primary-light);
-  font-family: 'Inter', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: "Inter", "Helvetica Neue", Arial, Helvetica, sans-serif;
   line-height: 1.8;
   font-weight: 500;
   font-size: 16px;
@@ -31,66 +30,45 @@
 }
 
 body {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   overflow: hidden;
 }
-
 body .section_navigation {
   max-width: 200px;
   width: 100%;
   height: 100vh;
   background-color: var(--dark-blue);
 }
-
 body .section_navigation .nav_main-navigation {
   padding: 30px 0;
 }
-
 body .section_navigation .nav_main-navigation .container_banner {
   padding: 0 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   margin: auto;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  align-items: center;
+  justify-content: space-between;
 }
-
 body .section_navigation .nav_main-navigation .container_banner img {
   display: block;
   margin-bottom: 20px;
   max-width: 160px;
 }
-
 body .section_navigation .nav_main-navigation .container_banner #humberger-menu-nav {
   visibility: hidden;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   height: 50px;
   position: relative;
   padding: 8px;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: flex-end;
+  align-items: center;
   gap: 10px;
   color: var(--light);
   border: 1px solid var(--secondary-dark);
   border-radius: 4px;
   cursor: pointer;
 }
-
 body .section_navigation .nav_main-navigation .container_banner #humberger-menu-nav > div {
-  display: -ms-grid;
   display: grid;
   place-items: center;
   position: relative;
@@ -99,7 +77,6 @@ body .section_navigation .nav_main-navigation .container_banner #humberger-menu-
   width: 40px;
   border-radius: 2px;
 }
-
 body .section_navigation .nav_main-navigation .container_banner #humberger-menu-nav > div::before, body .section_navigation .nav_main-navigation .container_banner #humberger-menu-nav > div::after {
   content: "";
   display: block;
@@ -109,42 +86,29 @@ body .section_navigation .nav_main-navigation .container_banner #humberger-menu-
   width: 40px;
   border-radius: 2px;
 }
-
 body .section_navigation .nav_main-navigation .container_banner #humberger-menu-nav > div::before {
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+  transform: rotate(-45deg);
 }
-
 body .section_navigation .nav_main-navigation .container_banner #humberger-menu-nav > div::after {
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
+  transform: rotate(45deg);
 }
-
 body .section_navigation .nav_main-navigation .container_navigation > p {
   padding: 0 20px;
   color: var(--secondary-dark);
   font-size: 12px;
   font-weight: 500;
 }
-
 body .section_navigation .nav_main-navigation .container_navigation > ul {
   list-style-type: none;
 }
-
 body .section_navigation .nav_main-navigation .container_navigation > ul li {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
 }
-
 body .section_navigation .nav_main-navigation .container_navigation > ul li i {
   display: inline-block;
   width: 25px;
 }
-
 body .section_navigation .nav_main-navigation .container_navigation > ul li a {
   display: block;
   padding: 15px 20px;
@@ -154,24 +118,17 @@ body .section_navigation .nav_main-navigation .container_navigation > ul li a {
   color: var(--secondary-light);
   font-size: 14px;
 }
-
 body .section_navigation .nav_main-navigation .container_navigation > ul li a.active {
   background-color: var(--active-tab);
 }
-
 body .section_main {
   position: relative;
   width: 100%;
   overflow-y: scroll;
 }
-
 body .section_main header {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
@@ -179,28 +136,20 @@ body .section_main header {
   background-color: var(--dark);
   z-index: 1;
 }
-
 body .section_main header #humberger-menu-header {
   visibility: hidden;
   height: 50px;
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   padding: 8px;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: flex-end;
+  align-items: center;
   gap: 10px;
   color: var(--light);
   border: 1px solid var(--secondary-dark);
   border-radius: 4px;
   cursor: pointer;
 }
-
 body .section_main header #humberger-menu-header > div {
   position: relative;
   background: var(--light);
@@ -208,7 +157,6 @@ body .section_main header #humberger-menu-header > div {
   width: 40px;
   border-radius: 2px;
 }
-
 body .section_main header #humberger-menu-header > div::before, body .section_main header #humberger-menu-header > div::after {
   content: "";
   display: block;
@@ -218,46 +166,33 @@ body .section_main header #humberger-menu-header > div::before, body .section_ma
   width: 40px;
   border-radius: 2px;
 }
-
 body .section_main header #humberger-menu-header > div::before {
   bottom: 10px;
 }
-
 body .section_main header #humberger-menu-header > div::after {
   top: 10px;
 }
-
 body .section_main header .container-profile {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: flex-end;
+  align-items: center;
   gap: 10px;
   color: var(--light);
   cursor: pointer;
 }
-
 body .section_main header .container-profile img {
   display: block;
   width: 50px;
   height: 50px;
   border-radius: 25px;
 }
-
 body .section_main header .container-profile .container-label > p {
   line-height: 1.4;
 }
-
 body .section_main header .container-profile .container-label > p:nth-child(2) {
   font-size: 12px;
   font-weight: 400;
 }
-
 body .section_main header .container-profile .container-label > p > span {
   display: inline-block;
   height: 10px;
@@ -265,11 +200,9 @@ body .section_main header .container-profile .container-label > p > span {
   background-color: var(--green);
   border-radius: 5px;
 }
-
 body .section_main header .container-profile i {
   cursor: pointer;
 }
-
 body .section_main header #signout {
   display: none;
   padding: 10px 20px;
@@ -278,13 +211,11 @@ body .section_main header #signout {
   bottom: -50px;
   border: none;
   line-height: 1;
-  -webkit-box-shadow: 0px 0px 5px var(--gray);
-          box-shadow: 0px 0px 5px var(--gray);
+  box-shadow: 0px 0px 5px var(--gray);
   background-color: var(--light);
   border-radius: 5px;
   cursor: pointer;
 }
-
 body .section_main main {
   margin: auto;
   max-width: 1400px;
@@ -292,28 +223,18 @@ body .section_main main {
   height: 90vh;
   padding: 30px 0;
 }
-
 body .section_main main .container_main {
   padding-bottom: 50px;
 }
-
 body .section_main main .container_main .container_title {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  justify-content: space-between;
+  align-items: flex-end;
   margin-bottom: 15px;
 }
-
 body .section_main main .container_main .container_title > h1 {
   font-weight: 700;
 }
-
 body .section_main main .container_main .container_title > button {
   padding: 5px 15px;
   background-color: var(--dark);
@@ -321,14 +242,11 @@ body .section_main main .container_main .container_title > button {
   border: none;
   border-radius: 3px;
   cursor: pointer;
-  -webkit-transition: all 350ms ease;
   transition: all 350ms ease;
 }
-
 body .section_main main .container_main .container_title > button:hover {
   background-color: var(--dark-blue);
 }
-
 body .section_main main .container_main .container_validation {
   display: none;
   margin-bottom: 10px;
@@ -337,63 +255,47 @@ body .section_main main .container_main .container_validation {
   background-color: var(--red3);
   border-radius: 5px;
 }
-
 body .section_main main .container_main .container_validation > p {
   color: var(--light);
   font-weight: 400;
   font-size: 14px;
 }
-
 body .section_main main .container_main .container_form {
   padding: 30px 15px;
   width: 100%;
-  -webkit-box-shadow: 0px 0px 5px var(--gray);
-          box-shadow: 0px 0px 5px var(--gray);
+  box-shadow: 0px 0px 5px var(--gray);
 }
-
 body .section_main main .container_main .container_form form {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 40px;
 }
-
 body .section_main main .container_main .container_form form .container_details {
   max-width: 550px;
   width: 100%;
 }
-
 body .section_main main .container_main .container_form form .container_details .container_contact-details, body .section_main main .container_main .container_form form .container_details .container_supplier-details {
   margin-bottom: 30px;
 }
-
 body .section_main main .container_main .container_form form .container_details .container_contact-details h1, body .section_main main .container_main .container_form form .container_details .container_supplier-details h1 {
   font-weight: 700;
   color: var(--gray);
   margin-bottom: 15px;
 }
-
 body .section_main main .container_main .container_form form .container_details .container_contact-details label, body .section_main main .container_main .container_form form .container_details .container_supplier-details label {
   display: block;
   margin-bottom: 10px;
 }
-
 body .section_main main .container_main .container_form form .container_details .container_contact-details label p, body .section_main main .container_main .container_form form .container_details .container_supplier-details label p {
   font-size: 14px;
   font-weight: 400;
   color: var(--gray);
 }
-
 body .section_main main .container_main .container_form form .container_details .container_contact-details label p span, body .section_main main .container_main .container_form form .container_details .container_supplier-details label p span {
   color: var(--red2);
 }
-
-body .section_main main .container_main .container_form form .container_details .container_contact-details label select, body .section_main main .container_main .container_form form .container_details .container_contact-details label input[type="text"], body .section_main main .container_main .container_form form .container_details .container_contact-details label input[type="number"], body .section_main main .container_main .container_form form .container_details .container_supplier-details label select, body .section_main main .container_main .container_form form .container_details .container_supplier-details label input[type="text"], body .section_main main .container_main .container_form form .container_details .container_supplier-details label input[type="number"] {
+body .section_main main .container_main .container_form form .container_details .container_contact-details label select, body .section_main main .container_main .container_form form .container_details .container_contact-details label input[type=text], body .section_main main .container_main .container_form form .container_details .container_contact-details label input[type=number], body .section_main main .container_main .container_form form .container_details .container_supplier-details label select, body .section_main main .container_main .container_form form .container_details .container_supplier-details label input[type=text], body .section_main main .container_main .container_form form .container_details .container_supplier-details label input[type=number] {
   width: 100%;
   padding: 5px 15px;
   border-radius: 5px;
@@ -403,94 +305,70 @@ body .section_main main .container_main .container_form form .container_details 
   border: 0.5px solid var(--border);
   color: var(--gray);
 }
-
-body .section_main main .container_main .container_form form .container_details .container_contact-details label select::-webkit-outer-spin-button, body .section_main main .container_main .container_form form .container_details .container_contact-details label select::-webkit-inner-spin-button, body .section_main main .container_main .container_form form .container_details .container_contact-details label input[type="text"]::-webkit-outer-spin-button, body .section_main main .container_main .container_form form .container_details .container_contact-details label input[type="text"]::-webkit-inner-spin-button, body .section_main main .container_main .container_form form .container_details .container_contact-details label input[type="number"]::-webkit-outer-spin-button, body .section_main main .container_main .container_form form .container_details .container_contact-details label input[type="number"]::-webkit-inner-spin-button, body .section_main main .container_main .container_form form .container_details .container_supplier-details label select::-webkit-outer-spin-button, body .section_main main .container_main .container_form form .container_details .container_supplier-details label select::-webkit-inner-spin-button, body .section_main main .container_main .container_form form .container_details .container_supplier-details label input[type="text"]::-webkit-outer-spin-button, body .section_main main .container_main .container_form form .container_details .container_supplier-details label input[type="text"]::-webkit-inner-spin-button, body .section_main main .container_main .container_form form .container_details .container_supplier-details label input[type="number"]::-webkit-outer-spin-button, body .section_main main .container_main .container_form form .container_details .container_supplier-details label input[type="number"]::-webkit-inner-spin-button {
+body .section_main main .container_main .container_form form .container_details .container_contact-details label select::-webkit-outer-spin-button, body .section_main main .container_main .container_form form .container_details .container_contact-details label select::-webkit-inner-spin-button, body .section_main main .container_main .container_form form .container_details .container_contact-details label input[type=text]::-webkit-outer-spin-button, body .section_main main .container_main .container_form form .container_details .container_contact-details label input[type=text]::-webkit-inner-spin-button, body .section_main main .container_main .container_form form .container_details .container_contact-details label input[type=number]::-webkit-outer-spin-button, body .section_main main .container_main .container_form form .container_details .container_contact-details label input[type=number]::-webkit-inner-spin-button, body .section_main main .container_main .container_form form .container_details .container_supplier-details label select::-webkit-outer-spin-button, body .section_main main .container_main .container_form form .container_details .container_supplier-details label select::-webkit-inner-spin-button, body .section_main main .container_main .container_form form .container_details .container_supplier-details label input[type=text]::-webkit-outer-spin-button, body .section_main main .container_main .container_form form .container_details .container_supplier-details label input[type=text]::-webkit-inner-spin-button, body .section_main main .container_main .container_form form .container_details .container_supplier-details label input[type=number]::-webkit-outer-spin-button, body .section_main main .container_main .container_form form .container_details .container_supplier-details label input[type=number]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
 body .section_main main .container_main .container_form form .container_payment {
   max-width: 550px;
   width: 100%;
 }
-
 body .section_main main .container_main .container_form form .container_payment > h1 {
   font-weight: 700;
   margin-bottom: 15px;
   color: var(--gray);
 }
-
 body .section_main main .container_main .container_form form .container_payment > label {
   margin-bottom: 10px;
   display: block;
 }
-
-body .section_main main .container_main .container_form form .container_payment > label input[type="radio"] {
+body .section_main main .container_main .container_form form .container_payment > label input[type=radio] {
   display: none;
 }
-
-body .section_main main .container_main .container_form form .container_payment > label input[type="radio"]:checked ~ .payment_mode {
+body .section_main main .container_main .container_form form .container_payment > label input[type=radio]:checked ~ .payment_mode {
   border: 0.5px solid var(--purple);
 }
-
-body .section_main main .container_main .container_form form .container_payment > label input[type="radio"]:checked ~ .payment_mode .container_logo i {
+body .section_main main .container_main .container_form form .container_payment > label input[type=radio]:checked ~ .payment_mode .container_logo i {
   color: var(--purple);
 }
-
-body .section_main main .container_main .container_form form .container_payment > label input[type="radio"]:checked ~ .payment_mode .container_logo .radio {
+body .section_main main .container_main .container_form form .container_payment > label input[type=radio]:checked ~ .payment_mode .container_logo .radio {
   background-color: var(--purple);
 }
-
-body .section_main main .container_main .container_form form .container_payment > label input[type="radio"]:checked ~ .payment_mode .container_logo .radio::before {
+body .section_main main .container_main .container_form form .container_payment > label input[type=radio]:checked ~ .payment_mode .container_logo .radio::before {
   content: "";
   position: absolute;
   top: 0;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   height: 8px;
   width: 8px;
   background-color: var(--light);
   border-radius: 4px;
 }
-
-body .section_main main .container_main .container_form form .container_payment > label input[type="radio"]:checked ~ .payment_mode .container_details h1 {
+body .section_main main .container_main .container_form form .container_payment > label input[type=radio]:checked ~ .payment_mode .container_details h1 {
   color: var(--purple);
 }
-
-body .section_main main .container_main .container_form form .container_payment > label input[type="radio"]:checked ~ .payment_mode .container_details > label {
+body .section_main main .container_main .container_form form .container_payment > label input[type=radio]:checked ~ .payment_mode .container_details > label {
   display: block;
   margin-top: 10px;
 }
-
 body .section_main main .container_main .container_form form .container_payment > label .payment_mode {
   padding: 20px;
   border-radius: 5px;
   border: 0.5px solid var(--border);
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  align-items: flex-start;
   gap: 20px;
 }
-
 body .section_main main .container_main .container_form form .container_payment > label .payment_mode > p {
   color: var(--gray);
 }
-
 body .section_main main .container_main .container_form form .container_payment > label .payment_mode .container_logo {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   gap: 10px;
 }
-
 body .section_main main .container_main .container_form form .container_payment > label .payment_mode .container_logo .radio {
   position: relative;
   height: 16px;
@@ -498,30 +376,24 @@ body .section_main main .container_main .container_form form .container_payment 
   background-color: var(--border);
   border-radius: 8px;
 }
-
 body .section_main main .container_main .container_form form .container_payment > label .payment_mode .container_logo i {
   font-size: 20px;
   color: var(--gray);
 }
-
 body .section_main main .container_main .container_form form .container_payment > label .payment_mode .container_logo img {
   width: 25px;
 }
-
 body .section_main main .container_main .container_form form .container_payment > label .payment_mode .container_details {
   color: var(--gray);
 }
-
 body .section_main main .container_main .container_form form .container_payment > label .payment_mode .container_details p {
   font-size: 14px;
   font-weight: 400;
 }
-
 body .section_main main .container_main .container_form form .container_payment > label .payment_mode .container_details label {
   display: none;
 }
-
-body .section_main main .container_main .container_form form .container_payment > label .payment_mode .container_details label input[type="text"] {
+body .section_main main .container_main .container_form form .container_payment > label .payment_mode .container_details label input[type=text] {
   width: 100%;
   padding: 5px 15px;
   border-radius: 5px;
@@ -531,62 +403,47 @@ body .section_main main .container_main .container_form form .container_payment 
   font-size: 14px;
   border: 0.5px solid var(--border);
 }
-
 body .section_main main .container_main .container_form form .container_payment > label .payment_mode .container_details label span {
   color: var(--red2);
 }
-
 body .section_main main .container_main .container_form form .container_payment .container_summary {
   padding: 20px 30px;
   border-radius: 5px;
   border: 0.5px solid var(--border);
   color: var(--gray);
 }
-
 body .section_main main .container_main .container_form form .container_payment .container_summary h1 {
   font-weight: 700;
   margin-bottom: 15px;
   color: var(--gray);
 }
-
 body .section_main main .container_main .container_form form .container_payment .container_summary p {
   font-size: 14px;
   font-weight: 400;
 }
-
 body .section_main main .container_main .container_form form .container_payment .container_summary p > span {
   font-size: 10px;
   font-weight: inherit;
 }
-
 body .section_main main .container_main .container_form form .container_payment .container_summary hr {
   margin: 5px 0;
   border: none;
-  height: .5px;
+  height: 0.5px;
   background-color: var(--border);
 }
-
 body .section_main main .container_main .container_form form .container_payment .container_summary .container_computation {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
 }
-
 body .section_main main .container_main .container_form form .container_payment .container_summary .container_computation .label {
   font-weight: 500;
 }
-
 body .section_main main .container_main .container_form form .container_payment .container_summary .container_computation:last-child {
   color: var(--purple);
 }
-
 body .section_main main .container_main .container_form form .container_payment .container_summary .container_computation:last-child p {
   font-weight: 700;
 }
-
 body .section_main main .container_main .container_form form button {
   margin-top: 10px;
   padding: 5px 15px;
@@ -597,11 +454,9 @@ body .section_main main .container_main .container_form form button {
   font-weight: 400;
   font-size: 14px;
   color: var(--light);
-  -webkit-transition: all 350ms ease;
   transition: all 350ms ease;
   cursor: pointer;
 }
-
 body .section_main main .container_main .container_form form button:hover {
   background-color: var(--purple-lighten);
 }
@@ -624,10 +479,8 @@ body .section_main main .container_main .container_form form button:hover {
     visibility: visible;
   }
 }
-
 @media only screen and (max-width: 320px) {
   body .section_main header .container-profile .container-label, body .section_main header .container-profile i {
     display: none;
   }
-}
-/*# sourceMappingURL=admin-checkout.css.map */
+}/*# sourceMappingURL=admin-checkout.css.map */

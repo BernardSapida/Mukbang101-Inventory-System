@@ -10,20 +10,23 @@ $(document).ready(function() {
     $("#referenceNo").text(referenceNo);
     $("#date").text(date);
 
+
     $("#btn-print").click(function() {
         window.print();
-    }); 
+    });
 
     $(".container_items table tbody").append(`
         <tr>
             <td>
-                <input type="text" name="product_name${uuid}" id="product_name${uuid}" placeholder="Product Name">
+                <select name="product_name${uuid}" id="product_name${uuid}">
+                    <option value="">-- select product --</option>
+                </select>
             </td>
             <td>
                 <input type="number" name="quantity${uuid}" id="quantity${uuid}" placeholder="Quantity">
             </td>
             <td>
-                <input type="number" name="price${uuid}" id="price${uuid}" placeholder="Price">
+                <input type="number" class="prices" name="price${uuid}" id="price${uuid}" placeholder="Price">
             </td>
             <td>
                 <button type="button" class="btn-delete" aria-label="delete"><i class="fa-solid fa-trash-can"></i></button>
@@ -31,19 +34,63 @@ $(document).ready(function() {
         </tr>
     `);
 
+    $("select").load("../includes/admin-product_names.inc.php");
+
+    $("select").change(function() {
+        let uid = $(this).attr("name").slice(12,);
+
+        if($(this).val() == "") {
+            $("#quantity" + $(this).attr("name").slice(12,)).val(0);
+            $("#price" + $(this).attr("name").slice(12,)).val(0);
+            computeSubTotal();
+        } else {
+            $.ajax({
+                type: "POST",
+                url: "../includes/admin-product_prices.inc.php",
+                data: {
+                    productName:  $("#product_name" + uid).val()
+                },
+                success: function(result, status, xhr) {
+                    console.log(result);
+                    $("#price" + uid).val(Number(result));
+                }
+            });
+            computeSubTotal();
+        }
+    });
+
+    // $(".container_items table tbody").append(`
+    //     <tr>
+    //         <td>
+    //             <input type="text" name="product_name${uuid}" id="product_name${uuid}" placeholder="Product Name">
+    //         </td>
+    //         <td>
+    //             <input type="number" name="quantity${uuid}" id="quantity${uuid}" placeholder="Quantity">
+    //         </td>
+    //         <td>
+    //             <input type="number" name="price${uuid}" id="price${uuid}" placeholder="Price">
+    //         </td>
+    //         <td>
+    //             <button type="button" class="btn-delete" aria-label="delete"><i class="fa-solid fa-trash-can"></i></button>
+    //         </td>
+    //     </tr>
+    // `);
+
     $("#btn-add").click(function() {
         uuid = Math.random().toString(16).substr(2, 8);
 
         $(".container_items table tbody").append(`
             <tr>
                 <td>
-                    <input type="text" name="product_name${uuid}" id="product_name${uuid}" placeholder="Product Name">
+                    <select name="product_name${uuid}" id="product_name${uuid}">
+                        <option value="">-- select product --</option>
+                    </select>
                 </td>
                 <td>
                     <input type="number" name="quantity${uuid}" id="quantity${uuid}" placeholder="Quantity">
                 </td>
                 <td>
-                    <input type="number" name="price${uuid}" id="price${uuid}" placeholder="Price">
+                    <input type="number" class="prices" name="price${uuid}" id="price${uuid}" placeholder="Price">
                 </td>
                 <td>
                     <button type="button" class="btn-delete" aria-label="delete"><i class="fa-solid fa-trash-can"></i></button>
@@ -51,17 +98,44 @@ $(document).ready(function() {
             </tr>
         `);
 
+        $("#product_name" + uuid).load("../includes/admin-product_names.inc.php");
+
         $(".btn-delete").click(function() {
             $(this).parents("tr").remove();
+            computeSubTotal();
         });
 
         $("input").keyup(function() {
             computeSubTotal();
         });
+
+        $("select").change(function() {
+            let uid = $(this).attr("name").slice(12,);
+    
+            if($(this).val() == "") {
+                $("#quantity" + uid).val(0);
+                $("#price" + uid).val(0);
+                computeSubTotal();
+            } else {
+                $.ajax({
+                    type: "POST",
+                    url: "../includes/admin-product_prices.inc.php",
+                    data: {
+                        productName:  $("#product_name" + uid).val()
+                    },
+                    success: function(result, status, xhr) {
+                        console.log(result);
+                        $("#price" + uid).val(Number(result));
+                    }
+                });
+                computeSubTotal();
+            }
+        });
     });
 
     $(".btn-delete").click(function() {
         $(this).parents("tr").remove();
+        computeSubTotal();
     });
 
     $("input").keyup(function() {

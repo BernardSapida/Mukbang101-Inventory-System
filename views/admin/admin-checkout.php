@@ -123,8 +123,8 @@
                     <p>The total cost consist of total amount of quantity, vat %12, discount, and shipping charge.</p>
                     <hr>
                     <div class="container_computation">
-                        <p class="label">Price <span>x Quantity</span></p>
-                        <p class="price">₱0.00 <span class="quantity">x 0</span></p>
+                        <p class="label">Price <span>x Quantity = Total</span></p>
+                        <p class="price">₱0.00 <span class="quantity">x 0</span> = <span class="pq-total">0</span></p>
                     </div>
                     <div class="container_computation">
                         <p class="label">VAT 12%</span></p>

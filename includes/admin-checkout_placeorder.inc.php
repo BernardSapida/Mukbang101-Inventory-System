@@ -26,6 +26,11 @@
         "orderStatus" => "Processing"
     ));
 
+    $db -> connect("update", "accounts", array(
+        "supplierName" => $_POST["supplierName"],
+        "notificationNumber" => 1,
+    ), "notification");
+
     $result = $db -> connect("insert", "supplier_customer", array(
         "supplierName" => $_POST["supplierName"],
         "transactionNo" => $uuid,

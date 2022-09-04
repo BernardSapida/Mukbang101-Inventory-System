@@ -96,9 +96,10 @@
                         $password = $data['password'];
                         $paymentName = $data['paymentName'];
                         $paymentNumber = $data['paymentNumber'];
+                        $notificationNumber = 0;
                         $type = $data['type'];
 
-                        $stmt = $conn->prepare("INSERT INTO `$tableName` (`uid`, `image`, `firstname`, `lastname`, `email`, `address`, `store name`, `contact no.`, `password`, `payment name`, `payment number`, `type`) VALUES (:uid, :image, :firstname, :lastname, :email, :address, :supplier, :contact, :password, :paymentName, :paymentNumber, :type)");
+                        $stmt = $conn->prepare("INSERT INTO `$tableName` (`uid`, `image`, `firstname`, `lastname`, `email`, `address`, `store name`, `contact no.`, `password`, `payment name`, `payment number`, `notification number`, `type`) VALUES (:uid, :image, :firstname, :lastname, :email, :address, :supplier, :contact, :password, :paymentName, :paymentNumber, :notificationNumber, :type)");
                         $stmt -> bindParam(':uid', $uid);
                         $stmt -> bindParam(':image', $image);
                         $stmt -> bindParam(':firstname', $firstname);
@@ -110,6 +111,7 @@
                         $stmt -> bindParam(':password', $password);
                         $stmt -> bindParam(':paymentName', $paymentName);
                         $stmt -> bindParam(':paymentNumber', $paymentNumber);
+                        $stmt -> bindParam(':notificationNumber', $notificationNumber);
                         $stmt -> bindParam(':type', $type);
                         $stmt->execute();
                     };
@@ -305,6 +307,16 @@
 
                                 $stmt = $conn->prepare("UPDATE `$tableName` SET `password` = '$password' WHERE uid = '$uid'");
                                 break;
+                            case "notification":
+                                $storeName = $data['supplierName'];
+                                $result = $this -> selectData($conn, $tableName, "store name", $storeName);
+                                $notificationNumber = 0;
+
+                                if($data['notificationNumber'] != 0) {
+                                    $notificationNumber = $data['notificationNumber'] + $result['notification number'];
+                                }
+                                
+                                $stmt = $conn->prepare("UPDATE `$tableName` SET `notification number` = '$notificationNumber' WHERE `store name` = '$storeName'");
                         }
                         
                         $stmt->execute();

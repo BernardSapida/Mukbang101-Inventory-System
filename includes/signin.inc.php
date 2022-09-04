@@ -37,6 +37,7 @@
                     $_SESSION["payment name"] = $result['payment name'];
                     $_SESSION["payment number"] = $result['payment number'];
                     $_SESSION["password"] = $result['password'];
+                    $_SESSION["notification number"] = $result['notification number'];
                     $_SESSION["type"] = $result['type'];
 
                     header("Location: supplier.php");

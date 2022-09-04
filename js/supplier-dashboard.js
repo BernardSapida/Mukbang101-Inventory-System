@@ -74,6 +74,24 @@ $(document).ready(function() {
         $(".empty-transaction").show();
     }
 
+    setInterval(function() {
+        $(".container_notifications-box").load("../includes/update-supplier_notification.inc.php");
+        console.log(".");
+    }, 1000);
+
+    $("#icon-notification").click(function() {
+        $.ajax({
+            type: "POST",
+            url: "../includes/update-supplier_notification_number.inc.php",
+            success: function(result, status, xhr) {
+                console.log(result);
+            }
+        });
+
+        $(".container_notifications-box").fadeToggle();
+        $("#icon-notification p").remove();
+    });
+
     $("#supplier_total_profit").load("../includes/load-supplier_total_profit.inc.php");
     $("#supplier_total_stocks").load("../includes/load-supplier_total_stocks.inc.php");
     $("#supplier_total_transactions").load("../includes/load-supplier_total_transactions.inc.php");

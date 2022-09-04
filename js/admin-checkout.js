@@ -1,14 +1,15 @@
 $(document).ready(function() {
     $("#box_quantity").keyup(function(){
         if($("#box_quantity").val() != "")  {
-            $(".price").html("₱" + $("#price_per_box").val() + " <span class='quantity'>x " + $("#box_quantity").val() + "</span>");
+            $(".price").html("₱" + $("#price_per_box").val() + " <span class='quantity'>x " + $("#box_quantity").val() + "</span> = <span class='pq-total'>" + Number($("#price_per_box").val()) * Number($("#box_quantity").val()) + "</span>");
+            $(".vat").html("₱" + (Number($("#price_per_box").val()) * Number($("#box_quantity").val())) * .12);
             $(".total-amount").html("₱" + Intl.NumberFormat('en-US').format(
-                Number($("#price_per_box").val()) * Number($("#box_quantity").val()) +
-                Number($(".shippingFee").text().slice(1,)) -   
-                Number($(".discount").text().slice(1,))
+                Number($("#price_per_box").val()) * Number($("#box_quantity").val()) + 
+                ((Number($("#price_per_box").val()) * Number($("#box_quantity").val())) * .12) +
+                Number($(".shippingFee").text().slice(1,)) - Number($(".discount").text().slice(1,))
             ));
         } else {
-            $(".price").html("₱" + $("#price_per_box").val() + " <span class='quantity'>x 0</span>");
+            $(".price").html("₱" + $("#price_per_box").val() + " <span class='quantity'>x 0 = 0</span>");
             $(".total-amount").html("₱0.00");
         }
     });
@@ -68,7 +69,7 @@ $(document).ready(function() {
                     pricePerBox: $("#price_per_box").val(),
                     paymentMethod: $("input[name='payment_mode']:checked").val(),
                     referenceNo: (referenceNumber == null ? "none" : referenceNumber),
-                    vat: 0,
+                    vat: $(".vat").text().slice(1,),
                     shippingFee: $(".shippingFee").text().slice(1,),
                     discount: $(".discount").text().slice(1,),
                     total: $(".total-amount").text().replace(/,/g, '').slice(1,),
@@ -103,7 +104,7 @@ $(document).ready(function() {
         window.location.href = "admin.php?page=admin-product";
     });
 
-    $("#supplier_name").on("change", function() {
+    $("#supplier_name").change(function() {
         $("#product_name").load("../includes/admin-add-product-name_options.inc.php", {
             selectedSupplier: $("#supplier_name").val()
         });
@@ -158,7 +159,7 @@ $(document).ready(function() {
                         style: "currency",
                         currency: "Php",
                         maximumFractionDigits: 2,
-                      }).format(Number(result["price per box"])) + " <span class='quantity'>x 0</span>");
+                      }).format(Number(result["price per box"])) + " <span class='quantity'>x 0 = 0</span>");
                     $(".shippingFee").html(new Intl.NumberFormat("en-US",{
                         style: "currency",
                         currency: "Php",
