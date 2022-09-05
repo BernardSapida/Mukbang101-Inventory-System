@@ -15,14 +15,19 @@
     });
 
     function getNotificationTime($time) {
-        $difference = abs(strtotime(date("d-m-Y H:i:s")) - strtotime($time));
-        $hours = round($difference / 3600);
+        $difference = abs(strtotime($time) - strtotime(date("d-m-Y h:i:s")));
+        $hours = floor($difference / 3600);
         $minutes = date("i", $difference);
         $seconds = date("s", $difference);
-        $days = $hours >= 24 ? floor($hours / 24) : $hours;
-        
-        if($days == 7) return "a week ago";
+        $days = floor($hours / 24);
+		
+      
+        if($days >= 365) return "a year ago";
+        if($days >= 30) return "a month ago";
+        if($days >= 14) return "weeks ago";
+        if($days >= 7) return "a week ago";
         if($days > 1) return $days . " days ago";
+        if($days == 1) return "a day ago";
         if($hours > 1) return intval($hours) . " hours ago";
         if($hours == 1) return "about an hour ago";
         if($hours == 0 && $minutes > 1) return intval($minutes) . " minutes ago";
