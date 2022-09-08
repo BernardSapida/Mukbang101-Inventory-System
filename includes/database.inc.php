@@ -3,11 +3,11 @@
         function connect($operation, $tableName, $data = null, $account = null) {
             $servername = "localhost";
             $username = "root";
-            $password = "";
+            $password = "@Password123";
             $result = false;
 
             try {
-                $conn = new PDO("mysql:host=$servername; dbname=inventory", $username, $password);
+                $conn = new PDO("mysql:host=$servername; dbname=xbtcoxte_mukbang101", $username, $password);
                 // set the PDO error mode to exception
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
