@@ -209,4 +209,8 @@ $(document).ready(function() {
             $("#confirm_password").attr("type", "password");
         }
     });
+
+    $("#backup_db").click(function() {
+        window.open("https://x14.x10hosting.com/phpMyAdmin/index.php", '_blank');
+    });
 });

@@ -91,3 +91,17 @@
         </form>
     </div>
 </div>
+<div class="container_main">
+    <h1>Backup Database</h1>
+    <div class="container_form backup_container">
+        <h1>Steps to Backup your Database:</h1>
+        <p>1) Login to your database using phpMyAdmin.<p>
+        <p>2) From the left-side, select your database.<p>
+        <p>3) Click the <strong>Export</strong> tab at the top of the panel.<p>
+        <p>4) Select the "Quick - display only the minimal options" option.<p>
+        <p>5) Click <strong>Go</strong> to download your database backup.<p>
+        <br>
+        <h1>Click the button to redirect in phpMyAdmin:</h1>
+        <button type="button" id="backup_db">Go to phpMyAdmin Database</button>
+    </div>
+</div>

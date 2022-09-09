@@ -230,6 +230,26 @@ body .section_main main .container_main > h1 {
   font-weight: 700;
   margin-bottom: 15px;
 }
+body .section_main main .container_main .backup_container > h1 {
+  font-size: 18px;
+  font-weight: 600;
+}
+body .section_main main .container_main .backup_container #backup_db {
+  margin-top: 10px;
+  padding: 5px 15px;
+  border: none;
+  border-radius: 3px;
+  width: 250px;
+  font-weight: 400;
+  font-size: 14px;
+  background: var(--blue);
+  color: var(--light);
+  transition: all 350ms ease;
+  cursor: pointer;
+}
+body .section_main main .container_main .backup_container #backup_db:hover {
+  background-color: var(--blue-darken);
+}
 body .section_main main .container_main .container_form {
   padding: 40px;
   width: 100%;
